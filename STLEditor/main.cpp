@@ -1,8 +1,18 @@
-#include <QtCore/QCoreApplication>
+#include "vtkAutoInit.h" 
+VTK_MODULE_INIT(vtkRenderingOpenGL2);
+VTK_MODULE_INIT(vtkInteractionStyle);
+
+#include <Windows.h>
+#include <cstdio>
+#include <cinttypes>
+#include <QtWidgets/QApplication>
+
+#include "MainWindow.h"
 
 int main(int argc, char *argv[])
 {
-    QCoreApplication a(argc, argv);
-
-    return a.exec();
+	QApplication app(argc, argv);
+	MainWindow win;
+	win.show();
+	return app.exec();
 }
