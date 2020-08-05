@@ -61,6 +61,9 @@
     <ClCompile Include="ZoomActivity.cpp">
       <Filter>Source Files\Activity</Filter>
     </ClCompile>
+    <ClCompile Include="SelectionActivity.cpp">
+      <Filter>Source Files\Activity</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -98,6 +101,9 @@
       <Filter>Header Files\Activity</Filter>
     </ClInclude>
     <ClInclude Include="ZoomActivity.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectionActivity.h">
       <Filter>Header Files\Activity</Filter>
     </ClInclude>
   </ItemGroup>

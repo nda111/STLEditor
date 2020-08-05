@@ -95,6 +95,7 @@
     <ClCompile Include="ActivityManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="SelectionActivity.cpp" />
     <ClCompile Include="STLWidget.cpp" />
     <ClCompile Include="TransformActivity.cpp" />
     <ClCompile Include="ZoomActivity.cpp" />
@@ -110,6 +111,7 @@
     <ClInclude Include="ActivityBase.h" />
     <ClInclude Include="ActivityManager.h" />
     <ClInclude Include="CustomInteractorStyletrackballCamera.h" />
+    <ClInclude Include="SelectionActivity.h" />
     <ClInclude Include="ui_STLWidget.h" />
     <ClInclude Include="ZoomActivity.h" />
     <QtMoc Include="STLWidget.h" />
