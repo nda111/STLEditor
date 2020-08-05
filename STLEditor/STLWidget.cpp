@@ -21,6 +21,7 @@ STLWidget::STLWidget(QWidget* parent) : QVTKOpenGLNativeWidget(parent)
 STLWidget::~STLWidget()
 {
 	Clear();
+	this->renderer->Delete();
 	delete ui;
 }
 
@@ -111,7 +112,6 @@ void STLWidget::Clear(void)
 			delete this->holders[i];
 		}
 		this->holders.clear();
-		renderer->Delete();
 
 		bDisplaying = false;
 	}
