@@ -1,0 +1,128 @@
+\hypertarget{class_activity_base}{}\doxysection{Activity\+Base Class Reference}
+\label{class_activity_base}\index{ActivityBase@{ActivityBase}}
+
+
+A class that represents an activity\+: transformation, selection.  
+
+
+
+
+{\ttfamily \#include $<$Activity\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Activity\+Base\+:
+% FIG 0
+
+
+Collaboration diagram for Activity\+Base\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \{ \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{E\+Type\+::\+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{E\+Type\+::\+Z\+O\+OM}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{E\+Type\+::\+S\+E\+L\+E\+CT}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enumeration that represents the type of the activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \mbox{\hyperlink{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}{get\+Type}} () const =0
+\begin{DoxyCompactList}\small\item\em Get the type of the activity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_activity_base_aab17504d45cbc44b581beb5d6a660ece}{inverse}} ()=0
+\begin{DoxyCompactList}\small\item\em Inverse this activity to switch undo/redo state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents an activity\+: transformation, selection. 
+
+
+
+Definition at line 6 of file Activity\+Base.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}} 
+\index{ActivityBase@{ActivityBase}!EType@{EType}}
+\index{EType@{EType}!ActivityBase@{ActivityBase}}
+\doxysubsubsection{\texorpdfstring{EType}{EType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enumeration that represents the type of the activity. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORMATION@{TRANSFORMATION}!ActivityBase@{ActivityBase}}\index{ActivityBase@{ActivityBase}!TRANSFORMATION@{TRANSFORMATION}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}} 
+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON&For linear transformation activity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZOOM@{ZOOM}!ActivityBase@{ActivityBase}}\index{ActivityBase@{ActivityBase}!ZOOM@{ZOOM}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}} 
+Z\+O\+OM&For zoom activity \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!ActivityBase@{ActivityBase}}\index{ActivityBase@{ActivityBase}!SELECT@{SELECT}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}} 
+S\+E\+L\+E\+CT&For a cube-\/selection activity in S\+TL viewer. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 12 of file Activity\+Base.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{17         TRANSFORMATION,}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22         ZOOM,}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27         SELECT,}
+\DoxyCodeLine{28     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}\label{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}} 
+\index{ActivityBase@{ActivityBase}!getType@{getType}}
+\index{getType@{getType}!ActivityBase@{ActivityBase}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} Activity\+Base\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Get the type of the activity. 
+
+\begin{DoxyReturn}{Returns}
+The type of the activity.
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_transform_activity_aabc408083701ccdfcc5e2abb0cb540ba}{Transform\+Activity}}, \mbox{\hyperlink{class_selection_activity_a34ef23e1710afd0badded510059e3aec}{Selection\+Activity}}, and \mbox{\hyperlink{class_zoom_activity_ab64d9f591935f8a22cf17a5f1bdc99c3}{Zoom\+Activity}}.
+
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_activity_base_aab17504d45cbc44b581beb5d6a660ece}\label{class_activity_base_aab17504d45cbc44b581beb5d6a660ece}} 
+\index{ActivityBase@{ActivityBase}!inverse@{inverse}}
+\index{inverse@{inverse}!ActivityBase@{ActivityBase}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily virtual void Activity\+Base\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Inverse this activity to switch undo/redo state. 
+
+
+
+Implemented in \mbox{\hyperlink{class_transform_activity_a4b1e695626169d3f5b477f8e0fd8b0fd}{Transform\+Activity}}, \mbox{\hyperlink{class_selection_activity_a6fa5377e14f93bd0561eaccb87136a99}{Selection\+Activity}}, and \mbox{\hyperlink{class_zoom_activity_aaf69f7886e2baef7591f2091ba46b08d}{Zoom\+Activity}}.
+
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_activity_base_8h}{Activity\+Base.\+h}}\end{DoxyCompactItemize}

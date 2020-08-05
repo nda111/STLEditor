@@ -1,0 +1,16 @@
+digraph "STLWidget::OnMouseEvent"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="STLWidget::OnMouseEvent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Event from the mouse itself and its buttons."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="STLWidget::mouseDoubleClick\lEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a00ea9c7b6f79e5e663d468dc99d809f3",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="STLWidget::mouseMoveEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#adb6ddec1b32faaec6076e717e8b9e067",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="STLWidget::mousePressEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a962f452cc37d4c742f8610b823766e4a",tooltip=" "];
+  Node1 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="STLWidget::mouseReleaseEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#af9ea2a288870186a72bd169adce53619",tooltip=" "];
+}

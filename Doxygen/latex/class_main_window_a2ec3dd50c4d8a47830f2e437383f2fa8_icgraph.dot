@@ -1,0 +1,21 @@
+digraph "MainWindow::onUndoRedo"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="MainWindow::onUndoRedo",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Undo or redo an activity."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="MainWindow::raiseRedo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a2ddbce75908e9e962bf844aca6d2b4ca",tooltip="Raise redo event when redo action button clicked."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="MainWindow::bindEvents",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a09e0ca2e7474a2049517496b4b5bd6d0",tooltip="Bind events with corresponding widget."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="MainWindow::MainWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#aeb2fa152a426d9b9d2272ef382879f3f",tooltip=" "];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="MainWindow::OnKeyEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#add1ef441fb74a254e3204450422fd3b6",tooltip="Handle a keyboard event from STLWidget."];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="MainWindow::raiseUndo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a4d447caa99a7519d6c7281b987912e0f",tooltip="Raise undo event when undo action button clicked."];
+  Node6 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

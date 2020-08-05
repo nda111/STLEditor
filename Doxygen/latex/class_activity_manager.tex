@@ -1,0 +1,375 @@
+\hypertarget{class_activity_manager}{}\doxysection{Activity\+Manager Class Reference}
+\label{class_activity_manager}\index{ActivityManager@{ActivityManager}}
+
+
+A class that manages undo/redo of activities.  
+
+
+
+
+{\ttfamily \#include $<$Activity\+Manager.\+h$>$}
+
+
+
+Collaboration diagram for Activity\+Manager\+:
+% FIG 0
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{class_activity_manager_a24e8e645bb5d84d6ccfb5e0f72b3568e}{Event\+Handler}} = void($\ast$)(const \mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$const)
+\begin{DoxyCompactList}\small\item\em A callback of when the action with activity proceed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_activity_manager_ae483cad4843e3b4d168fe48571337000}{Activity\+Manager}} (void)
+\item 
+\mbox{\hyperlink{class_activity_manager_a2f9a6501ae0fab783785de8152218049}{$\sim$\+Activity\+Manager}} (void)
+\item 
+bool \mbox{\hyperlink{class_activity_manager_a0cd8af492184b064b0802e8db7402322}{is\+Undoable}} (void)
+\begin{DoxyCompactList}\small\item\em See if undoing is available. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_activity_manager_afdb1255e34e57a484fc1b41dd1a2d11b}{is\+Redoable}} (void)
+\begin{DoxyCompactList}\small\item\em See if redoing is available. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}{push}} (\mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$activity)
+\begin{DoxyCompactList}\small\item\em Do something initially for the activity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$ \mbox{\hyperlink{class_activity_manager_a013f09468f61661e4c50b7f53526a421}{undo}} (void)
+\begin{DoxyCompactList}\small\item\em Undo last activity if exists. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$ \mbox{\hyperlink{class_activity_manager_a15a289470a1ada5ef9df64632a90566b}{redo}} (void)
+\begin{DoxyCompactList}\small\item\em Redo last undone activity if exists. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_activity_manager_aae34a29e2476905883bcd073bb47f03e}{clear}} (void)
+\begin{DoxyCompactList}\small\item\em Clear all activities. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::stack$<$ \mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{done\+Activities}} = nullptr
+\begin{DoxyCompactList}\small\item\em A stack to store done activities to undo. \end{DoxyCompactList}\item 
+std\+::stack$<$ \mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$ $>$ $\ast$ \mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolled\+Back\+Activities}} = nullptr
+\begin{DoxyCompactList}\small\item\em A stack to store undone activities to redo. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that manages undo/redo of activities. 
+
+
+
+Definition at line 11 of file Activity\+Manager.\+h.
+
+
+
+\doxysubsection{Member Typedef Documentation}
+\mbox{\Hypertarget{class_activity_manager_a24e8e645bb5d84d6ccfb5e0f72b3568e}\label{class_activity_manager_a24e8e645bb5d84d6ccfb5e0f72b3568e}} 
+\index{ActivityManager@{ActivityManager}!EventHandler@{EventHandler}}
+\index{EventHandler@{EventHandler}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{EventHandler}{EventHandler}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{class_activity_manager_a24e8e645bb5d84d6ccfb5e0f72b3568e}{Activity\+Manager\+::\+Event\+Handler}} =  void ($\ast$)(const \mbox{\hyperlink{class_activity_base}{Activity\+Base}}$\ast$const)}
+
+
+
+A callback of when the action with activity proceed. 
+
+
+
+Definition at line 17 of file Activity\+Manager.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_activity_manager_ae483cad4843e3b4d168fe48571337000}\label{class_activity_manager_ae483cad4843e3b4d168fe48571337000}} 
+\index{ActivityManager@{ActivityManager}!ActivityManager@{ActivityManager}}
+\index{ActivityManager@{ActivityManager}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{ActivityManager()}{ActivityManager()}}
+{\footnotesize\ttfamily Activity\+Manager\+::\+Activity\+Manager (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}} = \textcolor{keyword}{new} std::stack<ActivityBase*>;}
+\DoxyCodeLine{8     this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}} = \textcolor{keyword}{new} std::stack<ActivityBase*>;}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_activity_manager_a2f9a6501ae0fab783785de8152218049}\label{class_activity_manager_a2f9a6501ae0fab783785de8152218049}} 
+\index{ActivityManager@{ActivityManager}!````~ActivityManager@{$\sim$ActivityManager}}
+\index{````~ActivityManager@{$\sim$ActivityManager}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$ActivityManager()}{~ActivityManager()}}
+{\footnotesize\ttfamily Activity\+Manager\+::$\sim$\+Activity\+Manager (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}};}
+\DoxyCodeLine{14     \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}};}
+\DoxyCodeLine{15 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_activity_manager_aae34a29e2476905883bcd073bb47f03e}\label{class_activity_manager_aae34a29e2476905883bcd073bb47f03e}} 
+\index{ActivityManager@{ActivityManager}!clear@{clear}}
+\index{clear@{clear}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void Activity\+Manager\+::clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear all activities. 
+
+
+
+Definition at line 95 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{96 \{}
+\DoxyCodeLine{97     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>empty())}
+\DoxyCodeLine{98     \{}
+\DoxyCodeLine{99         \textcolor{keyword}{delete} \mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>top();}
+\DoxyCodeLine{100         \mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>pop();}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{while} (!\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>empty())}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         \textcolor{keyword}{delete} \mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>top();}
+\DoxyCodeLine{106         \mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>pop();}
+\DoxyCodeLine{107     \}}
+\DoxyCodeLine{108 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{class_activity_manager_afdb1255e34e57a484fc1b41dd1a2d11b}\label{class_activity_manager_afdb1255e34e57a484fc1b41dd1a2d11b}} 
+\index{ActivityManager@{ActivityManager}!isRedoable@{isRedoable}}
+\index{isRedoable@{isRedoable}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{isRedoable()}{isRedoable()}}
+{\footnotesize\ttfamily bool Activity\+Manager\+::is\+Redoable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+See if redoing is available. 
+
+\begin{DoxyReturn}{Returns}
+True is available, false if not.
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \textcolor{keywordflow}{return} !this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>empty();}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_activity_manager_a0cd8af492184b064b0802e8db7402322}\label{class_activity_manager_a0cd8af492184b064b0802e8db7402322}} 
+\index{ActivityManager@{ActivityManager}!isUndoable@{isUndoable}}
+\index{isUndoable@{isUndoable}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{isUndoable()}{isUndoable()}}
+{\footnotesize\ttfamily bool Activity\+Manager\+::is\+Undoable (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+See if undoing is available. 
+
+\begin{DoxyReturn}{Returns}
+True is available, false if not.
+\end{DoxyReturn}
+
+
+Definition at line 17 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{18 \{}
+\DoxyCodeLine{19     \textcolor{keywordflow}{return} !this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>empty();}
+\DoxyCodeLine{20 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}\label{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}} 
+\index{ActivityManager@{ActivityManager}!push@{push}}
+\index{push@{push}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily void Activity\+Manager\+::push (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$}]{activity }\end{DoxyParamCaption})}
+
+
+
+Do something initially for the activity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em activity} & The activity to execute with.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{}
+\DoxyCodeLine{29     \textcolor{keywordflow}{while} (this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>size())}
+\DoxyCodeLine{30     \{}
+\DoxyCodeLine{31         \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>top();}
+\DoxyCodeLine{32         this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>pop();}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34     }
+\DoxyCodeLine{35     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>size() != 0)}
+\DoxyCodeLine{36     \{}
+\DoxyCodeLine{37         \textcolor{comment}{// Collapse multiple zoom activities}}
+\DoxyCodeLine{38         \textcolor{keywordflow}{if} (activity-\/>\mbox{\hyperlink{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}{getType}}() == \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{ActivityBase::EType::ZOOM}} \&\&}
+\DoxyCodeLine{39             this-\/>doneActivities-\/>top()-\/>getType() == \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{ActivityBase::EType::ZOOM}})}
+\DoxyCodeLine{40         \{}
+\DoxyCodeLine{41             \mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}* \textcolor{keyword}{const} zActivity = (\mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}*)activity;}
+\DoxyCodeLine{42             \mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}* \textcolor{keyword}{const} prevActivity = (\mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}*)this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>top();}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44             \textcolor{comment}{// If the previous zoom doesn't against the current one.}}
+\DoxyCodeLine{45             \textcolor{keywordflow}{if} (prevActivity-\/>\mbox{\hyperlink{class_zoom_activity_aabcdc3a96f3df0dc04471b05851b33de}{isZoomIn}}() == zActivity-\/>\mbox{\hyperlink{class_zoom_activity_aabcdc3a96f3df0dc04471b05851b33de}{isZoomIn}}()) }
+\DoxyCodeLine{46             \{}
+\DoxyCodeLine{47                 zActivity-\/>\mbox{\hyperlink{class_zoom_activity_afb7f022a1c49782638194bff7eef91b4}{chain}}(prevActivity);}
+\DoxyCodeLine{48                 \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>top();}
+\DoxyCodeLine{49                 this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>pop();}
+\DoxyCodeLine{50             \}}
+\DoxyCodeLine{51         \}}
+\DoxyCodeLine{52     \}}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>push(activity);}
+\DoxyCodeLine{55 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 4
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_activity_manager_a15a289470a1ada5ef9df64632a90566b}\label{class_activity_manager_a15a289470a1ada5ef9df64632a90566b}} 
+\index{ActivityManager@{ActivityManager}!redo@{redo}}
+\index{redo@{redo}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{redo()}{redo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$ Activity\+Manager\+::redo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Redo last undone activity if exists. 
+
+\begin{DoxyReturn}{Returns}
+True if success, false, otherwise.
+\end{DoxyReturn}
+
+
+Definition at line 76 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77 \{}
+\DoxyCodeLine{78     \textcolor{keyword}{const} \textcolor{keywordtype}{bool} result = \mbox{\hyperlink{class_activity_manager_afdb1255e34e57a484fc1b41dd1a2d11b}{isRedoable}}();}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{80     \textcolor{keywordflow}{if} (result)}
+\DoxyCodeLine{81     \{}
+\DoxyCodeLine{82         \mbox{\hyperlink{class_activity_base}{ActivityBase}}* activity = this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>top();}
+\DoxyCodeLine{83         this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>pop();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85         this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>push(activity);}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87         \textcolor{keywordflow}{return} activity;}
+\DoxyCodeLine{88     \}}
+\DoxyCodeLine{89     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{90     \{}
+\DoxyCodeLine{91         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_activity_manager_a013f09468f61661e4c50b7f53526a421}\label{class_activity_manager_a013f09468f61661e4c50b7f53526a421}} 
+\index{ActivityManager@{ActivityManager}!undo@{undo}}
+\index{undo@{undo}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{undo()}{undo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$ Activity\+Manager\+::undo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Undo last activity if exists. 
+
+\begin{DoxyReturn}{Returns}
+True if success, false, otherwise.
+\end{DoxyReturn}
+
+
+Definition at line 57 of file Activity\+Manager.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \textcolor{keyword}{const} \textcolor{keywordtype}{bool} result = \mbox{\hyperlink{class_activity_manager_a0cd8af492184b064b0802e8db7402322}{isUndoable}}();}
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{keywordflow}{if} (result)}
+\DoxyCodeLine{62     \{}
+\DoxyCodeLine{63         \mbox{\hyperlink{class_activity_base}{ActivityBase}}* activity = this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>top();}
+\DoxyCodeLine{64         this-\/>\mbox{\hyperlink{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}{doneActivities}}-\/>pop();}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66         this-\/>\mbox{\hyperlink{class_activity_manager_a16a3203208fb565effd0609653b89906}{rolledBackActivities}}-\/>push(activity);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         \textcolor{keywordflow}{return} activity;}
+\DoxyCodeLine{69     \}}
+\DoxyCodeLine{70     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 8
+Here is the caller graph for this function\+:
+% FIG 9
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}\label{class_activity_manager_a3d59771c0a7f3978170b34fbb5a3a70b}} 
+\index{ActivityManager@{ActivityManager}!doneActivities@{doneActivities}}
+\index{doneActivities@{doneActivities}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{doneActivities}{doneActivities}}
+{\footnotesize\ttfamily std\+::stack$<$\mbox{\hyperlink{class_activity_base}{Activity\+Base}}$\ast$$>$$\ast$ Activity\+Manager\+::done\+Activities = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A stack to store done activities to undo. 
+
+
+
+Definition at line 23 of file Activity\+Manager.\+h.
+
+\mbox{\Hypertarget{class_activity_manager_a16a3203208fb565effd0609653b89906}\label{class_activity_manager_a16a3203208fb565effd0609653b89906}} 
+\index{ActivityManager@{ActivityManager}!rolledBackActivities@{rolledBackActivities}}
+\index{rolledBackActivities@{rolledBackActivities}!ActivityManager@{ActivityManager}}
+\doxysubsubsection{\texorpdfstring{rolledBackActivities}{rolledBackActivities}}
+{\footnotesize\ttfamily std\+::stack$<$\mbox{\hyperlink{class_activity_base}{Activity\+Base}}$\ast$$>$$\ast$ Activity\+Manager\+::rolled\+Back\+Activities = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A stack to store undone activities to redo. 
+
+
+
+Definition at line 28 of file Activity\+Manager.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_activity_manager_8h}{Activity\+Manager.\+h}}\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_activity_manager_8cpp}{Activity\+Manager.\+cpp}}\end{DoxyCompactItemize}

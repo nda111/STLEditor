@@ -1,0 +1,734 @@
+\hypertarget{class_s_t_l_widget}{}\doxysection{S\+T\+L\+Widget Class Reference}
+\label{class_s_t_l_widget}\index{STLWidget@{STLWidget}}
+
+
+A widget to display an S\+TL object.  
+
+
+
+
+{\ttfamily \#include $<$S\+T\+L\+Widget.\+h$>$}
+
+
+
+Inheritance diagram for S\+T\+L\+Widget\+:
+% FIG 0
+
+
+Collaboration diagram for S\+T\+L\+Widget\+:
+% FIG 1
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Holder}}
+\begin{DoxyCompactList}\small\item\em A structure to contain V\+TK object for displaying single S\+TL object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{On\+Mouse\+Event}} (Q\+Mouse\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Event from the mouse itself and its buttons. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{On\+Key\+Event}} (Q\+Key\+Event $\ast$e)
+\begin{DoxyCompactList}\small\item\em Event from the keyboard/ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{On\+Focus\+Event}} (bool b\+Is\+Focused)
+\begin{DoxyCompactList}\small\item\em Event from the focus manager. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}{On\+Wheel\+Event}} (Q\+Wheel\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em Event from the mouse wheel. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_s_t_l_widget_a1bf07b9f9e49a6b0dbaedba74ddc08e6}{S\+T\+L\+Widget}} (Q\+Widget $\ast$parent=Q\+\_\+\+N\+U\+L\+L\+P\+TR)
+\item 
+\mbox{\hyperlink{class_s_t_l_widget_a658822730f35694a0e97b96316bb40e0}{$\sim$\+S\+T\+L\+Widget}} ()
+\item 
+bool \mbox{\hyperlink{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}{Open\+S\+TL}} (Q\+String file\+Name, bool b\+Import)
+\begin{DoxyCompactList}\small\item\em Open or import the S\+TL reader to display. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_t_l_widget_a462bea484a3b57112424b178f7979d54}{Open\+S\+TL}} (const char $\ast$file\+Name, bool b\+Import)
+\begin{DoxyCompactList}\small\item\em Open or import the S\+TL reader to display. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Holder}} $\ast$ $>$ \mbox{\hyperlink{class_s_t_l_widget_af3c36c050059fc015d805be91abfd981}{Get\+Holders}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the list of stl holder in std\+::vector$<$\+S\+T\+L\+Holder$>$ type. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}{Has\+Holder}} (void) const
+\begin{DoxyCompactList}\small\item\em Indicates whether the widget shows any S\+TL object. \end{DoxyCompactList}\item 
+vtk\+Renderer $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{Get\+Renderer}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the renderer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}} (void) const
+\begin{DoxyCompactList}\small\item\em Refresh the widget, applying new changes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a3b660bb9da2d718d46bb7b9af52ab1f4}{Clear}} (void)
+\begin{DoxyCompactList}\small\item\em Clear all fields. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a962f452cc37d4c742f8610b823766e4a}{mouse\+Press\+Event}} (Q\+Mouse\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_af9ea2a288870186a72bd169adce53619}{mouse\+Release\+Event}} (Q\+Mouse\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a00ea9c7b6f79e5e663d468dc99d809f3}{mouse\+Double\+Click\+Event}} (Q\+Mouse\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_adb6ddec1b32faaec6076e717e8b9e067}{mouse\+Move\+Event}} (Q\+Mouse\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a6181c5bc36cfb8f5c0cbcb1502a8c905}{wheel\+Event}} (Q\+Wheel\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a8eaa6406f125e891152c513574ff79c9}{key\+Press\+Event}} (Q\+Key\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a7a0c1cfacd1ff3e89e270ab401b6b584}{key\+Release\+Event}} (Q\+Key\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a53d537ac1d813bc2ac541f4ab6504252}{focus\+In\+Event}} (Q\+Focus\+Event $\ast$event) override
+\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a9ab48a782ee5d0319da539db340eba7e}{focus\+Out\+Event}} (Q\+Focus\+Event $\ast$event) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_ui_1_1_s_t_l_widget}{Ui\+::\+S\+T\+L\+Widget}} $\ast$ \mbox{\hyperlink{class_s_t_l_widget_aec2ee34d837f336b20c0d77003b11a4b}{ui}}
+\begin{DoxyCompactList}\small\item\em A G\+UI component container. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{b\+Displaying}} = false
+\begin{DoxyCompactList}\small\item\em Indicates weather there\textquotesingle{}s any object displaying. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Holder}} $\ast$ $>$ \mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}
+\begin{DoxyCompactList}\small\item\em A list of stl holders. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{square\+Size}} = -\/1
+\begin{DoxyCompactList}\small\item\em The length of a square that holds one S\+TL object in it. \end{DoxyCompactList}\item 
+vtk\+Renderer $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}} = nullptr
+\begin{DoxyCompactList}\small\item\em A renderer for S\+TL object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_custom_interactor_styletrackball_camera}{Custom\+Interactor\+Styletrackball\+Camera}} $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}{mouse\+Control\+Style}} = nullptr
+\begin{DoxyCompactList}\small\item\em An interactor style that allows to control the object via mouse events. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A widget to display an S\+TL object. 
+
+
+
+Definition at line 29 of file S\+T\+L\+Widget.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_s_t_l_widget_a1bf07b9f9e49a6b0dbaedba74ddc08e6}\label{class_s_t_l_widget_a1bf07b9f9e49a6b0dbaedba74ddc08e6}} 
+\index{STLWidget@{STLWidget}!STLWidget@{STLWidget}}
+\index{STLWidget@{STLWidget}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{STLWidget()}{STLWidget()}}
+{\footnotesize\ttfamily S\+T\+L\+Widget\+::\+S\+T\+L\+Widget (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily Q\+\_\+NULLPTR} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6                                     : QVTKOpenGLNativeWidget(parent)}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     \mbox{\hyperlink{class_s_t_l_widget_aec2ee34d837f336b20c0d77003b11a4b}{ui}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_ui_1_1_s_t_l_widget}{Ui::STLWidget}}();}
+\DoxyCodeLine{9     \mbox{\hyperlink{class_s_t_l_widget_aec2ee34d837f336b20c0d77003b11a4b}{ui}}-\/>\mbox{\hyperlink{class_ui___s_t_l_widget_a032f110702c44cb847b017da5f8f2f67}{setupUi}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11     this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}} = vtkRenderer::New();}
+\DoxyCodeLine{12     this-\/>GetRenderWindow()-\/>AddRenderer(\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}});}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14     QVTKInteractor* iren = this-\/>GetInteractor();}
+\DoxyCodeLine{15     iren-\/>RemoveAllObservers();}
+\DoxyCodeLine{16 }
+\DoxyCodeLine{17     \mbox{\hyperlink{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}{mouseControlStyle}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_interactor_styletrackball_camera}{CustomInteractorStyletrackballCamera}};}
+\DoxyCodeLine{18     this-\/>GetRenderWindow()-\/>GetInteractor()-\/>SetInteractorStyle(\mbox{\hyperlink{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}{mouseControlStyle}});}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_s_t_l_widget_a658822730f35694a0e97b96316bb40e0}\label{class_s_t_l_widget_a658822730f35694a0e97b96316bb40e0}} 
+\index{STLWidget@{STLWidget}!````~STLWidget@{$\sim$STLWidget}}
+\index{````~STLWidget@{$\sim$STLWidget}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{$\sim$STLWidget()}{~STLWidget()}}
+{\footnotesize\ttfamily S\+T\+L\+Widget\+::$\sim$\+S\+T\+L\+Widget (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_s_t_l_widget_a3b660bb9da2d718d46bb7b9af52ab1f4}{Clear}}();}
+\DoxyCodeLine{24     this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}}-\/>Delete();}
+\DoxyCodeLine{25     \textcolor{keyword}{delete} \mbox{\hyperlink{class_s_t_l_widget_aec2ee34d837f336b20c0d77003b11a4b}{ui}};}
+\DoxyCodeLine{26 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_t_l_widget_a3b660bb9da2d718d46bb7b9af52ab1f4}\label{class_s_t_l_widget_a3b660bb9da2d718d46bb7b9af52ab1f4}} 
+\index{STLWidget@{STLWidget}!Clear@{Clear}}
+\index{Clear@{Clear}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+Clear (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Clear all fields. 
+
+
+
+Definition at line 106 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{107 \{}
+\DoxyCodeLine{108     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}})}
+\DoxyCodeLine{109     \{}
+\DoxyCodeLine{110         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.size(); i++)}
+\DoxyCodeLine{111         \{}
+\DoxyCodeLine{112             \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}[i];}
+\DoxyCodeLine{113         \}}
+\DoxyCodeLine{114         this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.clear();}
+\DoxyCodeLine{115 }
+\DoxyCodeLine{116         \mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{117     \}}
+\DoxyCodeLine{118 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{class_s_t_l_widget_a53d537ac1d813bc2ac541f4ab6504252}\label{class_s_t_l_widget_a53d537ac1d813bc2ac541f4ab6504252}} 
+\index{STLWidget@{STLWidget}!focusInEvent@{focusInEvent}}
+\index{focusInEvent@{focusInEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{focusInEvent()}{focusInEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::focus\+In\+Event (\begin{DoxyParamCaption}\item[{Q\+Focus\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 164 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{165 \{}
+\DoxyCodeLine{166     QVTKOpenGLNativeWidget::focusInEvent(event);}
+\DoxyCodeLine{167     emit \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{OnFocusEvent}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{168 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a9ab48a782ee5d0319da539db340eba7e}\label{class_s_t_l_widget_a9ab48a782ee5d0319da539db340eba7e}} 
+\index{STLWidget@{STLWidget}!focusOutEvent@{focusOutEvent}}
+\index{focusOutEvent@{focusOutEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{focusOutEvent()}{focusOutEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::focus\+Out\+Event (\begin{DoxyParamCaption}\item[{Q\+Focus\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 170 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{171 \{}
+\DoxyCodeLine{172     QVTKOpenGLNativeWidget::focusOutEvent(event);}
+\DoxyCodeLine{173     emit \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{OnFocusEvent}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{174 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_af3c36c050059fc015d805be91abfd981}\label{class_s_t_l_widget_af3c36c050059fc015d805be91abfd981}} 
+\index{STLWidget@{STLWidget}!GetHolders@{GetHolders}}
+\index{GetHolders@{GetHolders}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{GetHolders()}{GetHolders()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Widget\+::\+S\+T\+L\+Holder}} $\ast$ $>$ S\+T\+L\+Widget\+::\+Get\+Holders (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the list of stl holder in std\+::vector$<$\+S\+T\+L\+Holder$>$ type. 
+
+\begin{DoxyReturn}{Returns}
+The list of stl holder.
+\end{DoxyReturn}
+
+
+Definition at line 86 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{87 \{}
+\DoxyCodeLine{88     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}};}
+\DoxyCodeLine{89 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}\label{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}} 
+\index{STLWidget@{STLWidget}!GetRenderer@{GetRenderer}}
+\index{GetRenderer@{GetRenderer}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{GetRenderer()}{GetRenderer()}}
+{\footnotesize\ttfamily vtk\+Renderer $\ast$ S\+T\+L\+Widget\+::\+Get\+Renderer (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the renderer. 
+
+\begin{DoxyReturn}{Returns}
+The renderer
+\end{DoxyReturn}
+
+
+Definition at line 96 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{97 \{}
+\DoxyCodeLine{98     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}};}
+\DoxyCodeLine{99 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}\label{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}} 
+\index{STLWidget@{STLWidget}!HasHolder@{HasHolder}}
+\index{HasHolder@{HasHolder}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{HasHolder()}{HasHolder()}}
+{\footnotesize\ttfamily bool S\+T\+L\+Widget\+::\+Has\+Holder (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Indicates whether the widget shows any S\+TL object. 
+
+\begin{DoxyReturn}{Returns}
+Ture if showing, false if not.
+\end{DoxyReturn}
+
+
+Definition at line 91 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93     \textcolor{keywordflow}{return} !this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.empty();}
+\DoxyCodeLine{94 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{class_s_t_l_widget_a8eaa6406f125e891152c513574ff79c9}\label{class_s_t_l_widget_a8eaa6406f125e891152c513574ff79c9}} 
+\index{STLWidget@{STLWidget}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{keyPressEvent()}{keyPressEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::key\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 152 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{153 \{}
+\DoxyCodeLine{154     QVTKOpenGLNativeWidget::keyPressEvent(event);}
+\DoxyCodeLine{155     emit \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{OnKeyEvent}}(event);}
+\DoxyCodeLine{156 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a7a0c1cfacd1ff3e89e270ab401b6b584}\label{class_s_t_l_widget_a7a0c1cfacd1ff3e89e270ab401b6b584}} 
+\index{STLWidget@{STLWidget}!keyReleaseEvent@{keyReleaseEvent}}
+\index{keyReleaseEvent@{keyReleaseEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{keyReleaseEvent()}{keyReleaseEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::key\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 158 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{159 \{}
+\DoxyCodeLine{160     QVTKOpenGLNativeWidget::keyReleaseEvent(event);}
+\DoxyCodeLine{161     emit \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{OnKeyEvent}}(event);}
+\DoxyCodeLine{162 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a00ea9c7b6f79e5e663d468dc99d809f3}\label{class_s_t_l_widget_a00ea9c7b6f79e5e663d468dc99d809f3}} 
+\index{STLWidget@{STLWidget}!mouseDoubleClickEvent@{mouseDoubleClickEvent}}
+\index{mouseDoubleClickEvent@{mouseDoubleClickEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{mouseDoubleClickEvent()}{mouseDoubleClickEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::mouse\+Double\+Click\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 132 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{133 \{}
+\DoxyCodeLine{134     QVTKOpenGLNativeWidget::mouseDoubleClickEvent(event);}
+\DoxyCodeLine{135     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{136 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_adb6ddec1b32faaec6076e717e8b9e067}\label{class_s_t_l_widget_adb6ddec1b32faaec6076e717e8b9e067}} 
+\index{STLWidget@{STLWidget}!mouseMoveEvent@{mouseMoveEvent}}
+\index{mouseMoveEvent@{mouseMoveEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{mouseMoveEvent()}{mouseMoveEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::mouse\+Move\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 138 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{139 \{}
+\DoxyCodeLine{140     QVTKOpenGLNativeWidget::mouseMoveEvent(event);}
+\DoxyCodeLine{141     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{142 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a962f452cc37d4c742f8610b823766e4a}\label{class_s_t_l_widget_a962f452cc37d4c742f8610b823766e4a}} 
+\index{STLWidget@{STLWidget}!mousePressEvent@{mousePressEvent}}
+\index{mousePressEvent@{mousePressEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{mousePressEvent()}{mousePressEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::mouse\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 120 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{121 \{}
+\DoxyCodeLine{122     QVTKOpenGLNativeWidget::mousePressEvent(event);}
+\DoxyCodeLine{123     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{124 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_af9ea2a288870186a72bd169adce53619}\label{class_s_t_l_widget_af9ea2a288870186a72bd169adce53619}} 
+\index{STLWidget@{STLWidget}!mouseReleaseEvent@{mouseReleaseEvent}}
+\index{mouseReleaseEvent@{mouseReleaseEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{mouseReleaseEvent()}{mouseReleaseEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::mouse\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 126 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127 \{}
+\DoxyCodeLine{128     QVTKOpenGLNativeWidget::mouseReleaseEvent(event);}
+\DoxyCodeLine{129     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{130 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}\label{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}} 
+\index{STLWidget@{STLWidget}!OnFocusEvent@{OnFocusEvent}}
+\index{OnFocusEvent@{OnFocusEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{OnFocusEvent}{OnFocusEvent}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+On\+Focus\+Event (\begin{DoxyParamCaption}\item[{bool}]{b\+Is\+Focused }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Event from the focus manager. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b\+Is\+Focused} & True if focused, false if not.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}\label{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}} 
+\index{STLWidget@{STLWidget}!OnKeyEvent@{OnKeyEvent}}
+\index{OnKeyEvent@{OnKeyEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{OnKeyEvent}{OnKeyEvent}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+On\+Key\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Event from the keyboard/ 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of event.\\
+\hline
+{\em key} & The keyboard button.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}\label{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}} 
+\index{STLWidget@{STLWidget}!OnMouseEvent@{OnMouseEvent}}
+\index{OnMouseEvent@{OnMouseEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{OnMouseEvent}{OnMouseEvent}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+On\+Mouse\+Event (\begin{DoxyParamCaption}\item[{Q\+Mouse\+Event $\ast$}]{e }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Event from the mouse itself and its buttons. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & The type of event.\\
+\hline
+{\em button} & The button of mouse.\\
+\hline
+{\em location} & The location where the cursor located.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}\label{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}} 
+\index{STLWidget@{STLWidget}!OnWheelEvent@{OnWheelEvent}}
+\index{OnWheelEvent@{OnWheelEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{OnWheelEvent}{OnWheelEvent}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+On\+Wheel\+Event (\begin{DoxyParamCaption}\item[{Q\+Wheel\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Event from the mouse wheel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Wheel event arguments.\\
+\hline
+\end{DoxyParams}
+Here is the caller graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{class_s_t_l_widget_a462bea484a3b57112424b178f7979d54}\label{class_s_t_l_widget_a462bea484a3b57112424b178f7979d54}} 
+\index{STLWidget@{STLWidget}!OpenSTL@{OpenSTL}}
+\index{OpenSTL@{OpenSTL}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{OpenSTL()}{OpenSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool S\+T\+L\+Widget\+::\+Open\+S\+TL (\begin{DoxyParamCaption}\item[{const char $\ast$}]{file\+Name,  }\item[{bool}]{b\+Import }\end{DoxyParamCaption})}
+
+
+
+Open or import the S\+TL reader to display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of file to open.\\
+\hline
+{\em b\+Import} & Indicates whether to open or append the new file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if you succeed to open file, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line 81 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{82 \{}
+\DoxyCodeLine{83     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}{OpenSTL}}(QString(fileName), bImport);}
+\DoxyCodeLine{84 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 11
+\mbox{\Hypertarget{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}\label{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}} 
+\index{STLWidget@{STLWidget}!OpenSTL@{OpenSTL}}
+\index{OpenSTL@{OpenSTL}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{OpenSTL()}{OpenSTL()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool S\+T\+L\+Widget\+::\+Open\+S\+TL (\begin{DoxyParamCaption}\item[{Q\+String}]{file\+Name,  }\item[{bool}]{b\+Import = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Open or import the S\+TL reader to display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & The name of file to open.\\
+\hline
+{\em b\+Import} & Indicates whether to open or append the new file.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if you succeed to open file, false otherwise
+\end{DoxyReturn}
+
+
+Definition at line 28 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \textcolor{keywordtype}{bool} result;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordflow}{if} (!fileName.isEmpty())}
+\DoxyCodeLine{33     \{}
+\DoxyCodeLine{34         \textcolor{keywordflow}{if} (!bImport)}
+\DoxyCodeLine{35         \{}
+\DoxyCodeLine{36             this-\/>\mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} = -\/1;}
+\DoxyCodeLine{37             \mbox{\hyperlink{class_s_t_l_widget_a3b660bb9da2d718d46bb7b9af52ab1f4}{Clear}}();}
+\DoxyCodeLine{38         \}}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         STLHolder* holder = \textcolor{keyword}{new} STLHolder(fileName, this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}});}
+\DoxyCodeLine{41         this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.push\_back(holder);}
+\DoxyCodeLine{42         this-\/>\mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44         \textcolor{keyword}{const} \textcolor{keywordtype}{double}* \textcolor{keyword}{const} bounds = holder-\/>actor-\/>GetBounds();}
+\DoxyCodeLine{45         \textcolor{keyword}{const} \textcolor{keywordtype}{double} maxWidthDepth = std::fmax(bounds[1] -\/ bounds[0], bounds[3] -\/ bounds[2]) * 1.1 \textcolor{comment}{/* Padding */};}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} < maxWidthDepth)}
+\DoxyCodeLine{48         \{}
+\DoxyCodeLine{49             this-\/>\mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} = maxWidthDepth;}
+\DoxyCodeLine{50         \}}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52         \textcolor{keyword}{const} \textcolor{keywordtype}{int} rowColCount = (int)std::ceil(std::pow(this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.size(), 0.5));}
+\DoxyCodeLine{53         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} row = 0; row < rowColCount; row++)}
+\DoxyCodeLine{54         \{}
+\DoxyCodeLine{55             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} col = 0; col < rowColCount; col++)}
+\DoxyCodeLine{56             \{}
+\DoxyCodeLine{57                 \textcolor{keyword}{const} \textcolor{keywordtype}{int} idx = (row * rowColCount) + col;}
+\DoxyCodeLine{58                 \textcolor{keywordflow}{if} (idx == this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.size())}
+\DoxyCodeLine{59                 \{}
+\DoxyCodeLine{60                     \textcolor{keywordflow}{goto} ROW\_COL\_OUT;}
+\DoxyCodeLine{61                 \}}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63                 this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}[idx]-\/>reposition(row, col, this-\/>\mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}});}
+\DoxyCodeLine{64             \}}
+\DoxyCodeLine{65         \}}
+\DoxyCodeLine{66     ROW\_COL\_OUT:}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{68         this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}}-\/>ResetCamera();}
+\DoxyCodeLine{69         this-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71         result = \textcolor{keyword}{true};}
+\DoxyCodeLine{72     \}}
+\DoxyCodeLine{73     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{74     \{}
+\DoxyCodeLine{75         result = \textcolor{keyword}{false};}
+\DoxyCodeLine{76     \}}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     \textcolor{keywordflow}{return} result;}
+\DoxyCodeLine{79 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 12
+Here is the caller graph for this function\+:
+% FIG 13
+\mbox{\Hypertarget{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}\label{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}} 
+\index{STLWidget@{STLWidget}!Render@{Render}}
+\index{Render@{Render}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+Render (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Refresh the widget, applying new changes. 
+
+
+
+Definition at line 101 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{102 \{}
+\DoxyCodeLine{103     this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}}-\/>GetRenderWindow()-\/>Render();}
+\DoxyCodeLine{104 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 14
+\mbox{\Hypertarget{class_s_t_l_widget_a6181c5bc36cfb8f5c0cbcb1502a8c905}\label{class_s_t_l_widget_a6181c5bc36cfb8f5c0cbcb1502a8c905}} 
+\index{STLWidget@{STLWidget}!wheelEvent@{wheelEvent}}
+\index{wheelEvent@{wheelEvent}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{wheelEvent()}{wheelEvent()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::wheel\+Event (\begin{DoxyParamCaption}\item[{Q\+Wheel\+Event $\ast$}]{event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}}
+
+
+
+Definition at line 145 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{146 \{}
+\DoxyCodeLine{147     QVTKOpenGLNativeWidget::wheelEvent(event);}
+\DoxyCodeLine{148     emit \mbox{\hyperlink{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}{OnWheelEvent}}(event);}
+\DoxyCodeLine{149 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}\label{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}} 
+\index{STLWidget@{STLWidget}!bDisplaying@{bDisplaying}}
+\index{bDisplaying@{bDisplaying}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{bDisplaying}{bDisplaying}}
+{\footnotesize\ttfamily bool S\+T\+L\+Widget\+::b\+Displaying = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indicates weather there\textquotesingle{}s any object displaying. 
+
+
+
+Definition at line 140 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}\label{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}} 
+\index{STLWidget@{STLWidget}!holders@{holders}}
+\index{holders@{holders}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{holders}{holders}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Holder}}$\ast$$>$ S\+T\+L\+Widget\+::holders\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A list of stl holders. 
+
+
+
+Definition at line 145 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}\label{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}} 
+\index{STLWidget@{STLWidget}!mouseControlStyle@{mouseControlStyle}}
+\index{mouseControlStyle@{mouseControlStyle}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{mouseControlStyle}{mouseControlStyle}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_interactor_styletrackball_camera}{Custom\+Interactor\+Styletrackball\+Camera}}$\ast$ S\+T\+L\+Widget\+::mouse\+Control\+Style = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An interactor style that allows to control the object via mouse events. 
+
+
+
+Definition at line 160 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}\label{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}} 
+\index{STLWidget@{STLWidget}!renderer@{renderer}}
+\index{renderer@{renderer}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{renderer}{renderer}}
+{\footnotesize\ttfamily vtk\+Renderer$\ast$ S\+T\+L\+Widget\+::renderer = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A renderer for S\+TL object. 
+
+
+
+Definition at line 155 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}\label{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}} 
+\index{STLWidget@{STLWidget}!squareSize@{squareSize}}
+\index{squareSize@{squareSize}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{squareSize}{squareSize}}
+{\footnotesize\ttfamily double S\+T\+L\+Widget\+::square\+Size = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The length of a square that holds one S\+TL object in it. 
+
+
+
+Definition at line 150 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{class_s_t_l_widget_aec2ee34d837f336b20c0d77003b11a4b}\label{class_s_t_l_widget_aec2ee34d837f336b20c0d77003b11a4b}} 
+\index{STLWidget@{STLWidget}!ui@{ui}}
+\index{ui@{ui}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{ui}{ui}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ui_1_1_s_t_l_widget}{Ui\+::\+S\+T\+L\+Widget}}$\ast$ S\+T\+L\+Widget\+::ui\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A G\+UI component container. 
+
+
+
+Definition at line 134 of file S\+T\+L\+Widget.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8h}{S\+T\+L\+Widget.\+h}}\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8cpp}{S\+T\+L\+Widget.\+cpp}}\end{DoxyCompactItemize}

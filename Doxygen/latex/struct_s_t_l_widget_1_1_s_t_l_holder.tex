@@ -1,0 +1,253 @@
+\hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder}{}\doxysection{S\+T\+L\+Widget\+::S\+T\+L\+Holder Struct Reference}
+\label{struct_s_t_l_widget_1_1_s_t_l_holder}\index{STLWidget::STLHolder@{STLWidget::STLHolder}}
+
+
+A structure to contain V\+TK object for displaying single S\+TL object.  
+
+
+
+
+{\ttfamily \#include $<$S\+T\+L\+Widget.\+h$>$}
+
+
+
+Collaboration diagram for S\+T\+L\+Widget\+::S\+T\+L\+Holder\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a60054f9300dd65f5dfa23ed31daab518}{S\+T\+L\+Holder}} (Q\+String file\+Name, vtk\+Renderer $\ast$\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}})
+\item 
+\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a8591b8d90a5386ed5434729f27248e0d}{$\sim$\+S\+T\+L\+Holder}} ()
+\item 
+void \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a101ec244e8811aeedf7cdb1189516e69}{reposition}} (int row, int column, double \mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{square\+Size}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vtk\+S\+T\+L\+Reader $\ast$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}{reader}} = nullptr
+\begin{DoxyCompactList}\small\item\em A S\+TL file reader. \end{DoxyCompactList}\item 
+vtk\+Poly\+Data\+Mapper $\ast$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}{mapper}} = nullptr
+\begin{DoxyCompactList}\small\item\em A mapper for poly data\+:S\+TL object. \end{DoxyCompactList}\item 
+vtk\+Transform\+Poly\+Data\+Filter $\ast$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transform\+Filter}} = nullptr
+\begin{DoxyCompactList}\small\item\em A transformation filter for S\+TL object. \end{DoxyCompactList}\item 
+vtk\+Transform $\ast$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}{transform}} = nullptr
+\begin{DoxyCompactList}\small\item\em The transformation matrix for filter. \end{DoxyCompactList}\item 
+vtk\+Actor $\ast$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}} = nullptr
+\begin{DoxyCompactList}\small\item\em An actor for mapper. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}} \mbox{[}6\mbox{]}
+\begin{DoxyCompactList}\small\item\em The boundary coordinate information of the S\+TL object. \end{DoxyCompactList}\item 
+vtk\+Renderer $\ast$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}} = nullptr
+\begin{DoxyCompactList}\small\item\em A renderer to display the S\+TL object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A structure to contain V\+TK object for displaying single S\+TL object. 
+
+
+
+Definition at line 37 of file S\+T\+L\+Widget.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a60054f9300dd65f5dfa23ed31daab518}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a60054f9300dd65f5dfa23ed31daab518}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!STLHolder@{STLHolder}}
+\index{STLHolder@{STLHolder}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{STLHolder()}{STLHolder()}}
+{\footnotesize\ttfamily S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::\+S\+T\+L\+Holder (\begin{DoxyParamCaption}\item[{Q\+String}]{file\+Name,  }\item[{vtk\+Renderer $\ast$}]{renderer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 77 of file S\+T\+L\+Widget.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{77                                                            : \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}}(\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}})}
+\DoxyCodeLine{78         \{}
+\DoxyCodeLine{79             assert(!fileName.isEmpty()); \textcolor{comment}{// must ne handled before call}}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}{reader}} = vtkSTLReader::New();}
+\DoxyCodeLine{82             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}{reader}}-\/>SetFileName(fileName.toStdString().c\_str());}
+\DoxyCodeLine{83             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}{reader}}-\/>UpdateDataObject();}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{85             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}{transform}} = vtkTransform::New();}
+\DoxyCodeLine{86             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}{transform}}-\/>Identity();}
+\DoxyCodeLine{87 }
+\DoxyCodeLine{88             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transformFilter}} = vtkTransformPolyDataFilter::New();}
+\DoxyCodeLine{89             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transformFilter}}-\/>SetTransform(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}{transform}});}
+\DoxyCodeLine{90             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transformFilter}}-\/>SetInputConnection(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}{reader}}-\/>GetOutputPort());}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}{mapper}} = vtkPolyDataMapper::New();}
+\DoxyCodeLine{93             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}{mapper}}-\/>SetInputConnection(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transformFilter}}-\/>GetOutputPort());}
+\DoxyCodeLine{94             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}{mapper}}-\/>UpdateDataObject();}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}} = vtkActor::New();}
+\DoxyCodeLine{97             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}}-\/>SetMapper(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}{mapper}});}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}}-\/>AddActor(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}});}
+\DoxyCodeLine{100             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}}-\/>GetRenderWindow()-\/>Render();}
+\DoxyCodeLine{101 }
+\DoxyCodeLine{102             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}}-\/>GetBounds(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}});}
+\DoxyCodeLine{103         \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a8591b8d90a5386ed5434729f27248e0d}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a8591b8d90a5386ed5434729f27248e0d}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!````~STLHolder@{$\sim$STLHolder}}
+\index{````~STLHolder@{$\sim$STLHolder}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{$\sim$STLHolder()}{~STLHolder()}}
+{\footnotesize\ttfamily S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::$\sim$\+S\+T\+L\+Holder (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 105 of file S\+T\+L\+Widget.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{106         \{}
+\DoxyCodeLine{107             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}{renderer}}-\/>RemoveActor(this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}});}
+\DoxyCodeLine{108             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}{actor}}-\/>Delete();}
+\DoxyCodeLine{109             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}{mapper}}-\/>Delete();}
+\DoxyCodeLine{110             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transformFilter}}-\/>Delete();}
+\DoxyCodeLine{111             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}{transform}}-\/>Delete();}
+\DoxyCodeLine{112             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}{reader}}-\/>Delete();}
+\DoxyCodeLine{113         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a101ec244e8811aeedf7cdb1189516e69}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a101ec244e8811aeedf7cdb1189516e69}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!reposition@{reposition}}
+\index{reposition@{reposition}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{reposition()}{reposition()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::reposition (\begin{DoxyParamCaption}\item[{int}]{row,  }\item[{int}]{column,  }\item[{double}]{square\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 116 of file S\+T\+L\+Widget.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117         \{}
+\DoxyCodeLine{118             vtkNew<vtkTransform> newTransform;}
+\DoxyCodeLine{119             newTransform-\/>Identity();}
+\DoxyCodeLine{120 }
+\DoxyCodeLine{121             newTransform-\/>Translate(}
+\DoxyCodeLine{122                 \mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} * column -\/ this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[0] + (\mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} -\/ (this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[1] -\/ this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[0])) / 2,}
+\DoxyCodeLine{123                 \mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} * row -\/ this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[2] + (\mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{squareSize}} -\/ (this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[3] -\/ this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[2])) / 2,}
+\DoxyCodeLine{124                 -\/this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}{bounds}}[4]);}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{126             this-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}{transform}}-\/>DeepCopy(newTransform);}
+\DoxyCodeLine{127         \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a087ef8b705fa07a3f5e682bfde307add}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!actor@{actor}}
+\index{actor@{actor}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{actor}{actor}}
+{\footnotesize\ttfamily vtk\+Actor$\ast$ S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::actor = nullptr}
+
+
+
+An actor for mapper. 
+
+
+
+Definition at line 63 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a5c6b773a950ab09ac470bd55074eb84a}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!bounds@{bounds}}
+\index{bounds@{bounds}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{bounds}{bounds}}
+{\footnotesize\ttfamily double S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::bounds\mbox{[}6\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The boundary coordinate information of the S\+TL object. 
+
+
+
+Definition at line 69 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a2dd0d4a4296df1b8fac80da77aec4476}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!mapper@{mapper}}
+\index{mapper@{mapper}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{mapper}{mapper}}
+{\footnotesize\ttfamily vtk\+Poly\+Data\+Mapper$\ast$ S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::mapper = nullptr}
+
+
+
+A mapper for poly data\+:S\+TL object. 
+
+
+
+Definition at line 48 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a2bb3f6653b122b70fab744059b299f85}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!reader@{reader}}
+\index{reader@{reader}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{reader}{reader}}
+{\footnotesize\ttfamily vtk\+S\+T\+L\+Reader$\ast$ S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::reader = nullptr}
+
+
+
+A S\+TL file reader. 
+
+
+
+Definition at line 43 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a1648b458a95e14f265a82115d0683ba1}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!renderer@{renderer}}
+\index{renderer@{renderer}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{renderer}{renderer}}
+{\footnotesize\ttfamily vtk\+Renderer$\ast$ S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::renderer = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A renderer to display the S\+TL object. 
+
+
+
+Definition at line 74 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a70f6d265bc5a460568b561d1ce236b6a}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!transform@{transform}}
+\index{transform@{transform}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{transform}{transform}}
+{\footnotesize\ttfamily vtk\+Transform$\ast$ S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::transform = nullptr}
+
+
+
+The transformation matrix for filter. 
+
+
+
+Definition at line 58 of file S\+T\+L\+Widget.\+h.
+
+\mbox{\Hypertarget{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}\label{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}} 
+\index{STLWidget::STLHolder@{STLWidget::STLHolder}!transformFilter@{transformFilter}}
+\index{transformFilter@{transformFilter}!STLWidget::STLHolder@{STLWidget::STLHolder}}
+\doxysubsubsection{\texorpdfstring{transformFilter}{transformFilter}}
+{\footnotesize\ttfamily vtk\+Transform\+Poly\+Data\+Filter$\ast$ S\+T\+L\+Widget\+::\+S\+T\+L\+Holder\+::transform\+Filter = nullptr}
+
+
+
+A transformation filter for S\+TL object. 
+
+
+
+Definition at line 53 of file S\+T\+L\+Widget.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8h}{S\+T\+L\+Widget.\+h}}\end{DoxyCompactItemize}

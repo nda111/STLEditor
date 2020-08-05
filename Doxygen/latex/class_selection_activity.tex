@@ -1,0 +1,238 @@
+\hypertarget{class_selection_activity}{}\doxysection{Selection\+Activity Class Reference}
+\label{class_selection_activity}\index{SelectionActivity@{SelectionActivity}}
+
+
+An activity that represents selection of an object.  
+
+
+
+
+{\ttfamily \#include $<$Selection\+Activity.\+h$>$}
+
+
+
+Inheritance diagram for Selection\+Activity\+:
+% FIG 0
+
+
+Collaboration diagram for Selection\+Activity\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \{ \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{E\+Type\+::\+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{E\+Type\+::\+Z\+O\+OM}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{E\+Type\+::\+S\+E\+L\+E\+CT}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enumeration that represents the type of the activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_selection_activity_a632a00040f32a00cfc5721d653d99d43}{Selection\+Activity}} (vtk\+Actor $\ast$const \mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}}, vtk\+Actor $\ast$const \mbox{\hyperlink{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}{after}})
+\item 
+vtk\+Actor $\ast$ \mbox{\hyperlink{class_selection_activity_ab5cb6b72c0680ee995986d19d3cf6a86}{get\+Actor}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the actor. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \mbox{\hyperlink{class_selection_activity_a34ef23e1710afd0badded510059e3aec}{get\+Type}} (void) const override
+\begin{DoxyCompactList}\small\item\em Get the type of the activity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_selection_activity_a6fa5377e14f93bd0561eaccb87136a99}{inverse}} (void) override
+\begin{DoxyCompactList}\small\item\em Inverse this activity to switch undo/redo state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vtk\+Actor $\ast$ \mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}}
+\begin{DoxyCompactList}\small\item\em An actor for undoing. Initially nullptr. \end{DoxyCompactList}\item 
+vtk\+Actor $\ast$ \mbox{\hyperlink{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}{after}}
+\begin{DoxyCompactList}\small\item\em An actor for redoing. Initially nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An activity that represents selection of an object. 
+
+
+
+Definition at line 10 of file Selection\+Activity.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}} 
+\index{SelectionActivity@{SelectionActivity}!EType@{EType}}
+\index{EType@{EType}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{EType}{EType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}}\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [inherited]}}
+
+
+
+An enumeration that represents the type of the activity. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORMATION@{TRANSFORMATION}!SelectionActivity@{SelectionActivity}}\index{SelectionActivity@{SelectionActivity}!TRANSFORMATION@{TRANSFORMATION}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}} 
+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON&For linear transformation activity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZOOM@{ZOOM}!SelectionActivity@{SelectionActivity}}\index{SelectionActivity@{SelectionActivity}!ZOOM@{ZOOM}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}} 
+Z\+O\+OM&For zoom activity \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!SelectionActivity@{SelectionActivity}}\index{SelectionActivity@{SelectionActivity}!SELECT@{SELECT}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}} 
+S\+E\+L\+E\+CT&For a cube-\/selection activity in S\+TL viewer. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 12 of file Activity\+Base.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{17         TRANSFORMATION,}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22         ZOOM,}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27         SELECT,}
+\DoxyCodeLine{28     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_selection_activity_a632a00040f32a00cfc5721d653d99d43}\label{class_selection_activity_a632a00040f32a00cfc5721d653d99d43}} 
+\index{SelectionActivity@{SelectionActivity}!SelectionActivity@{SelectionActivity}}
+\index{SelectionActivity@{SelectionActivity}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{SelectionActivity()}{SelectionActivity()}}
+{\footnotesize\ttfamily Selection\+Activity\+::\+Selection\+Activity (\begin{DoxyParamCaption}\item[{vtk\+Actor $\ast$const}]{before,  }\item[{vtk\+Actor $\ast$const}]{after }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Selection\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                                                                                   : \mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}}(\mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}}), \mbox{\hyperlink{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}{after}}(\mbox{\hyperlink{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}{after}})}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{8 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_selection_activity_ab5cb6b72c0680ee995986d19d3cf6a86}\label{class_selection_activity_ab5cb6b72c0680ee995986d19d3cf6a86}} 
+\index{SelectionActivity@{SelectionActivity}!getActor@{getActor}}
+\index{getActor@{getActor}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{getActor()}{getActor()}}
+{\footnotesize\ttfamily vtk\+Actor $\ast$ Selection\+Activity\+::get\+Actor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the actor. 
+
+\begin{DoxyReturn}{Returns}
+The actor.
+\end{DoxyReturn}
+
+
+Definition at line 10 of file Selection\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}};}
+\DoxyCodeLine{13 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_selection_activity_a34ef23e1710afd0badded510059e3aec}\label{class_selection_activity_a34ef23e1710afd0badded510059e3aec}} 
+\index{SelectionActivity@{SelectionActivity}!getType@{getType}}
+\index{getType@{getType}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}} Selection\+Activity\+::get\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of the activity. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{Activity\+Base\+::\+E\+Type\+::\+S\+E\+L\+E\+CT}}
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}{Activity\+Base}}.
+
+
+
+Definition at line 15 of file Selection\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{EType::SELECT}};}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_selection_activity_a6fa5377e14f93bd0561eaccb87136a99}\label{class_selection_activity_a6fa5377e14f93bd0561eaccb87136a99}} 
+\index{SelectionActivity@{SelectionActivity}!inverse@{inverse}}
+\index{inverse@{inverse}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily void Selection\+Activity\+::inverse (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inverse this activity to switch undo/redo state. 
+
+
+
+Implements \mbox{\hyperlink{class_activity_base_aab17504d45cbc44b581beb5d6a660ece}{Activity\+Base}}.
+
+
+
+Definition at line 20 of file Selection\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{21 \{}
+\DoxyCodeLine{22     vtkActor* temp = this-\/>\mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}};}
+\DoxyCodeLine{23     this-\/>\mbox{\hyperlink{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}{before}} = this-\/>\mbox{\hyperlink{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}{after}};}
+\DoxyCodeLine{24     this-\/>\mbox{\hyperlink{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}{after}} = temp;}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}\label{class_selection_activity_a833c8eedb4e55e8a604143fccb47b35b}} 
+\index{SelectionActivity@{SelectionActivity}!after@{after}}
+\index{after@{after}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{after}{after}}
+{\footnotesize\ttfamily vtk\+Actor$\ast$ Selection\+Activity\+::after\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An actor for redoing. Initially nullptr. 
+
+
+
+Definition at line 23 of file Selection\+Activity.\+h.
+
+\mbox{\Hypertarget{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}\label{class_selection_activity_adbe7e000272c07e737d2ee560e554bf0}} 
+\index{SelectionActivity@{SelectionActivity}!before@{before}}
+\index{before@{before}!SelectionActivity@{SelectionActivity}}
+\doxysubsubsection{\texorpdfstring{before}{before}}
+{\footnotesize\ttfamily vtk\+Actor$\ast$ Selection\+Activity\+::before\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An actor for undoing. Initially nullptr. 
+
+
+
+Definition at line 17 of file Selection\+Activity.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_selection_activity_8h}{Selection\+Activity.\+h}}\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_selection_activity_8cpp}{Selection\+Activity.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,175 @@
+\hypertarget{class_ui_1_1_main_window}{}\doxysection{Ui\+::Main\+Window Class Reference}
+\label{class_ui_1_1_main_window}\index{Ui::MainWindow@{Ui::MainWindow}}
+
+
+{\ttfamily \#include $<$ui\+\_\+\+Main\+Window.\+h$>$}
+
+
+
+Inheritance diagram for Ui\+::Main\+Window\+:
+% FIG 0
+
+
+Collaboration diagram for Ui\+::Main\+Window\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}{setup\+Ui}} (Q\+Main\+Window $\ast$\mbox{\hyperlink{class_ui_1_1_main_window}{Main\+Window}})
+\item 
+void \mbox{\hyperlink{class_ui___main_window_a097dd160c3534a204904cb374412c618}{retranslate\+Ui}} (Q\+Main\+Window $\ast$\mbox{\hyperlink{class_ui_1_1_main_window}{Main\+Window}})
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Action $\ast$ \mbox{\hyperlink{class_ui___main_window_a5772f39001f62b7f601aafe72caa10c0}{action\+Open}}
+\item 
+Q\+Action $\ast$ \mbox{\hyperlink{class_ui___main_window_a175147fd65feca1da9052479372408bd}{action\+Undo}}
+\item 
+Q\+Action $\ast$ \mbox{\hyperlink{class_ui___main_window_a92b45aedb3e89ab02aeed5c6a2e33520}{action\+Redo}}
+\item 
+Q\+Widget $\ast$ \mbox{\hyperlink{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}{central\+Widget}}
+\item 
+\mbox{\hyperlink{class_ui_1_1_s_t_l_widget}{S\+T\+L\+Widget}} $\ast$ \mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stl\+Widget}}
+\item 
+Q\+Menu\+Bar $\ast$ \mbox{\hyperlink{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}{menu\+Bar}}
+\item 
+Q\+Menu $\ast$ \mbox{\hyperlink{class_ui___main_window_a7ba84cb4cdd6a12dc83bf4e100bd8d80}{menu\+File}}
+\item 
+Q\+Menu $\ast$ \mbox{\hyperlink{class_ui___main_window_ab489b4832593765b89be11a031ba98c1}{menu\+Action}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 101 of file ui\+\_\+\+Main\+Window.\+h.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_ui___main_window_a097dd160c3534a204904cb374412c618}\label{class_ui___main_window_a097dd160c3534a204904cb374412c618}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!retranslateUi@{retranslateUi}}
+\index{retranslateUi@{retranslateUi}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{retranslateUi()}{retranslateUi()}}
+{\footnotesize\ttfamily void Ui\+\_\+\+Main\+Window\+::retranslate\+Ui (\begin{DoxyParamCaption}\item[{Q\+Main\+Window $\ast$}]{Main\+Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 94 of file ui\+\_\+\+Main\+Window.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{100              \{}
+\DoxyCodeLine{101     \textcolor{keyword}{class }\mbox{\hyperlink{class_main_window}{MainWindow}}: \textcolor{keyword}{public} \mbox{\hyperlink{class_ui___main_window}{Ui\_MainWindow}} \{\};}
+\DoxyCodeLine{102 \} \textcolor{comment}{// namespace Ui}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}\label{class_ui___main_window_acf4a0872c4c77d8f43a2ec66ed849b58}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!setupUi@{setupUi}}
+\index{setupUi@{setupUi}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{setupUi()}{setupUi()}}
+{\footnotesize\ttfamily void Ui\+\_\+\+Main\+Window\+::setup\+Ui (\begin{DoxyParamCaption}\item[{Q\+Main\+Window $\ast$}]{Main\+Window }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [inherited]}}
+
+
+
+Definition at line 46 of file ui\+\_\+\+Main\+Window.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{89     \{}
+\DoxyCodeLine{90         \mbox{\hyperlink{class_main_window}{MainWindow}}-\/>setWindowTitle(QApplication::translate(\textcolor{stringliteral}{"MainWindow"}, \textcolor{stringliteral}{"MainWindow"}, Q\_NULLPTR));}
+\DoxyCodeLine{91         \mbox{\hyperlink{class_ui___main_window_a5772f39001f62b7f601aafe72caa10c0}{actionOpen}}-\/>setText(QApplication::translate(\textcolor{stringliteral}{"MainWindow"}, \textcolor{stringliteral}{"Open"}, Q\_NULLPTR));}
+\DoxyCodeLine{92         \mbox{\hyperlink{class_ui___main_window_a175147fd65feca1da9052479372408bd}{actionUndo}}-\/>setText(QApplication::translate(\textcolor{stringliteral}{"MainWindow"}, \textcolor{stringliteral}{"Undo"}, Q\_NULLPTR));}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_ui___main_window_a5772f39001f62b7f601aafe72caa10c0}\label{class_ui___main_window_a5772f39001f62b7f601aafe72caa10c0}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!actionOpen@{actionOpen}}
+\index{actionOpen@{actionOpen}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{actionOpen}{actionOpen}}
+{\footnotesize\ttfamily Q\+Action$\ast$ Ui\+\_\+\+Main\+Window\+::action\+Open\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 37 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_a92b45aedb3e89ab02aeed5c6a2e33520}\label{class_ui___main_window_a92b45aedb3e89ab02aeed5c6a2e33520}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!actionRedo@{actionRedo}}
+\index{actionRedo@{actionRedo}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{actionRedo}{actionRedo}}
+{\footnotesize\ttfamily Q\+Action$\ast$ Ui\+\_\+\+Main\+Window\+::action\+Redo\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 39 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_a175147fd65feca1da9052479372408bd}\label{class_ui___main_window_a175147fd65feca1da9052479372408bd}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!actionUndo@{actionUndo}}
+\index{actionUndo@{actionUndo}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{actionUndo}{actionUndo}}
+{\footnotesize\ttfamily Q\+Action$\ast$ Ui\+\_\+\+Main\+Window\+::action\+Undo\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 38 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}\label{class_ui___main_window_a30075506c2116c3ed4ff25e07ae75f81}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!centralWidget@{centralWidget}}
+\index{centralWidget@{centralWidget}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{centralWidget}{centralWidget}}
+{\footnotesize\ttfamily Q\+Widget$\ast$ Ui\+\_\+\+Main\+Window\+::central\+Widget\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 40 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_ab489b4832593765b89be11a031ba98c1}\label{class_ui___main_window_ab489b4832593765b89be11a031ba98c1}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!menuAction@{menuAction}}
+\index{menuAction@{menuAction}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{menuAction}{menuAction}}
+{\footnotesize\ttfamily Q\+Menu$\ast$ Ui\+\_\+\+Main\+Window\+::menu\+Action\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 44 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}\label{class_ui___main_window_a2be1c24ec9adfca18e1dcc951931457f}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!menuBar@{menuBar}}
+\index{menuBar@{menuBar}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{menuBar}{menuBar}}
+{\footnotesize\ttfamily Q\+Menu\+Bar$\ast$ Ui\+\_\+\+Main\+Window\+::menu\+Bar\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 42 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_a7ba84cb4cdd6a12dc83bf4e100bd8d80}\label{class_ui___main_window_a7ba84cb4cdd6a12dc83bf4e100bd8d80}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!menuFile@{menuFile}}
+\index{menuFile@{menuFile}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{menuFile}{menuFile}}
+{\footnotesize\ttfamily Q\+Menu$\ast$ Ui\+\_\+\+Main\+Window\+::menu\+File\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 43 of file ui\+\_\+\+Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}\label{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}} 
+\index{Ui::MainWindow@{Ui::MainWindow}!stlWidget@{stlWidget}}
+\index{stlWidget@{stlWidget}!Ui::MainWindow@{Ui::MainWindow}}
+\doxysubsubsection{\texorpdfstring{stlWidget}{stlWidget}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ui_1_1_s_t_l_widget}{S\+T\+L\+Widget}}$\ast$ Ui\+\_\+\+Main\+Window\+::stl\+Widget\hspace{0.3cm}{\ttfamily [inherited]}}
+
+
+
+Definition at line 41 of file ui\+\_\+\+Main\+Window.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{ui___main_window_8h}{ui\+\_\+\+Main\+Window.\+h}}\end{DoxyCompactItemize}

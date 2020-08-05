@@ -1,0 +1,54 @@
+\hypertarget{main_8cpp}{}\doxysection{S\+T\+L\+Editor/main.cpp File Reference}
+\label{main_8cpp}\index{STLEditor/main.cpp@{STLEditor/main.cpp}}
+{\ttfamily \#include \char`\"{}vtk\+Auto\+Init.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$Windows.\+h$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+{\ttfamily \#include $<$cinttypes$>$}\newline
+{\ttfamily \#include $<$Qt\+Widgets/\+Q\+Application$>$}\newline
+{\ttfamily \#include \char`\"{}Main\+Window.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{main_8cpp_aa072a4b02405a5306cadd819b01e3cee}{V\+T\+K\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+I\+N\+IT}} (vtk\+Rendering\+Open\+G\+L2)
+\item 
+\mbox{\hyperlink{main_8cpp_a80dd3a08d1ff10381e3ef1ca1231f4b5}{V\+T\+K\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+I\+N\+IT}} (vtk\+Interaction\+Style)
+\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 12 of file main.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13 \{}
+\DoxyCodeLine{14     QApplication app(argc, argv);}
+\DoxyCodeLine{15     \mbox{\hyperlink{class_main_window}{MainWindow}} win(argc, argv);}
+\DoxyCodeLine{16     win.show();}
+\DoxyCodeLine{17     \textcolor{keywordflow}{return} app.exec();}
+\DoxyCodeLine{18 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{main_8cpp_a80dd3a08d1ff10381e3ef1ca1231f4b5}\label{main_8cpp_a80dd3a08d1ff10381e3ef1ca1231f4b5}} 
+\index{main.cpp@{main.cpp}!VTK\_MODULE\_INIT@{VTK\_MODULE\_INIT}}
+\index{VTK\_MODULE\_INIT@{VTK\_MODULE\_INIT}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{VTK\_MODULE\_INIT()}{VTK\_MODULE\_INIT()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily V\+T\+K\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+I\+N\+IT (\begin{DoxyParamCaption}\item[{vtk\+Interaction\+Style}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_aa072a4b02405a5306cadd819b01e3cee}\label{main_8cpp_aa072a4b02405a5306cadd819b01e3cee}} 
+\index{main.cpp@{main.cpp}!VTK\_MODULE\_INIT@{VTK\_MODULE\_INIT}}
+\index{VTK\_MODULE\_INIT@{VTK\_MODULE\_INIT}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{VTK\_MODULE\_INIT()}{VTK\_MODULE\_INIT()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily V\+T\+K\+\_\+\+M\+O\+D\+U\+L\+E\+\_\+\+I\+N\+IT (\begin{DoxyParamCaption}\item[{vtk\+Rendering\+Open\+G\+L2}]{ }\end{DoxyParamCaption})}
+

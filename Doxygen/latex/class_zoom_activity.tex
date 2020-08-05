@@ -1,0 +1,285 @@
+\hypertarget{class_zoom_activity}{}\doxysection{Zoom\+Activity Class Reference}
+\label{class_zoom_activity}\index{ZoomActivity@{ZoomActivity}}
+
+
+{\ttfamily \#include $<$Zoom\+Activity.\+h$>$}
+
+
+
+Inheritance diagram for Zoom\+Activity\+:
+% FIG 0
+
+
+Collaboration diagram for Zoom\+Activity\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \{ \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{E\+Type\+::\+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{E\+Type\+::\+Z\+O\+OM}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{E\+Type\+::\+S\+E\+L\+E\+CT}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enumeration that represents the type of the activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_zoom_activity_a21e708f1b82bfa8fd6a374cf09c1b206}{Zoom\+Activity}} (double)
+\item 
+bool \mbox{\hyperlink{class_zoom_activity_aabcdc3a96f3df0dc04471b05851b33de}{is\+Zoom\+In}} (void) const
+\begin{DoxyCompactList}\small\item\em Returns whether this activity represents zoom in. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_zoom_activity_abc3d9aa0e4cb77605696126afa05e59d}{get\+Zoom\+Factor}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the zoom factor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_zoom_activity_afb7f022a1c49782638194bff7eef91b4}{chain}} (\mbox{\hyperlink{class_zoom_activity}{Zoom\+Activity}} $\ast$const activity)
+\begin{DoxyCompactList}\small\item\em Chain another zoom activity. \end{DoxyCompactList}\item 
+virtual \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \mbox{\hyperlink{class_zoom_activity_ab64d9f591935f8a22cf17a5f1bdc99c3}{get\+Type}} () const override
+\begin{DoxyCompactList}\small\item\em Get the type of the activity. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_zoom_activity_aaf69f7886e2baef7591f2091ba46b08d}{inverse}} () override
+\begin{DoxyCompactList}\small\item\em Inverse this activity to switch undo/redo state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}{b\+Zoom\+In}} = true
+\begin{DoxyCompactList}\small\item\em Indicates whether this activity represents zoom in. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoom\+Factor}} = -\/1
+\begin{DoxyCompactList}\small\item\em The zoom factor of the activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 7 of file Zoom\+Activity.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}} 
+\index{ZoomActivity@{ZoomActivity}!EType@{EType}}
+\index{EType@{EType}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{EType}{EType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}}\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [inherited]}}
+
+
+
+An enumeration that represents the type of the activity. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORMATION@{TRANSFORMATION}!ZoomActivity@{ZoomActivity}}\index{ZoomActivity@{ZoomActivity}!TRANSFORMATION@{TRANSFORMATION}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}} 
+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON&For linear transformation activity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZOOM@{ZOOM}!ZoomActivity@{ZoomActivity}}\index{ZoomActivity@{ZoomActivity}!ZOOM@{ZOOM}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}} 
+Z\+O\+OM&For zoom activity \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!ZoomActivity@{ZoomActivity}}\index{ZoomActivity@{ZoomActivity}!SELECT@{SELECT}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}} 
+S\+E\+L\+E\+CT&For a cube-\/selection activity in S\+TL viewer. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 12 of file Activity\+Base.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{17         TRANSFORMATION,}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22         ZOOM,}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27         SELECT,}
+\DoxyCodeLine{28     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_zoom_activity_a21e708f1b82bfa8fd6a374cf09c1b206}\label{class_zoom_activity_a21e708f1b82bfa8fd6a374cf09c1b206}} 
+\index{ZoomActivity@{ZoomActivity}!ZoomActivity@{ZoomActivity}}
+\index{ZoomActivity@{ZoomActivity}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{ZoomActivity()}{ZoomActivity()}}
+{\footnotesize\ttfamily Zoom\+Activity\+::\+Zoom\+Activity (\begin{DoxyParamCaption}\item[{double}]{zoom\+Factor }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Zoom\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5                                             : \mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}}(\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}}), \mbox{\hyperlink{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}{bZoomIn}}(\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}} > 1)}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     \_ASSERT(\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}} >= 0);}
+\DoxyCodeLine{8     \_ASSERT(\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}} != 1);}
+\DoxyCodeLine{9 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_zoom_activity_afb7f022a1c49782638194bff7eef91b4}\label{class_zoom_activity_afb7f022a1c49782638194bff7eef91b4}} 
+\index{ZoomActivity@{ZoomActivity}!chain@{chain}}
+\index{chain@{chain}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{chain()}{chain()}}
+{\footnotesize\ttfamily void Zoom\+Activity\+::chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_zoom_activity}{Zoom\+Activity}} $\ast$const}]{activity }\end{DoxyParamCaption})}
+
+
+
+Chain another zoom activity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em activity} & Another zoom activity to chain.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 11 of file Zoom\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     this-\/>\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}} *= activity-\/>\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}};}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_zoom_activity_ab64d9f591935f8a22cf17a5f1bdc99c3}\label{class_zoom_activity_ab64d9f591935f8a22cf17a5f1bdc99c3}} 
+\index{ZoomActivity@{ZoomActivity}!getType@{getType}}
+\index{getType@{getType}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}} Zoom\+Activity\+::get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of the activity. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{Activity\+Base\+::\+E\+Type\+::\+Z\+O\+OM}}
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}{Activity\+Base}}.
+
+
+
+Definition at line 16 of file Zoom\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{17 \{}
+\DoxyCodeLine{18     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{EType::ZOOM}};}
+\DoxyCodeLine{19 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_zoom_activity_abc3d9aa0e4cb77605696126afa05e59d}\label{class_zoom_activity_abc3d9aa0e4cb77605696126afa05e59d}} 
+\index{ZoomActivity@{ZoomActivity}!getZoomFactor@{getZoomFactor}}
+\index{getZoomFactor@{getZoomFactor}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{getZoomFactor()}{getZoomFactor()}}
+{\footnotesize\ttfamily double Zoom\+Activity\+::get\+Zoom\+Factor (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the zoom factor. 
+
+\begin{DoxyReturn}{Returns}
+The delta zoom factor.
+\end{DoxyReturn}
+
+
+Definition at line 34 of file Zoom\+Activity.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \{ \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}}; \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{class_zoom_activity_aaf69f7886e2baef7591f2091ba46b08d}\label{class_zoom_activity_aaf69f7886e2baef7591f2091ba46b08d}} 
+\index{ZoomActivity@{ZoomActivity}!inverse@{inverse}}
+\index{inverse@{inverse}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily void Zoom\+Activity\+::inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inverse this activity to switch undo/redo state. 
+
+
+
+Implements \mbox{\hyperlink{class_activity_base_aab17504d45cbc44b581beb5d6a660ece}{Activity\+Base}}.
+
+
+
+Definition at line 21 of file Zoom\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{22 \{}
+\DoxyCodeLine{23     \mbox{\hyperlink{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}{bZoomIn}} = !\mbox{\hyperlink{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}{bZoomIn}};}
+\DoxyCodeLine{24     this-\/>\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}} = 1.0 / this-\/>\mbox{\hyperlink{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}{zoomFactor}};}
+\DoxyCodeLine{25 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_zoom_activity_aabcdc3a96f3df0dc04471b05851b33de}\label{class_zoom_activity_aabcdc3a96f3df0dc04471b05851b33de}} 
+\index{ZoomActivity@{ZoomActivity}!isZoomIn@{isZoomIn}}
+\index{isZoomIn@{isZoomIn}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{isZoomIn()}{isZoomIn()}}
+{\footnotesize\ttfamily bool Zoom\+Activity\+::is\+Zoom\+In (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns whether this activity represents zoom in. 
+
+\begin{DoxyReturn}{Returns}
+True if it\textquotesingle{}s zoom IN, false if zoom O\+UT.
+\end{DoxyReturn}
+
+
+Definition at line 28 of file Zoom\+Activity.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{28 \{ \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}{bZoomIn}}; \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}\label{class_zoom_activity_aaaa59afbeb874a7a962ee48aa0f9b014}} 
+\index{ZoomActivity@{ZoomActivity}!bZoomIn@{bZoomIn}}
+\index{bZoomIn@{bZoomIn}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{bZoomIn}{bZoomIn}}
+{\footnotesize\ttfamily bool Zoom\+Activity\+::b\+Zoom\+In = true\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Indicates whether this activity represents zoom in. 
+
+
+
+Definition at line 13 of file Zoom\+Activity.\+h.
+
+\mbox{\Hypertarget{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}\label{class_zoom_activity_ae60f74900d0c7c664f712d1e493bd12e}} 
+\index{ZoomActivity@{ZoomActivity}!zoomFactor@{zoomFactor}}
+\index{zoomFactor@{zoomFactor}!ZoomActivity@{ZoomActivity}}
+\doxysubsubsection{\texorpdfstring{zoomFactor}{zoomFactor}}
+{\footnotesize\ttfamily double Zoom\+Activity\+::zoom\+Factor = -\/1\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The zoom factor of the activity. 
+
+
+
+Definition at line 18 of file Zoom\+Activity.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_zoom_activity_8h}{Zoom\+Activity.\+h}}\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_zoom_activity_8cpp}{Zoom\+Activity.\+cpp}}\end{DoxyCompactItemize}

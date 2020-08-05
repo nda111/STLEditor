@@ -1,0 +1,13 @@
+digraph "ActivityBase"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="{ActivityBase\n||+ getType()\l+ inverse()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="A class that represents an activity: transformation, selection."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{SelectionActivity\n|- before\l- after\l|+ SelectionActivity()\l+ getActor()\l+ getType()\l+ inverse()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_selection_activity.html",tooltip="An activity that represents selection of an object."];
+  Node1 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node3 [label="{TransformActivity\n|- before\l- after\l|+ TransformActivity()\l+ TransformActivity()\l+ ~TransformActivity()\l+ getView()\l+ getType()\l+ inverse()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_transform_activity.html",tooltip="An activity that represents a 3D linear transformation."];
+  Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node4 [label="{ZoomActivity\n|- bZoomIn\l- zoomFactor\l|+ ZoomActivity()\l+ isZoomIn()\l+ getZoomFactor()\l+ chain()\l+ getType()\l+ inverse()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_zoom_activity.html",tooltip=" "];
+}

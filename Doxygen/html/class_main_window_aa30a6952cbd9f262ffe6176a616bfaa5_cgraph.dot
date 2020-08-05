@@ -1,0 +1,24 @@
+digraph "MainWindow::OnMouseEvent"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MainWindow::OnMouseEvent",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Handle a mouse event from STLWidget."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="STLWidget::GetRenderer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a5a3e391dd6b86e53841af138b4477f91",tooltip="Get the renderer."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="STLWidget::HasHolder",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a674666824522c9b28d34af6a5937e6e9",tooltip="Indicates whether the widget shows any STL object."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MainWindow::pick",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#ac8af4f32e38ed985f35c10cd7044f1f0",tooltip="Pick an object on the screen."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="ActivityManager::push",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_activity_manager.html#a8aa02f1f7df25f2509eb9b85ce671fe5",tooltip="Do something initially for the activity."];
+  Node5 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="ZoomActivity::chain",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_zoom_activity.html#afb7f022a1c49782638194bff7eef91b4",tooltip="Chain another zoom activity."];
+  Node5 -> Node7 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="ActivityBase::getType",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_activity_base.html#a1b65c21bd9f3534dedbef62c7fe05764",tooltip="Get the type of the activity."];
+  Node5 -> Node8 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ZoomActivity::isZoomIn",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_zoom_activity.html#aabcdc3a96f3df0dc04471b05851b33de",tooltip="Returns whether this activity represents zoom in."];
+  Node1 -> Node9 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="STLWidget::Render",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#ac57424afd9164e125938ed47041c7d76",tooltip="Refresh the widget, applying new changes."];
+}

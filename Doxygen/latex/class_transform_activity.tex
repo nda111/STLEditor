@@ -1,0 +1,284 @@
+\hypertarget{class_transform_activity}{}\doxysection{Transform\+Activity Class Reference}
+\label{class_transform_activity}\index{TransformActivity@{TransformActivity}}
+
+
+An activity that represents a 3D linear transformation.  
+
+
+
+
+{\ttfamily \#include $<$Transform\+Activity.\+h$>$}
+
+
+
+Inheritance diagram for Transform\+Activity\+:
+% FIG 0
+
+
+Collaboration diagram for Transform\+Activity\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \{ \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{E\+Type\+::\+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}{E\+Type\+::\+Z\+O\+OM}}, 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{E\+Type\+::\+S\+E\+L\+E\+CT}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enumeration that represents the type of the activity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_transform_activity_a3e7f94cf69e755be5c55c11a28087ce8}{Transform\+Activity}} (vtk\+Camera $\ast$const, vtk\+Camera $\ast$const)
+\item 
+\mbox{\hyperlink{class_transform_activity_abf4e4a44bb89d8ed52c41b7e917fae88}{Transform\+Activity}} (const \mbox{\hyperlink{class_transform_activity}{Transform\+Activity}} \&)
+\item 
+\mbox{\hyperlink{class_transform_activity_a52519f0acb22fdc57553490a94e18e16}{$\sim$\+Transform\+Activity}} (void)
+\item 
+vtk\+Camera $\ast$ \mbox{\hyperlink{class_transform_activity_a01c456701ffd301259e9b053533e914f}{get\+View}} (void)
+\begin{DoxyCompactList}\small\item\em Get the camera that contains linear transform matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{E\+Type}} \mbox{\hyperlink{class_transform_activity_aabc408083701ccdfcc5e2abb0cb540ba}{get\+Type}} (void) const override
+\begin{DoxyCompactList}\small\item\em Get the type of the activity. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_transform_activity_a4b1e695626169d3f5b477f8e0fd8b0fd}{inverse}} (void) override
+\begin{DoxyCompactList}\small\item\em Inverse this activity to switch undo/redo state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+vtk\+Camera $\ast$ \mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}}
+\begin{DoxyCompactList}\small\item\em A camera that contains matrix for the transformation of undoing. Initially nullptr. \end{DoxyCompactList}\item 
+vtk\+Camera $\ast$ \mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}}
+\begin{DoxyCompactList}\small\item\em A camera that contains matrix for the transformation of redoing. Initially nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+An activity that represents a 3D linear transformation. 
+
+
+
+Definition at line 12 of file Transform\+Activity.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}} 
+\index{TransformActivity@{TransformActivity}!EType@{EType}}
+\index{EType@{EType}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{EType}{EType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}}\hspace{0.3cm}{\ttfamily [strong]}, {\ttfamily [inherited]}}
+
+
+
+An enumeration that represents the type of the activity. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORMATION@{TRANSFORMATION}!TransformActivity@{TransformActivity}}\index{TransformActivity@{TransformActivity}!TRANSFORMATION@{TRANSFORMATION}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}} 
+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON&For linear transformation activity. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ZOOM@{ZOOM}!TransformActivity@{TransformActivity}}\index{TransformActivity@{TransformActivity}!ZOOM@{ZOOM}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da66f276916d5a97cbb3b0008213bda1c3}} 
+Z\+O\+OM&For zoom activity \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECT@{SELECT}!TransformActivity@{TransformActivity}}\index{TransformActivity@{TransformActivity}!SELECT@{SELECT}}}\mbox{\Hypertarget{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}\label{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}} 
+S\+E\+L\+E\+CT&For a cube-\/selection activity in S\+TL viewer. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 12 of file Activity\+Base.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{13     \{}
+\DoxyCodeLine{17         TRANSFORMATION,}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{22         ZOOM,}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{27         SELECT,}
+\DoxyCodeLine{28     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_transform_activity_a3e7f94cf69e755be5c55c11a28087ce8}\label{class_transform_activity_a3e7f94cf69e755be5c55c11a28087ce8}} 
+\index{TransformActivity@{TransformActivity}!TransformActivity@{TransformActivity}}
+\index{TransformActivity@{TransformActivity}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{TransformActivity()}{TransformActivity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Transform\+Activity\+::\+Transform\+Activity (\begin{DoxyParamCaption}\item[{vtk\+Camera $\ast$ const}]{before,  }\item[{vtk\+Camera $\ast$ const}]{after }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file Transform\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{6 \{}
+\DoxyCodeLine{7     this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}} = vtkCamera::New();}
+\DoxyCodeLine{8     this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}}-\/>DeepCopy(\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}});}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}} = vtkCamera::New();}
+\DoxyCodeLine{11     this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}}-\/>DeepCopy(\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}});}
+\DoxyCodeLine{12 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_transform_activity_abf4e4a44bb89d8ed52c41b7e917fae88}\label{class_transform_activity_abf4e4a44bb89d8ed52c41b7e917fae88}} 
+\index{TransformActivity@{TransformActivity}!TransformActivity@{TransformActivity}}
+\index{TransformActivity@{TransformActivity}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{TransformActivity()}{TransformActivity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Transform\+Activity\+::\+Transform\+Activity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_transform_activity}{Transform\+Activity}} \&}]{ref }\end{DoxyParamCaption})}
+
+
+
+Definition at line 14 of file Transform\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15 \{}
+\DoxyCodeLine{16     this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}} = vtkCamera::New();}
+\DoxyCodeLine{17     this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}}-\/>DeepCopy(ref.\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}});}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}} = vtkCamera::New();}
+\DoxyCodeLine{20     this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}}-\/>DeepCopy(ref.\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}});}
+\DoxyCodeLine{21 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_transform_activity_a52519f0acb22fdc57553490a94e18e16}\label{class_transform_activity_a52519f0acb22fdc57553490a94e18e16}} 
+\index{TransformActivity@{TransformActivity}!````~TransformActivity@{$\sim$TransformActivity}}
+\index{````~TransformActivity@{$\sim$TransformActivity}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{$\sim$TransformActivity()}{~TransformActivity()}}
+{\footnotesize\ttfamily Transform\+Activity\+::$\sim$\+Transform\+Activity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 23 of file Transform\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}}-\/>Delete();}
+\DoxyCodeLine{26     this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}}-\/>Delete();}
+\DoxyCodeLine{27 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_transform_activity_aabc408083701ccdfcc5e2abb0cb540ba}\label{class_transform_activity_aabc408083701ccdfcc5e2abb0cb540ba}} 
+\index{TransformActivity@{TransformActivity}!getType@{getType}}
+\index{getType@{getType}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056d}{Activity\+Base\+::\+E\+Type}} Transform\+Activity\+::get\+Type (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get the type of the activity. 
+
+\begin{DoxyReturn}{Returns}
+\mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{Activity\+Base\+::\+E\+Type\+::\+T\+R\+A\+N\+S\+F\+O\+R\+M\+A\+T\+I\+ON}}
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_activity_base_a1b65c21bd9f3534dedbef62c7fe05764}{Activity\+Base}}.
+
+
+
+Definition at line 34 of file Transform\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{EType::TRANSFORMATION}};}
+\DoxyCodeLine{37 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_transform_activity_a01c456701ffd301259e9b053533e914f}\label{class_transform_activity_a01c456701ffd301259e9b053533e914f}} 
+\index{TransformActivity@{TransformActivity}!getView@{getView}}
+\index{getView@{getView}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{getView()}{getView()}}
+{\footnotesize\ttfamily vtk\+Camera $\ast$ Transform\+Activity\+::get\+View (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Get the camera that contains linear transform matrix. 
+
+\begin{DoxyReturn}{Returns}
+The camera that contains the matrix.
+\end{DoxyReturn}
+
+
+Definition at line 29 of file Transform\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{30 \{}
+\DoxyCodeLine{31     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}};}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_transform_activity_a4b1e695626169d3f5b477f8e0fd8b0fd}\label{class_transform_activity_a4b1e695626169d3f5b477f8e0fd8b0fd}} 
+\index{TransformActivity@{TransformActivity}!inverse@{inverse}}
+\index{inverse@{inverse}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{inverse()}{inverse()}}
+{\footnotesize\ttfamily void Transform\+Activity\+::inverse (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Inverse this activity to switch undo/redo state. 
+
+
+
+Implements \mbox{\hyperlink{class_activity_base_aab17504d45cbc44b581beb5d6a660ece}{Activity\+Base}}.
+
+
+
+Definition at line 39 of file Transform\+Activity.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{40 \{}
+\DoxyCodeLine{41     vtkCamera* temp = this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}};}
+\DoxyCodeLine{42     this-\/>\mbox{\hyperlink{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}{before}} = this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}};}
+\DoxyCodeLine{43     this-\/>\mbox{\hyperlink{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}{after}} = temp;}
+\DoxyCodeLine{44 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}\label{class_transform_activity_a065c98945c369c92860f0fe6a6c0fa01}} 
+\index{TransformActivity@{TransformActivity}!after@{after}}
+\index{after@{after}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{after}{after}}
+{\footnotesize\ttfamily vtk\+Camera$\ast$ Transform\+Activity\+::after\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A camera that contains matrix for the transformation of redoing. Initially nullptr. 
+
+
+
+Definition at line 25 of file Transform\+Activity.\+h.
+
+\mbox{\Hypertarget{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}\label{class_transform_activity_ad2164331753df8eb529982fe12a6d8e9}} 
+\index{TransformActivity@{TransformActivity}!before@{before}}
+\index{before@{before}!TransformActivity@{TransformActivity}}
+\doxysubsubsection{\texorpdfstring{before}{before}}
+{\footnotesize\ttfamily vtk\+Camera$\ast$ Transform\+Activity\+::before\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A camera that contains matrix for the transformation of undoing. Initially nullptr. 
+
+
+
+Definition at line 19 of file Transform\+Activity.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_transform_activity_8h}{Transform\+Activity.\+h}}\item 
+S\+T\+L\+Editor/\mbox{\hyperlink{_transform_activity_8cpp}{Transform\+Activity.\+cpp}}\end{DoxyCompactItemize}

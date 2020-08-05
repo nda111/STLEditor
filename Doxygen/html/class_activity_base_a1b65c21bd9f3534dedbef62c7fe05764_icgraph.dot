@@ -1,0 +1,31 @@
+digraph "ActivityBase::getType"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="ActivityBase::getType",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Get the type of the activity."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="MainWindow::onUndoRedo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a2ec3dd50c4d8a47830f2e437383f2fa8",tooltip="Undo or redo an activity."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="MainWindow::raiseRedo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a2ddbce75908e9e962bf844aca6d2b4ca",tooltip="Raise redo event when redo action button clicked."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MainWindow::bindEvents",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a09e0ca2e7474a2049517496b4b5bd6d0",tooltip="Bind events with corresponding widget."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="MainWindow::MainWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#aeb2fa152a426d9b9d2272ef382879f3f",tooltip=" "];
+  Node3 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="MainWindow::OnKeyEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#add1ef441fb74a254e3204450422fd3b6",tooltip="Handle a keyboard event from STLWidget."];
+  Node6 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="MainWindow::raiseUndo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a4d447caa99a7519d6c7281b987912e0f",tooltip="Raise undo event when undo action button clicked."];
+  Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="ActivityManager::push",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_activity_manager.html#a8aa02f1f7df25f2509eb9b85ce671fe5",tooltip="Do something initially for the activity."];
+  Node8 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node9 [label="MainWindow::OnMouseEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#aa30a6952cbd9f262ffe6176a616bfaa5",tooltip="Handle a mouse event from STLWidget."];
+  Node9 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node10 [label="MainWindow::OnWheelEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a176a8b03cdcbc31e8a0fef86cad53365",tooltip="Handle a mouse wheel event from STLWidget."];
+  Node10 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+}

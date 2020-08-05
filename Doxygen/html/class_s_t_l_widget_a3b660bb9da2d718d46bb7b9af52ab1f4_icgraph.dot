@@ -1,0 +1,24 @@
+digraph "STLWidget::Clear"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="STLWidget::Clear",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Clear all fields."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="STLWidget::OpenSTL",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#ac587c00427f4acc5c4f8d6d0e5667d83",tooltip="Open or import the STL reader to display."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="MainWindow::MainWindow",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#aeb2fa152a426d9b9d2272ef382879f3f",tooltip=" "];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="MainWindow::openSTL",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#ae90da32f0dd4f1b40353dd97819e4016",tooltip="Open an STL file at path from open file dialog."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="MainWindow::bindEvents",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#a09e0ca2e7474a2049517496b4b5bd6d0",tooltip="Bind events with corresponding widget."];
+  Node5 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="MainWindow::OnKeyEvent",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_main_window.html#add1ef441fb74a254e3204450422fd3b6",tooltip="Handle a keyboard event from STLWidget."];
+  Node6 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node7 [label="STLWidget::OpenSTL",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a462bea484a3b57112424b178f7979d54",tooltip="Open or import the STL reader to display."];
+  Node1 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node8 [label="STLWidget::~STLWidget",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a658822730f35694a0e97b96316bb40e0",tooltip=" "];
+}
