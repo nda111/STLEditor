@@ -40,7 +40,7 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("MainWindow"));
+            MainWindow->setObjectName(QStringLiteral("STL Editor"));
         MainWindow->resize(800, 600);
 
         actionOpen = new QAction(MainWindow);
