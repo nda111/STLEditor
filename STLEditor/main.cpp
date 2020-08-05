@@ -12,7 +12,7 @@ VTK_MODULE_INIT(vtkInteractionStyle);
 int main(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
-	MainWindow win;
+	MainWindow win(argc, argv);
 	win.show();
 	return app.exec();
 }
