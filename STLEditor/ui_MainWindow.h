@@ -40,7 +40,7 @@ public:
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
-            MainWindow->setObjectName(QStringLiteral("STL Editor"));
+            MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(800, 600);
 
         actionOpen = new QAction(MainWindow);
@@ -87,7 +87,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "STL Editor", Q_NULLPTR));
         actionOpen->setText(QApplication::translate("MainWindow", "Open", Q_NULLPTR));
         actionUndo->setText(QApplication::translate("MainWindow", "Undo", Q_NULLPTR));
         actionRedo->setText(QApplication::translate("MainWindow", "Redo", Q_NULLPTR));
