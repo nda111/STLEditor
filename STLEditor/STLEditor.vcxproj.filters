@@ -18,10 +18,87 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>true</ParseFiles>
+    </Filter>
+    <Filter Include="Header Files\Activity">
+      <UniqueIdentifier>{b56e074a-ee59-4957-b02a-9d3545072695}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Activity">
+      <UniqueIdentifier>{fee9c18c-677d-4db1-b7f6-887181105521}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widgets">
+      <UniqueIdentifier>{e0a7a84d-08b7-40ee-a494-42f4a97ef427}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Widgets\STLWidget">
+      <UniqueIdentifier>{59450872-936d-483f-886c-9f9f275fa42c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Widgets">
+      <UniqueIdentifier>{7d5f5d58-04a1-4f02-9347-d0642993395f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Interactor">
+      <UniqueIdentifier>{ea979bbd-f538-4eb7-a880-e8c3af3693ca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MainWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActivityManager.cpp">
+      <Filter>Source Files\Activity</Filter>
+    </ClCompile>
+    <ClCompile Include="STLWidget.cpp">
+      <Filter>Source Files\Widgets</Filter>
+    </ClCompile>
+    <ClCompile Include="TransformActivity.cpp">
+      <Filter>Source Files\Activity</Filter>
+    </ClCompile>
+    <ClCompile Include="ZoomActivity.cpp">
+      <Filter>Source Files\Activity</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MainWindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="STLWidget.h">
+      <Filter>Header Files\Widgets\STLWidget</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="MainWindow.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="STLWidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ui_MainWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivityBase.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="ActivityManager.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_STLWidget.h">
+      <Filter>Header Files\Widgets\STLWidget</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomInteractorStyletrackballCamera.h">
+      <Filter>Header Files\Interactor</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformActivity.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="ZoomActivity.h">
+      <Filter>Header Files\Activity</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

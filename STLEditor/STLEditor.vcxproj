@@ -92,7 +92,29 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActivityManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainWindow.cpp" />
+    <ClCompile Include="STLWidget.cpp" />
+    <ClCompile Include="TransformActivity.cpp" />
+    <ClCompile Include="ZoomActivity.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="MainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="MainWindow.ui" />
+    <QtUic Include="STLWidget.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ActivityBase.h" />
+    <ClInclude Include="ActivityManager.h" />
+    <ClInclude Include="CustomInteractorStyletrackballCamera.h" />
+    <ClInclude Include="ui_STLWidget.h" />
+    <ClInclude Include="ZoomActivity.h" />
+    <QtMoc Include="STLWidget.h" />
+    <ClInclude Include="TransformActivity.h" />
+    <ClInclude Include="ui_MainWindow.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
