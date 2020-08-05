@@ -61,4 +61,9 @@ public: // Methods
 	/// </summary>
 	/// <returns>True if success, false, otherwise.</returns>
 	ActivityBase* redo(void);
+
+	/// <summary>
+	/// Clear all activities.
+	/// </summary>
+	void clear(void);
 };

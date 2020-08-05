@@ -91,3 +91,18 @@ ActivityBase* ActivityManager::redo(void)
 		return nullptr;
 	}
 }
+
+void ActivityManager::clear(void)
+{
+	while (!doneActivities->empty())
+	{
+		delete doneActivities->top();
+		doneActivities->pop();
+	}
+
+	while (!rolledBackActivities->empty())
+	{
+		delete rolledBackActivities->top();
+		rolledBackActivities->pop();
+	}
+}
