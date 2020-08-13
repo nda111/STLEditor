@@ -14,7 +14,7 @@ STLWidget::STLWidget(QWidget* parent) : QVTKOpenGLNativeWidget(parent)
 	QVTKInteractor* iren = this->GetInteractor();
 	iren->RemoveAllObservers();
 
-	mouseControlStyle = new CustomInteractorStyletrackballCamera;
+	mouseControlStyle = new ModedInteractorStyle();
 	this->GetRenderWindow()->GetInteractor()->SetInteractorStyle(mouseControlStyle);
 }
 

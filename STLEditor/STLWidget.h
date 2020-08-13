@@ -19,7 +19,7 @@
 #include <vtkInteractorStyle.h>
 #include <vtkInteractorStyleTrackballCamera.h>
 
-#include "CustomInteractorStyletrackballCamera.h"
+#include "ModedInteractorStyle.h"
 
 namespace Ui { class STLWidget; };
 
@@ -157,7 +157,7 @@ private: // Fields
 	/// <summary>
 	/// An interactor style that allows to control the object via mouse events.
 	/// </summary>
-	CustomInteractorStyletrackballCamera* mouseControlStyle = nullptr;
+	ModedInteractorStyle* mouseControlStyle = nullptr;
 
 public: // Constructors & Destructor
 	STLWidget(QWidget* parent = Q_NULLPTR);
