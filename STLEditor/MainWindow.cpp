@@ -307,6 +307,20 @@ void MainWindow::OnKeyEvent(QKeyEvent* e)
 				case Qt::Key::Key_O: // Open / Import
 					openSTL();
 					break;
+
+				case Qt::Key::Key_S:
+					if (this->selectionPolyData != nullptr)
+					{
+						QString fileName = QFileDialog::getSaveFileName(this, "Save", QDir::currentPath(), "Stereolithography (*.STL)");
+						if (!fileName.isEmpty())
+						{
+							vtkNew<vtkSTLWriter> writer;
+							writer->SetFileName(fileName.toStdString().c_str());
+							writer->SetInputConnection(this->selectionPolyData->GetOutputPort());
+							writer->Update();
+						}
+					}
+					break;
 				}
 			}
 		}
@@ -323,6 +337,23 @@ void MainWindow::OnKeyEvent(QKeyEvent* e)
 			case Qt::Key::Key_S:
 				this->ui->stlWidget->SetMode(ModedInteractorStyle::EMode::SELECTION);
 				puts("Mode: SELECTION");
+				break;
+
+			case Qt::Key::Key_Escape:
+				if (this->selectionPolyData != nullptr)
+				{
+					this->ui->stlWidget->GetRenderer()->RemoveActor(this->selectionActor);
+
+					this->selectionPolyData->Delete();
+					this->selectionMapper->Delete();
+					this->selectionActor->Delete();
+
+					this->selectionPolyData = nullptr;
+					this->selectionMapper = nullptr;
+					this->selectionActor = nullptr;
+
+					this->ui->stlWidget->Render();
+				}
 				break;
 			}
 		}
