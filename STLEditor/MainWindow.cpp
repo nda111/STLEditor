@@ -178,6 +178,19 @@ void MainWindow::openSTL()
 	case QMessageBox::Yes: // Open
 		fileName = QFileDialog::getOpenFileName(this, "Open", QDir::currentPath(), "Stereolithography (*.STL)");
 		this->manager->clear();
+
+		if (this->selectionPolyData != nullptr)
+		{
+			this->ui->stlWidget->GetRenderer()->RemoveActor(this->selectionActor);
+
+			this->selectionPolyData->Delete();
+			this->selectionMapper->Delete();
+			this->selectionActor->Delete();
+
+			this->selectionPolyData = nullptr;
+			this->selectionMapper = nullptr;
+			this->selectionActor = nullptr;
+		}
 		break;
 
 	case QMessageBox::No: // Import
