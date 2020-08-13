@@ -12,14 +12,19 @@
 #include <vtkMatrix4x4.h>
 #include <vtkMergeFilter.h>
 #include <vtkPropPicker.h>
+#include <vtkAreaPicker.h>
 #include <vtkProperty.h>
+#include <vtkProp3DCollection.h>
+#include <vtkSelectPolyData.h>
+#include <vtkPoints.h>
+#include <vtkExtractPolyDataGeometry.h>
+#include <vtkPlanes.h>
 
 #include "ui_MainWindow.h"
 #include "ActivityBase.h"
 #include "ActivityManager.h"
 #include "TransformActivity.h"
 #include "ZoomActivity.h"
-#include "SelectionActivity.h"
 
 namespace Ui { class MainWindow; };
 
@@ -53,9 +58,29 @@ private: // Fields
 	ActivityManager* manager = nullptr;
 
 	/// <summary>
-	/// The actor of last picked object.
+	/// Poly data geometry of selected surface.
 	/// </summary>
-	vtkActor* pickedActor = nullptr;
+	vtkExtractPolyDataGeometry* selectionPolyData = nullptr;
+
+	/// <summary>
+	/// A poly data mapper of selected surface.
+	/// </summary>
+	vtkPolyDataMapper* selectionMapper = nullptr;
+
+	/// <summary>
+	/// An actor of selected surface.
+	/// </summary>
+	vtkActor* selectionActor = nullptr;
+
+	/// <summary>
+	// Transformation of when the mouse button pressed.
+	/// </summary>
+	vtkCamera* initialView;
+
+	/// <summary>
+	// Location where the mouse button has pressed.
+	/// </summary>
+	int downPosition[2];
 
 public: // Constructor & Destructor
 	MainWindow(int argc, char* argv[], QWidget* parent = Q_NULLPTR);
@@ -77,10 +102,11 @@ private: // Methods
 	void onUndoRedo(const ActivityBase* const activity);
 
 	/// <summary>
-	/// Pick an object on the screen.
+	/// Select rectangle area on an object.
 	/// </summary>
-	/// <param name="screenX">A new selected actor which might be null.</param>
-	void pick(vtkActor* const actor);
+	/// <param name="p1">The first point that defines a rectangle.</param>
+	/// <param name="p2">The second point that defines a rectangle.</param>
+	void select(const int* const p1, const int* const p2);
 
 public Q_SLOTS: // Slots
 	/// <summary>
