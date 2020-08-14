@@ -1,11 +1,11 @@
 #pragma once
 
-#include <vtkInteractorStyleTrackballCamera.h>
+#include <vtkInteractorStyleRubberBandPick.h>
 
 /// <summary>
 /// A class that represents mode-customizable interaction style.
 /// </summary>
-class ModedInteractorStyle : public vtkInteractorStyleTrackballCamera
+class ModedInteractorStyle : public vtkInteractorStyleRubberBandPick
 {
 public: // Inner class
 	/// <summary>
@@ -31,6 +31,12 @@ private:
 	EMode mode = EMode::TRANSFORM;
 
 public:
+	ModedInteractorStyle() : vtkInteractorStyleRubberBandPick()
+	{
+		/* EMPTY */
+	}
+
+public:
 	/// <summary>
 	/// Get the current interactor style.
 	/// </summary>
@@ -47,6 +53,17 @@ public:
 	void SetMode(const EMode mode)
 	{
 		this->mode = mode;
+
+		switch (mode)
+		{
+		case EMode::TRANSFORM:
+			this->CurrentMode = 0;
+			break;
+
+		case EMode::SELECTION:
+			this->CurrentMode = 1;
+			break;
+		}
 	}
 
 public:
@@ -55,11 +72,11 @@ public:
 		switch (this->mode)
 		{
 		case EMode::TRANSFORM:
-			vtkInteractorStyleTrackballCamera::OnMiddleButtonDown();
+			vtkInteractorStyleRubberBandPick::OnMiddleButtonDown();
 			break;
 
 		case EMode::SELECTION:
-			/* EMPTY */
+			vtkInteractorStyleRubberBandPick::OnLeftButtonDown();
 			break;
 		}
 	}
@@ -69,11 +86,11 @@ public:
 		switch (this->mode)
 		{
 		case EMode::TRANSFORM:
-			vtkInteractorStyleTrackballCamera::OnMiddleButtonUp();
+			vtkInteractorStyleRubberBandPick::OnMiddleButtonUp();
 			break;
 
 		case EMode::SELECTION:
-			/* EMPTY */
+			vtkInteractorStyleRubberBandPick::OnLeftButtonUp();
 			break;
 		}
 	}
@@ -83,7 +100,7 @@ public:
 		switch (this->mode)
 		{
 		case EMode::TRANSFORM:
-			vtkInteractorStyleTrackballCamera::OnLeftButtonDown();
+			vtkInteractorStyleRubberBandPick::OnLeftButtonDown();
 			break;
 
 		case EMode::SELECTION:
@@ -97,7 +114,7 @@ public:
 		switch (this->mode)
 		{
 		case EMode::TRANSFORM:
-			vtkInteractorStyleTrackballCamera::OnLeftButtonUp();
+			vtkInteractorStyleRubberBandPick::OnLeftButtonUp();
 			break;
 
 		case EMode::SELECTION:
