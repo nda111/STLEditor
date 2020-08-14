@@ -141,7 +141,7 @@ void MainWindow::select(const int* const p1, const int* const p2)
 
 			this->ui->stlWidget->GetRenderer()->AddActor(this->selectionActor);
 		}
-		else
+		else if (this->selectionMapper != nullptr)
 		{
 			this->selectionMapper->Delete();
 
