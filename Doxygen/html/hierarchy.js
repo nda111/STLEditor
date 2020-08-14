@@ -1,7 +1,6 @@
 var hierarchy =
 [
     [ "ActivityBase", "class_activity_base.html", [
-      [ "SelectionActivity", "class_selection_activity.html", null ],
       [ "TransformActivity", "class_transform_activity.html", null ],
       [ "ZoomActivity", "class_zoom_activity.html", null ]
     ] ],
@@ -19,7 +18,7 @@ var hierarchy =
     [ "Ui_STLWidget", "class_ui___s_t_l_widget.html", [
       [ "Ui::STLWidget", "class_ui_1_1_s_t_l_widget.html", null ]
     ] ],
-    [ "vtkInteractorStyleTrackballCamera", null, [
-      [ "CustomInteractorStyletrackballCamera", "class_custom_interactor_styletrackball_camera.html", null ]
+    [ "vtkInteractorStyleRubberBandPick", null, [
+      [ "ModedInteractorStyle", "class_moded_interactor_style.html", null ]
     ] ]
 ];

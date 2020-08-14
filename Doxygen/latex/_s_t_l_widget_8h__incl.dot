@@ -1,9 +1,9 @@
-digraph "STLEditor/STLWidget.h"
+digraph "C:/Users/nda11/source/Git/STLEditor/STLEditor/STLWidget.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="STLEditor/STLWidget.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/STLWidget.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="vector",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
@@ -37,6 +37,7 @@ digraph "STLEditor/STLWidget.h"
   Node1 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
   Node17 [label="vtkInteractorStyleTrackball\lCamera.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
-  Node18 [label="CustomInteractorStyletrackball\lCamera.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_custom_interactor_styletrackball_camera_8h.html",tooltip=" "];
-  Node18 -> Node17 [color="midnightblue",fontsize="10",style="solid"];
+  Node18 [label="ModedInteractorStyle.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_moded_interactor_style_8h.html",tooltip=" "];
+  Node18 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
+  Node19 [label="vtkInteractorStyleRubber\lBandPick.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

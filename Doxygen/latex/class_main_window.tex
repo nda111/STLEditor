@@ -51,8 +51,8 @@ void \mbox{\hyperlink{class_main_window_a09e0ca2e7474a2049517496b4b5bd6d0}{bind\
 \begin{DoxyCompactList}\small\item\em Bind events with corresponding widget. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_main_window_a2ec3dd50c4d8a47830f2e437383f2fa8}{on\+Undo\+Redo}} (const \mbox{\hyperlink{class_activity_base}{Activity\+Base}} $\ast$const activity)
 \begin{DoxyCompactList}\small\item\em Undo or redo an activity. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{class_main_window_ac8af4f32e38ed985f35c10cd7044f1f0}{pick}} (vtk\+Actor $\ast$const actor)
-\begin{DoxyCompactList}\small\item\em Pick an object on the screen. \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \mbox{\hyperlink{class_main_window_a1342fae0f96ba2888481a6bce03df2f0}{select}} (const int $\ast$const p1, const int $\ast$const p2)
+\begin{DoxyCompactList}\small\item\em Select rectangle area on an object. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Private Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -64,8 +64,16 @@ char $\ast$$\ast$ \mbox{\hyperlink{class_main_window_acc3915ff1a786f36392f8ccfd1
 \begin{DoxyCompactList}\small\item\em A list of system arguments. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{class_activity_manager}{Activity\+Manager}} $\ast$ \mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}} = nullptr
 \begin{DoxyCompactList}\small\item\em An activity manager for several actions on the program. \end{DoxyCompactList}\item 
-vtk\+Actor $\ast$ \mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{picked\+Actor}} = nullptr
-\begin{DoxyCompactList}\small\item\em The actor of last picked object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+vtk\+Extract\+Poly\+Data\+Geometry $\ast$ \mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selection\+Poly\+Data}} = nullptr
+\begin{DoxyCompactList}\small\item\em Poly data geometry of selected surface. \end{DoxyCompactList}\item 
+vtk\+Poly\+Data\+Mapper $\ast$ \mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selection\+Mapper}} = nullptr
+\begin{DoxyCompactList}\small\item\em A poly data mapper of selected surface. \end{DoxyCompactList}\item 
+vtk\+Actor $\ast$ \mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selection\+Actor}} = nullptr
+\begin{DoxyCompactList}\small\item\em An actor of selected surface. \end{DoxyCompactList}\item 
+vtk\+Camera $\ast$ \mbox{\hyperlink{class_main_window_a536d0cccf1254c86554eb22305cd07e1}{initial\+View}}
+\item 
+int \mbox{\hyperlink{class_main_window_aa9da7bc48826108f19993de6281eb7b8}{down\+Position}} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -73,7 +81,7 @@ A window class that represents the main window.
 
 
 
-Definition at line 29 of file Main\+Window.\+h.
+Definition at line 34 of file Main\+Window.\+h.
 
 
 
@@ -187,46 +195,93 @@ Handle a keyboard event from \mbox{\hyperlink{class_s_t_l_widget}{S\+T\+L\+Widge
 
 $<$param name=\char`\"{}e\char`\"{}The event arguments.$>$
 
-Definition at line 251 of file Main\+Window.\+cpp.
+Definition at line 278 of file Main\+Window.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{252 \{}
-\DoxyCodeLine{253     \textcolor{comment}{// Key press event}}
-\DoxyCodeLine{254     \textcolor{keywordflow}{if} (e-\/>type() == QKeyEvent::KeyPress)}
-\DoxyCodeLine{255     \{}
-\DoxyCodeLine{256         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} bControl = (e-\/>modifiers() \& Qt::KeyboardModifier::ControlModifier) == Qt::KeyboardModifier::ControlModifier;}
-\DoxyCodeLine{257         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} bShift = (e-\/>modifiers() \& Qt::KeyboardModifier::ShiftModifier) == Qt::KeyboardModifier::ShiftModifier;}
-\DoxyCodeLine{258 }
-\DoxyCodeLine{259         \textcolor{keywordflow}{if} (bControl)}
-\DoxyCodeLine{260         \{}
-\DoxyCodeLine{261             \textcolor{comment}{// Ctrl + Shift}}
-\DoxyCodeLine{262             \textcolor{keywordflow}{if} (bShift)}
-\DoxyCodeLine{263             \{}
-\DoxyCodeLine{264                 \textcolor{keywordflow}{switch} (e-\/>key())}
-\DoxyCodeLine{265                 \{}
-\DoxyCodeLine{266                 \textcolor{keywordflow}{case} Qt::Key::Key\_Z: \textcolor{comment}{// Redo}}
-\DoxyCodeLine{267                     \mbox{\hyperlink{class_main_window_a2ddbce75908e9e962bf844aca6d2b4ca}{raiseRedo}}();}
-\DoxyCodeLine{268                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{269                 \}}
-\DoxyCodeLine{270             \}}
-\DoxyCodeLine{271             \textcolor{comment}{// Ctrl}}
-\DoxyCodeLine{272             \textcolor{keywordflow}{else}}
-\DoxyCodeLine{273             \{}
-\DoxyCodeLine{274                 \textcolor{keywordflow}{switch} (e-\/>key())}
-\DoxyCodeLine{275                 \{}
-\DoxyCodeLine{276                 \textcolor{keywordflow}{case} Qt::Key::Key\_Z: \textcolor{comment}{// Undo}}
-\DoxyCodeLine{277                     \mbox{\hyperlink{class_main_window_a4d447caa99a7519d6c7281b987912e0f}{raiseUndo}}();}
-\DoxyCodeLine{278                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{279 }
-\DoxyCodeLine{280                 \textcolor{keywordflow}{case} Qt::Key::Key\_O: \textcolor{comment}{// Open / Import}}
-\DoxyCodeLine{281                     \mbox{\hyperlink{class_main_window_ae90da32f0dd4f1b40353dd97819e4016}{openSTL}}();}
-\DoxyCodeLine{282                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{283                 \}}
-\DoxyCodeLine{284             \}}
-\DoxyCodeLine{285         \}}
-\DoxyCodeLine{286     \}}
-\DoxyCodeLine{287 \}}
+\DoxyCodeLine{279 \{}
+\DoxyCodeLine{280     \textcolor{comment}{// Key press event}}
+\DoxyCodeLine{281     \textcolor{keywordflow}{if} (e-\/>type() == QKeyEvent::KeyPress)}
+\DoxyCodeLine{282     \{}
+\DoxyCodeLine{283         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} bControl = (e-\/>modifiers() \& Qt::KeyboardModifier::ControlModifier) == Qt::KeyboardModifier::ControlModifier;}
+\DoxyCodeLine{284         \textcolor{keyword}{const} \textcolor{keywordtype}{bool} bShift = (e-\/>modifiers() \& Qt::KeyboardModifier::ShiftModifier) == Qt::KeyboardModifier::ShiftModifier;}
+\DoxyCodeLine{285 }
+\DoxyCodeLine{286         \textcolor{keywordflow}{if} (bControl)}
+\DoxyCodeLine{287         \{}
+\DoxyCodeLine{288             \textcolor{comment}{// Ctrl + Shift}}
+\DoxyCodeLine{289             \textcolor{keywordflow}{if} (bShift)}
+\DoxyCodeLine{290             \{}
+\DoxyCodeLine{291                 \textcolor{keywordflow}{switch} (e-\/>key())}
+\DoxyCodeLine{292                 \{}
+\DoxyCodeLine{293                 \textcolor{keywordflow}{case} Qt::Key::Key\_Z: \textcolor{comment}{// Redo}}
+\DoxyCodeLine{294                     \mbox{\hyperlink{class_main_window_a2ddbce75908e9e962bf844aca6d2b4ca}{raiseRedo}}();}
+\DoxyCodeLine{295                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{296                 \}}
+\DoxyCodeLine{297             \}}
+\DoxyCodeLine{298             \textcolor{comment}{// Ctrl}}
+\DoxyCodeLine{299             \textcolor{keywordflow}{else}}
+\DoxyCodeLine{300             \{}
+\DoxyCodeLine{301                 \textcolor{keywordflow}{switch} (e-\/>key())}
+\DoxyCodeLine{302                 \{}
+\DoxyCodeLine{303                 \textcolor{keywordflow}{case} Qt::Key::Key\_Z: \textcolor{comment}{// Undo}}
+\DoxyCodeLine{304                     \mbox{\hyperlink{class_main_window_a4d447caa99a7519d6c7281b987912e0f}{raiseUndo}}();}
+\DoxyCodeLine{305                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{306 }
+\DoxyCodeLine{307                 \textcolor{keywordflow}{case} Qt::Key::Key\_O: \textcolor{comment}{// Open / Import}}
+\DoxyCodeLine{308                     \mbox{\hyperlink{class_main_window_ae90da32f0dd4f1b40353dd97819e4016}{openSTL}}();}
+\DoxyCodeLine{309                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{310 }
+\DoxyCodeLine{311                 \textcolor{keywordflow}{case} Qt::Key::Key\_S:}
+\DoxyCodeLine{312                     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{313                     \{}
+\DoxyCodeLine{314                         QString fileName = QFileDialog::getSaveFileName(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Save"}, QDir::currentPath(), \textcolor{stringliteral}{"Stereolithography (*.STL)"});}
+\DoxyCodeLine{315                         \textcolor{keywordflow}{if} (!fileName.isEmpty())}
+\DoxyCodeLine{316                         \{}
+\DoxyCodeLine{317                             vtkNew<vtkSTLWriter> writer;}
+\DoxyCodeLine{318                             writer-\/>SetFileName(fileName.toStdString().c\_str());}
+\DoxyCodeLine{319                             writer-\/>SetInputConnection(this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>GetOutputPort());}
+\DoxyCodeLine{320                             writer-\/>Update();}
+\DoxyCodeLine{321                         \}}
+\DoxyCodeLine{322                     \}}
+\DoxyCodeLine{323                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{324                 \}}
+\DoxyCodeLine{325             \}}
+\DoxyCodeLine{326         \}}
+\DoxyCodeLine{327         \textcolor{comment}{// No compound key}}
+\DoxyCodeLine{328         \textcolor{keywordflow}{else}}
+\DoxyCodeLine{329         \{}
+\DoxyCodeLine{330             \textcolor{keywordflow}{switch} (e-\/>key())}
+\DoxyCodeLine{331             \{}
+\DoxyCodeLine{332             \textcolor{keywordflow}{case} Qt::Key::Key\_T:}
+\DoxyCodeLine{333                 this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a66906b48957e7cfc6b6d5631d8d319cc}{SetMode}}(\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{ModedInteractorStyle::EMode::TRANSFORM}});}
+\DoxyCodeLine{334                 puts(\textcolor{stringliteral}{"Mode: TRANSFORM"});}
+\DoxyCodeLine{335                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{336 }
+\DoxyCodeLine{337             \textcolor{keywordflow}{case} Qt::Key::Key\_S:}
+\DoxyCodeLine{338                 this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a66906b48957e7cfc6b6d5631d8d319cc}{SetMode}}(\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{ModedInteractorStyle::EMode::SELECTION}});}
+\DoxyCodeLine{339                 puts(\textcolor{stringliteral}{"Mode: SELECTION"});}
+\DoxyCodeLine{340                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{341 }
+\DoxyCodeLine{342             \textcolor{keywordflow}{case} Qt::Key::Key\_Escape:}
+\DoxyCodeLine{343                 \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{344                 \{}
+\DoxyCodeLine{345                     this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>RemoveActor(this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}});}
+\DoxyCodeLine{346 }
+\DoxyCodeLine{347                     this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>Delete();}
+\DoxyCodeLine{348                     this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}}-\/>Delete();}
+\DoxyCodeLine{349                     this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}}-\/>Delete();}
+\DoxyCodeLine{350 }
+\DoxyCodeLine{351                     this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{352                     this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{353                     this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{354 }
+\DoxyCodeLine{355                     this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
+\DoxyCodeLine{356                 \}}
+\DoxyCodeLine{357                 \textcolor{keywordflow}{break};}
+\DoxyCodeLine{358             \}}
+\DoxyCodeLine{359         \}}
+\DoxyCodeLine{360     \}}
+\DoxyCodeLine{361 \}}
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
@@ -245,80 +300,57 @@ Handle a mouse event from \mbox{\hyperlink{class_s_t_l_widget}{S\+T\+L\+Widget}}
 
 $<$param name=\char`\"{}e\char`\"{}The event arguments.$>$
 
-Definition at line 162 of file Main\+Window.\+cpp.
+Definition at line 212 of file Main\+Window.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{163 \{}
-\DoxyCodeLine{164     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ROTATION\_STEP = 100.0;}
-\DoxyCodeLine{165 }
-\DoxyCodeLine{166     \textcolor{keyword}{static} Qt::MouseButton clickedBtn = Qt::MouseButton::NoButton;}
-\DoxyCodeLine{167 }
-\DoxyCodeLine{168     \textcolor{comment}{// Transformation of when the mouse button pressed.}}
-\DoxyCodeLine{169     \textcolor{keyword}{static} vtkCamera* initialView;}
-\DoxyCodeLine{170 }
-\DoxyCodeLine{171     \textcolor{comment}{// Location where the mouse button has pressed.}}
-\DoxyCodeLine{172     \textcolor{keyword}{static} QPoint downPosition;}
-\DoxyCodeLine{173 }
-\DoxyCodeLine{174     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}{HasHolder}}())}
-\DoxyCodeLine{175     \{}
-\DoxyCodeLine{176         \textcolor{keywordflow}{switch} (e-\/>type())}
-\DoxyCodeLine{177         \{}
-\DoxyCodeLine{178         \textcolor{keywordflow}{case} QMouseEvent::Type::MouseButtonPress: \textcolor{comment}{// Turn the command switch ON}}
-\DoxyCodeLine{179             \textcolor{keywordflow}{if} (clickedBtn == Qt::MouseButton::NoButton)}
-\DoxyCodeLine{180             \{}
-\DoxyCodeLine{181                 \textcolor{keywordflow}{switch} (e-\/>button())}
-\DoxyCodeLine{182                 \{}
-\DoxyCodeLine{183                 \textcolor{keywordflow}{case} Qt::MouseButton::LeftButton: \textcolor{comment}{// Translation}}
-\DoxyCodeLine{184                 \textcolor{keywordflow}{case} Qt::MouseButton::RightButton: \textcolor{comment}{// Rotation}}
-\DoxyCodeLine{185                     clickedBtn = e-\/>button();}
-\DoxyCodeLine{186                     downPosition = e-\/>pos();}
-\DoxyCodeLine{187 }
-\DoxyCodeLine{188                     vtkCamera* cam = this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>GetActiveCamera();}
-\DoxyCodeLine{189                     initialView = vtkCamera::New();}
-\DoxyCodeLine{190                     initialView-\/>DeepCopy(cam);}
-\DoxyCodeLine{191                     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{192                 \}}
-\DoxyCodeLine{193             \}}
-\DoxyCodeLine{194             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{195 }
-\DoxyCodeLine{196         \textcolor{keywordflow}{case} QMouseEvent::Type::MouseButtonRelease: \textcolor{comment}{// Turn the command switch OFF}}
-\DoxyCodeLine{197             \textcolor{keywordflow}{if} (clickedBtn == e-\/>button())}
-\DoxyCodeLine{198             \{}
-\DoxyCodeLine{199                 clickedBtn = Qt::MouseButton::NoButton;}
-\DoxyCodeLine{200 }
-\DoxyCodeLine{201                 \textcolor{keyword}{const} QPoint currentPosition = e-\/>pos();}
-\DoxyCodeLine{202                 \textcolor{keywordflow}{if} (downPosition != currentPosition) \textcolor{comment}{// Drag}}
-\DoxyCodeLine{203                 \{}
-\DoxyCodeLine{204                     vtkCamera* cam = this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>GetActiveCamera();}
-\DoxyCodeLine{205 }
-\DoxyCodeLine{206                     \mbox{\hyperlink{class_transform_activity}{TransformActivity}}* activity = \textcolor{keyword}{new} \mbox{\hyperlink{class_transform_activity}{TransformActivity}}(initialView, cam);}
-\DoxyCodeLine{207                     this-\/>\mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}}-\/>\mbox{\hyperlink{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}{push}}(activity);}
-\DoxyCodeLine{208 }
-\DoxyCodeLine{209                     initialView-\/>Delete();}
-\DoxyCodeLine{210                     initialView = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{211 }
-\DoxyCodeLine{212                     \mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
-\DoxyCodeLine{213                 \}}
-\DoxyCodeLine{214                 \textcolor{keywordflow}{else} \textcolor{comment}{// Cilck}}
-\DoxyCodeLine{215                 \{}
-\DoxyCodeLine{216                     \textcolor{keyword}{const} \textcolor{keywordtype}{int}* \textcolor{keyword}{const} ePos = this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>GetInteractor()-\/>GetEventPosition();}
-\DoxyCodeLine{217                     vtkNew<vtkPropPicker> picker;}
-\DoxyCodeLine{218                     picker-\/>Pick(ePos[0], ePos[1], 0, this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}());}
-\DoxyCodeLine{219 }
-\DoxyCodeLine{220                     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{pickedActor}} != picker-\/>GetActor())}
-\DoxyCodeLine{221                     \{}
-\DoxyCodeLine{222                         \mbox{\hyperlink{class_selection_activity}{SelectionActivity}}* activity = \textcolor{keyword}{new} \mbox{\hyperlink{class_selection_activity}{SelectionActivity}}(this-\/>\mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{pickedActor}}, picker-\/>GetActor());}
-\DoxyCodeLine{223                         this-\/>\mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}}-\/>\mbox{\hyperlink{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}{push}}(activity);}
-\DoxyCodeLine{224 }
-\DoxyCodeLine{225                         this-\/>\mbox{\hyperlink{class_main_window_ac8af4f32e38ed985f35c10cd7044f1f0}{pick}}(picker-\/>GetActor());}
-\DoxyCodeLine{226                     \}}
-\DoxyCodeLine{227                 \}}
-\DoxyCodeLine{228             \}}
-\DoxyCodeLine{229             \textcolor{keywordflow}{break};}
-\DoxyCodeLine{230         \}}
-\DoxyCodeLine{231     \}}
-\DoxyCodeLine{232 \}}
+\DoxyCodeLine{213 \{}
+\DoxyCodeLine{214     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ROTATION\_STEP = 100.0;}
+\DoxyCodeLine{215 }
+\DoxyCodeLine{216     \textcolor{keyword}{static} Qt::MouseButton clickedBtn = Qt::MouseButton::NoButton;}
+\DoxyCodeLine{217 }
+\DoxyCodeLine{218     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}{HasHolder}}())}
+\DoxyCodeLine{219     \{}
+\DoxyCodeLine{220         \textcolor{keywordflow}{switch} (e-\/>type())}
+\DoxyCodeLine{221         \{}
+\DoxyCodeLine{222         \textcolor{keywordflow}{case} QMouseEvent::Type::MouseButtonPress: \textcolor{comment}{// Turn the command switch ON}}
+\DoxyCodeLine{223             \textcolor{keywordflow}{if} (clickedBtn == Qt::MouseButton::NoButton)}
+\DoxyCodeLine{224             \{}
+\DoxyCodeLine{225                 \textcolor{keywordflow}{switch} (e-\/>button())}
+\DoxyCodeLine{226                 \{}
+\DoxyCodeLine{227                 \textcolor{keywordflow}{case} Qt::MouseButton::LeftButton: \textcolor{comment}{// Translation}}
+\DoxyCodeLine{228                 \textcolor{keywordflow}{case} Qt::MouseButton::RightButton: \textcolor{comment}{// Rotation}}
+\DoxyCodeLine{229                     clickedBtn = e-\/>button();}
+\DoxyCodeLine{230                     this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>GetInteractor()-\/>GetEventPosition(this-\/>\mbox{\hyperlink{class_main_window_aa9da7bc48826108f19993de6281eb7b8}{downPosition}});}
+\DoxyCodeLine{231 }
+\DoxyCodeLine{232                     vtkCamera* cam = this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>GetActiveCamera();}
+\DoxyCodeLine{233                     this-\/>\mbox{\hyperlink{class_main_window_a536d0cccf1254c86554eb22305cd07e1}{initialView}} = vtkCamera::New();}
+\DoxyCodeLine{234                     this-\/>\mbox{\hyperlink{class_main_window_a536d0cccf1254c86554eb22305cd07e1}{initialView}}-\/>DeepCopy(cam);}
+\DoxyCodeLine{235                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{236                 \}}
+\DoxyCodeLine{237             \}}
+\DoxyCodeLine{238             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{239 }
+\DoxyCodeLine{240         \textcolor{keywordflow}{case} QMouseEvent::Type::MouseButtonRelease: \textcolor{comment}{// Turn the command switch OFF}}
+\DoxyCodeLine{241             \textcolor{keywordflow}{if} (clickedBtn == e-\/>button())}
+\DoxyCodeLine{242             \{}
+\DoxyCodeLine{243                 \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a0e02e0abaa4056ad8ae6053bac2c48d9}{GetMode}}() == \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{ModedInteractorStyle::EMode::SELECTION}})}
+\DoxyCodeLine{244                 \{}
+\DoxyCodeLine{245                     \textcolor{keywordflow}{if} (clickedBtn == Qt::MouseButton::LeftButton)}
+\DoxyCodeLine{246                     \{}
+\DoxyCodeLine{247                         \textcolor{keyword}{const} \textcolor{keywordtype}{int}* \textcolor{keyword}{const} pos = this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>GetInteractor()-\/>GetEventPosition();}
+\DoxyCodeLine{248                         this-\/>\mbox{\hyperlink{class_main_window_a1342fae0f96ba2888481a6bce03df2f0}{select}}(\mbox{\hyperlink{class_main_window_aa9da7bc48826108f19993de6281eb7b8}{downPosition}}, pos);}
+\DoxyCodeLine{249 }
+\DoxyCodeLine{250                         this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a66906b48957e7cfc6b6d5631d8d319cc}{SetMode}}(\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{ModedInteractorStyle::EMode::TRANSFORM}});}
+\DoxyCodeLine{251                     \}}
+\DoxyCodeLine{252                 \}}
+\DoxyCodeLine{253 }
+\DoxyCodeLine{254                 clickedBtn = Qt::MouseButton::NoButton;}
+\DoxyCodeLine{255             \}}
+\DoxyCodeLine{256             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{257         \}}
+\DoxyCodeLine{258     \}}
+\DoxyCodeLine{259 \}}
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
@@ -353,7 +385,7 @@ Definition at line 80 of file Main\+Window.\+cpp.
 \DoxyCodeLine{85     \{}
 \DoxyCodeLine{86     \textcolor{keywordflow}{case} \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056dac4bd4daef9a9217247c24768d88c40e6}{ActivityBase::EType::TRANSFORMATION}}:}
 \DoxyCodeLine{87     \{}
-\DoxyCodeLine{88         \mbox{\hyperlink{class_transform_activity}{TransformActivity}}* transformation= (\mbox{\hyperlink{class_transform_activity}{TransformActivity}}*)activity;}
+\DoxyCodeLine{88         \mbox{\hyperlink{class_transform_activity}{TransformActivity}}* transformation = (\mbox{\hyperlink{class_transform_activity}{TransformActivity}}*)activity;}
 \DoxyCodeLine{89         camera-\/>DeepCopy(transformation-\/>\mbox{\hyperlink{class_transform_activity_a01c456701ffd301259e9b053533e914f}{getView}}());}
 \DoxyCodeLine{90     \}}
 \DoxyCodeLine{91     \textcolor{keywordflow}{break};}
@@ -364,17 +396,10 @@ Definition at line 80 of file Main\+Window.\+cpp.
 \DoxyCodeLine{96         camera-\/>Zoom(zoom-\/>\mbox{\hyperlink{class_zoom_activity_abc3d9aa0e4cb77605696126afa05e59d}{getZoomFactor}}());}
 \DoxyCodeLine{97     \}}
 \DoxyCodeLine{98     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{99 }
-\DoxyCodeLine{100     \textcolor{keywordflow}{case} \mbox{\hyperlink{class_activity_base_ab616a0dc67e1b39102b74c90f695056da63225f19fccb18e7c709f1fa11bc738e}{ActivityBase::EType::SELECT}}:}
-\DoxyCodeLine{101     \{}
-\DoxyCodeLine{102         \mbox{\hyperlink{class_selection_activity}{SelectionActivity}}* selection = (\mbox{\hyperlink{class_selection_activity}{SelectionActivity}}*)activity;}
-\DoxyCodeLine{103         this-\/>\mbox{\hyperlink{class_main_window_ac8af4f32e38ed985f35c10cd7044f1f0}{pick}}(selection-\/>\mbox{\hyperlink{class_selection_activity_ab5cb6b72c0680ee995986d19d3cf6a86}{getActor}}());}
-\DoxyCodeLine{104     \}}
-\DoxyCodeLine{105     \textcolor{keywordflow}{break};}
-\DoxyCodeLine{106     \}}
-\DoxyCodeLine{107 }
-\DoxyCodeLine{108     this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
-\DoxyCodeLine{109 \}}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
+\DoxyCodeLine{102 \}}
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
@@ -393,25 +418,25 @@ Handle a mouse wheel event from \mbox{\hyperlink{class_s_t_l_widget}{S\+T\+L\+Wi
 
 $<$param name=\char`\"{}e\char`\"{}The event arguments.$>$
 
-Definition at line 234 of file Main\+Window.\+cpp.
+Definition at line 261 of file Main\+Window.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{235 \{}
-\DoxyCodeLine{236     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZOOM\_STEP\_INC = 1.3;}
-\DoxyCodeLine{237     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZOOM\_STEP\_DEC = 1.0 / ZOOM\_STEP\_INC;}
-\DoxyCodeLine{238 }
-\DoxyCodeLine{239     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}{HasHolder}}())}
-\DoxyCodeLine{240     \{}
-\DoxyCodeLine{241         \textcolor{keyword}{const} \textcolor{keywordtype}{double} step = e-\/>delta() > 0 ? ZOOM\_STEP\_INC : ZOOM\_STEP\_DEC;}
-\DoxyCodeLine{242 }
-\DoxyCodeLine{243         \mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}* \textcolor{keyword}{const} zoom = \textcolor{keyword}{new} \mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}(1.0 / step);}
-\DoxyCodeLine{244         this-\/>\mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}}-\/>\mbox{\hyperlink{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}{push}}(zoom);}
-\DoxyCodeLine{245 }
-\DoxyCodeLine{246         \mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>GetActiveCamera()-\/>Zoom(step);}
-\DoxyCodeLine{247         \mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
-\DoxyCodeLine{248     \}}
-\DoxyCodeLine{249 \}}
+\DoxyCodeLine{262 \{}
+\DoxyCodeLine{263     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZOOM\_STEP\_INC = 1.3;}
+\DoxyCodeLine{264     \textcolor{keyword}{static} \textcolor{keyword}{const} \textcolor{keywordtype}{double} ZOOM\_STEP\_DEC = 1.0 / ZOOM\_STEP\_INC;}
+\DoxyCodeLine{265 }
+\DoxyCodeLine{266     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}{HasHolder}}())}
+\DoxyCodeLine{267     \{}
+\DoxyCodeLine{268         \textcolor{keyword}{const} \textcolor{keywordtype}{double} step = e-\/>delta() > 0 ? ZOOM\_STEP\_INC : ZOOM\_STEP\_DEC;}
+\DoxyCodeLine{269 }
+\DoxyCodeLine{270         \mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}* \textcolor{keyword}{const} zoom = \textcolor{keyword}{new} \mbox{\hyperlink{class_zoom_activity}{ZoomActivity}}(1.0 / step);}
+\DoxyCodeLine{271         this-\/>\mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}}-\/>\mbox{\hyperlink{class_activity_manager_a8aa02f1f7df25f2509eb9b85ce671fe5}{push}}(zoom);}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273         \mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>GetActiveCamera()-\/>Zoom(step);}
+\DoxyCodeLine{274         \mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
+\DoxyCodeLine{275     \}}
+\DoxyCodeLine{276 \}}
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
@@ -430,88 +455,63 @@ Open an S\+TL file at path from open file dialog.
 
 
 
-Definition at line 125 of file Main\+Window.\+cpp.
+Definition at line 163 of file Main\+Window.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{126 \{}
-\DoxyCodeLine{127     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} openState = \textcolor{keyword}{false};}
-\DoxyCodeLine{128 }
-\DoxyCodeLine{129     QMessageBox::StandardButton reply = QMessageBox::Yes;}
-\DoxyCodeLine{130     \textcolor{keywordflow}{if} (openState)}
-\DoxyCodeLine{131     \{}
-\DoxyCodeLine{132         reply = QMessageBox::question(\textcolor{keyword}{this},}
-\DoxyCodeLine{133             \textcolor{stringliteral}{"Open"}, \textcolor{stringliteral}{"Do you want to close previous file(s)?"},}
-\DoxyCodeLine{134             QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);}
-\DoxyCodeLine{135     \}}
-\DoxyCodeLine{136 }
-\DoxyCodeLine{137     QString fileName = \textcolor{stringliteral}{""};}
-\DoxyCodeLine{138     \textcolor{keywordflow}{switch} (reply)}
-\DoxyCodeLine{139     \{}
-\DoxyCodeLine{140     \textcolor{keywordflow}{case} QMessageBox::Yes: \textcolor{comment}{// Open}}
-\DoxyCodeLine{141         fileName = QFileDialog::getOpenFileName(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Open"}, QDir::currentPath(), \textcolor{stringliteral}{"Stereolithography (*.STL)"});}
-\DoxyCodeLine{142         this-\/>\mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{pickedActor}} = \textcolor{keyword}{nullptr};}
-\DoxyCodeLine{143         this-\/>\mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}}-\/>\mbox{\hyperlink{class_activity_manager_aae34a29e2476905883bcd073bb47f03e}{clear}}();}
-\DoxyCodeLine{144         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{145 }
-\DoxyCodeLine{146     \textcolor{keywordflow}{case} QMessageBox::No: \textcolor{comment}{// Import}}
-\DoxyCodeLine{147         fileName = QFileDialog::getOpenFileName(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Import"}, QDir::currentPath(), \textcolor{stringliteral}{"Stereolithography (*.STL)"});}
-\DoxyCodeLine{148         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{149 }
-\DoxyCodeLine{150     \textcolor{keywordflow}{case} QMessageBox::Cancel: \textcolor{comment}{// Just cancelled}}
-\DoxyCodeLine{151     \textcolor{keywordflow}{default}:}
-\DoxyCodeLine{152         \textcolor{keywordflow}{break};}
-\DoxyCodeLine{153     \}}
-\DoxyCodeLine{154 }
-\DoxyCodeLine{155     \textcolor{keywordflow}{if} (!fileName.isEmpty())}
-\DoxyCodeLine{156     \{}
-\DoxyCodeLine{157         this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}{OpenSTL}}(fileName, reply == QMessageBox::No);}
-\DoxyCodeLine{158         openState = \textcolor{keyword}{true};}
-\DoxyCodeLine{159     \}}
-\DoxyCodeLine{160 \}}
+\DoxyCodeLine{164 \{}
+\DoxyCodeLine{165     \textcolor{keyword}{static} \textcolor{keywordtype}{bool} openState = \textcolor{keyword}{false};}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{167     QMessageBox::StandardButton reply = QMessageBox::Yes;}
+\DoxyCodeLine{168     \textcolor{keywordflow}{if} (openState)}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170         reply = QMessageBox::question(\textcolor{keyword}{this},}
+\DoxyCodeLine{171             \textcolor{stringliteral}{"Open"}, \textcolor{stringliteral}{"Do you want to close previous file(s)?"},}
+\DoxyCodeLine{172             QMessageBox::Yes | QMessageBox::No | QMessageBox::Cancel);}
+\DoxyCodeLine{173     \}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     QString fileName = \textcolor{stringliteral}{""};}
+\DoxyCodeLine{176     \textcolor{keywordflow}{switch} (reply)}
+\DoxyCodeLine{177     \{}
+\DoxyCodeLine{178     \textcolor{keywordflow}{case} QMessageBox::Yes: \textcolor{comment}{// Open}}
+\DoxyCodeLine{179         fileName = QFileDialog::getOpenFileName(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Open"}, QDir::currentPath(), \textcolor{stringliteral}{"Stereolithography (*.STL)"});}
+\DoxyCodeLine{180         this-\/>\mbox{\hyperlink{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}{manager}}-\/>\mbox{\hyperlink{class_activity_manager_aae34a29e2476905883bcd073bb47f03e}{clear}}();}
+\DoxyCodeLine{181 }
+\DoxyCodeLine{182         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{183         \{}
+\DoxyCodeLine{184             this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>RemoveActor(this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}});}
+\DoxyCodeLine{185 }
+\DoxyCodeLine{186             this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>Delete();}
+\DoxyCodeLine{187             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}}-\/>Delete();}
+\DoxyCodeLine{188             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}}-\/>Delete();}
+\DoxyCodeLine{189 }
+\DoxyCodeLine{190             this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{191             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{192             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{193         \}}
+\DoxyCodeLine{194         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{195 }
+\DoxyCodeLine{196     \textcolor{keywordflow}{case} QMessageBox::No: \textcolor{comment}{// Import}}
+\DoxyCodeLine{197         fileName = QFileDialog::getOpenFileName(\textcolor{keyword}{this}, \textcolor{stringliteral}{"Import"}, QDir::currentPath(), \textcolor{stringliteral}{"Stereolithography (*.STL)"});}
+\DoxyCodeLine{198         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{199 }
+\DoxyCodeLine{200     \textcolor{keywordflow}{case} QMessageBox::Cancel: \textcolor{comment}{// Just cancelled}}
+\DoxyCodeLine{201     \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{202         \textcolor{keywordflow}{break};}
+\DoxyCodeLine{203     \}}
+\DoxyCodeLine{204 }
+\DoxyCodeLine{205     \textcolor{keywordflow}{if} (!fileName.isEmpty())}
+\DoxyCodeLine{206     \{}
+\DoxyCodeLine{207         this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}{OpenSTL}}(fileName, reply == QMessageBox::No);}
+\DoxyCodeLine{208         openState = \textcolor{keyword}{true};}
+\DoxyCodeLine{209     \}}
+\DoxyCodeLine{210 \}}
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
 % FIG 13
 Here is the caller graph for this function\+:
 % FIG 14
-\mbox{\Hypertarget{class_main_window_ac8af4f32e38ed985f35c10cd7044f1f0}\label{class_main_window_ac8af4f32e38ed985f35c10cd7044f1f0}} 
-\index{MainWindow@{MainWindow}!pick@{pick}}
-\index{pick@{pick}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{pick()}{pick()}}
-{\footnotesize\ttfamily void Main\+Window\+::pick (\begin{DoxyParamCaption}\item[{vtk\+Actor $\ast$const}]{actor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-Pick an object on the screen. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em screenX} & A new selected actor which might be null.\\
-\hline
-\end{DoxyParams}
-
-
-Definition at line 111 of file Main\+Window.\+cpp.
-
-
-\begin{DoxyCode}{0}
-\DoxyCodeLine{112 \{}
-\DoxyCodeLine{113     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{pickedActor}} != \textcolor{keyword}{nullptr}) \textcolor{comment}{// Previously picked actor}}
-\DoxyCodeLine{114     \{}
-\DoxyCodeLine{115         this-\/>\mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{pickedActor}}-\/>GetProperty()-\/>SetColor(1, 1, 1);}
-\DoxyCodeLine{116     \}}
-\DoxyCodeLine{117 }
-\DoxyCodeLine{118     this-\/>\mbox{\hyperlink{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}{pickedActor}} = actor;}
-\DoxyCodeLine{119     \textcolor{keywordflow}{if} (actor != \textcolor{keyword}{nullptr}) \textcolor{comment}{// Currently picked actor}}
-\DoxyCodeLine{120     \{}
-\DoxyCodeLine{121         actor-\/>GetProperty()-\/>SetColor(0.75, 1, 0);}
-\DoxyCodeLine{122     \}}
-\DoxyCodeLine{123 \}}
-
-\end{DoxyCode}
-Here is the caller graph for this function\+:
-% FIG 15
 \mbox{\Hypertarget{class_main_window_a2ddbce75908e9e962bf844aca6d2b4ca}\label{class_main_window_a2ddbce75908e9e962bf844aca6d2b4ca}} 
 \index{MainWindow@{MainWindow}!raiseRedo@{raiseRedo}}
 \index{raiseRedo@{raiseRedo}!MainWindow@{MainWindow}}
@@ -539,9 +539,9 @@ Definition at line 70 of file Main\+Window.\+cpp.
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
-% FIG 16
+% FIG 15
 Here is the caller graph for this function\+:
-% FIG 17
+% FIG 16
 \mbox{\Hypertarget{class_main_window_a4d447caa99a7519d6c7281b987912e0f}\label{class_main_window_a4d447caa99a7519d6c7281b987912e0f}} 
 \index{MainWindow@{MainWindow}!raiseUndo@{raiseUndo}}
 \index{raiseUndo@{raiseUndo}!MainWindow@{MainWindow}}
@@ -569,9 +569,9 @@ Definition at line 60 of file Main\+Window.\+cpp.
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
-% FIG 18
+% FIG 17
 Here is the caller graph for this function\+:
-% FIG 19
+% FIG 18
 \mbox{\Hypertarget{class_main_window_aacc349041057b6b31a3bbde5b0f5fe49}\label{class_main_window_aacc349041057b6b31a3bbde5b0f5fe49}} 
 \index{MainWindow@{MainWindow}!resizeEvent@{resizeEvent}}
 \index{resizeEvent@{resizeEvent}!MainWindow@{MainWindow}}
@@ -592,6 +592,92 @@ Definition at line 33 of file Main\+Window.\+cpp.
 \DoxyCodeLine{39 \}}
 
 \end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a1342fae0f96ba2888481a6bce03df2f0}\label{class_main_window_a1342fae0f96ba2888481a6bce03df2f0}} 
+\index{MainWindow@{MainWindow}!select@{select}}
+\index{select@{select}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily void Main\+Window\+::select (\begin{DoxyParamCaption}\item[{const int $\ast$const}]{p1,  }\item[{const int $\ast$const}]{p2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Select rectangle area on an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & The first point that defines a rectangle.\\
+\hline
+{\em p2} & The second point that defines a rectangle.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 104 of file Main\+Window.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{107     \{}
+\DoxyCodeLine{108         this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>RemoveActor(this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}});}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>Delete();}
+\DoxyCodeLine{111         this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}}-\/>Delete();}
+\DoxyCodeLine{112         this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}}-\/>Delete();}
+\DoxyCodeLine{113     \}}
+\DoxyCodeLine{114 }
+\DoxyCodeLine{115     vtkNew<vtkAreaPicker> picker;}
+\DoxyCodeLine{116     picker-\/>AreaPick(p1[0], p1[1], p2[0], p2[1], this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}());}
+\DoxyCodeLine{117     vtkActor* \textcolor{keyword}{const} actor = picker-\/>GetActor();}
+\DoxyCodeLine{118     \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{STLWidget::STLHolder}}* \textcolor{keyword}{const} holder = this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a1ca89adb8656a9c59e9d288b3ff227e4}{GetHolderByActor}}(actor);}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120     \textcolor{keywordflow}{if} (holder != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{121     \{}
+\DoxyCodeLine{122         vtkPlanes* \textcolor{keyword}{const} frustum = picker-\/>GetFrustum();}
+\DoxyCodeLine{123 }
+\DoxyCodeLine{124         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} = vtkExtractPolyDataGeometry::New();}
+\DoxyCodeLine{125         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>SetInputConnection(holder-\/>\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder_a84bd69d3fac5a4b6bee7410226755d1d}{transformFilter}}-\/>GetOutputPort());}
+\DoxyCodeLine{126         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>SetImplicitFunction(frustum);}
+\DoxyCodeLine{127         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>SetExtractBoundaryCells(\textcolor{keyword}{false});}
+\DoxyCodeLine{128         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>SetExtractInside(\textcolor{keyword}{true});}
+\DoxyCodeLine{129         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>Update();}
+\DoxyCodeLine{130 }
+\DoxyCodeLine{131         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>GetOutput()-\/>GetNumberOfCells() != 0)}
+\DoxyCodeLine{132         \{}
+\DoxyCodeLine{133             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}} = vtkPolyDataMapper::New();}
+\DoxyCodeLine{134             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}}-\/>SetInputDataObject(this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}}-\/>GetOutput());}
+\DoxyCodeLine{135             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}}-\/>ScalarVisibilityOff();}
+\DoxyCodeLine{136 }
+\DoxyCodeLine{137             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}} = vtkActor::New();}
+\DoxyCodeLine{138             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}}-\/>SetMapper(this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}});}
+\DoxyCodeLine{139             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}}-\/>GetProperty()-\/>SetColor(0.75, 1, 0);}
+\DoxyCodeLine{140             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}}-\/>GetProperty()-\/>SetPointSize(5);}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{142             this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{GetRenderer}}()-\/>AddActor(this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}});}
+\DoxyCodeLine{143         \}}
+\DoxyCodeLine{144         \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}} != \textcolor{keyword}{nullptr})}
+\DoxyCodeLine{145         \{}
+\DoxyCodeLine{146             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}}-\/>Delete();}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148             this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{149             this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{150             this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{152     \}}
+\DoxyCodeLine{153     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{154     \{}
+\DoxyCodeLine{155         this-\/>\mbox{\hyperlink{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}{selectionPolyData}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{156         this-\/>\mbox{\hyperlink{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}{selectionMapper}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{157         this-\/>\mbox{\hyperlink{class_main_window_a71957946db497ed7558d728a8a6b8c8e}{selectionActor}} = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{158     \}}
+\DoxyCodeLine{159 }
+\DoxyCodeLine{160     this-\/>\mbox{\hyperlink{class_main_window_a35466a70ed47252a0191168126a352a5}{ui}}-\/>\mbox{\hyperlink{class_ui___main_window_a1751439fba68d6cc20f564ad7f023759}{stlWidget}}-\/>\mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}}();}
+\DoxyCodeLine{161 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 19
+Here is the caller graph for this function\+:
+% FIG 20
 
 
 \doxysubsection{Member Data Documentation}
@@ -607,7 +693,7 @@ The number of system arguments.
 
 
 
-Definition at line 43 of file Main\+Window.\+h.
+Definition at line 48 of file Main\+Window.\+h.
 
 \mbox{\Hypertarget{class_main_window_acc3915ff1a786f36392f8ccfd1bfc85f}\label{class_main_window_acc3915ff1a786f36392f8ccfd1bfc85f}} 
 \index{MainWindow@{MainWindow}!argv@{argv}}
@@ -621,7 +707,35 @@ A list of system arguments.
 
 
 
-Definition at line 48 of file Main\+Window.\+h.
+Definition at line 53 of file Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_main_window_aa9da7bc48826108f19993de6281eb7b8}\label{class_main_window_aa9da7bc48826108f19993de6281eb7b8}} 
+\index{MainWindow@{MainWindow}!downPosition@{downPosition}}
+\index{downPosition@{downPosition}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{downPosition}{downPosition}}
+{\footnotesize\ttfamily int Main\+Window\+::down\+Position\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+
+
+
+Definition at line 83 of file Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_main_window_a536d0cccf1254c86554eb22305cd07e1}\label{class_main_window_a536d0cccf1254c86554eb22305cd07e1}} 
+\index{MainWindow@{MainWindow}!initialView@{initialView}}
+\index{initialView@{initialView}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{initialView}{initialView}}
+{\footnotesize\ttfamily vtk\+Camera$\ast$ Main\+Window\+::initial\+View\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+
+
+
+
+Definition at line 78 of file Main\+Window.\+h.
 
 \mbox{\Hypertarget{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}\label{class_main_window_a8a825c98b00588be3bdcaccbe0a549f4}} 
 \index{MainWindow@{MainWindow}!manager@{manager}}
@@ -635,21 +749,49 @@ An activity manager for several actions on the program.
 
 
 
-Definition at line 53 of file Main\+Window.\+h.
-
-\mbox{\Hypertarget{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}\label{class_main_window_a1acc2ecf3dc5dc640198088f6dffcbaf}} 
-\index{MainWindow@{MainWindow}!pickedActor@{pickedActor}}
-\index{pickedActor@{pickedActor}!MainWindow@{MainWindow}}
-\doxysubsubsection{\texorpdfstring{pickedActor}{pickedActor}}
-{\footnotesize\ttfamily vtk\+Actor$\ast$ Main\+Window\+::picked\+Actor = nullptr\hspace{0.3cm}{\ttfamily [private]}}
-
-
-
-The actor of last picked object. 
-
-
-
 Definition at line 58 of file Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_main_window_a71957946db497ed7558d728a8a6b8c8e}\label{class_main_window_a71957946db497ed7558d728a8a6b8c8e}} 
+\index{MainWindow@{MainWindow}!selectionActor@{selectionActor}}
+\index{selectionActor@{selectionActor}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{selectionActor}{selectionActor}}
+{\footnotesize\ttfamily vtk\+Actor$\ast$ Main\+Window\+::selection\+Actor = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+An actor of selected surface. 
+
+
+
+Definition at line 73 of file Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}\label{class_main_window_a6f2d7b88362dfd0e3a490149b2d5e4b3}} 
+\index{MainWindow@{MainWindow}!selectionMapper@{selectionMapper}}
+\index{selectionMapper@{selectionMapper}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{selectionMapper}{selectionMapper}}
+{\footnotesize\ttfamily vtk\+Poly\+Data\+Mapper$\ast$ Main\+Window\+::selection\+Mapper = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+A poly data mapper of selected surface. 
+
+
+
+Definition at line 68 of file Main\+Window.\+h.
+
+\mbox{\Hypertarget{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}\label{class_main_window_abe5b9d575e12fb69e02a44375bb7c81d}} 
+\index{MainWindow@{MainWindow}!selectionPolyData@{selectionPolyData}}
+\index{selectionPolyData@{selectionPolyData}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{selectionPolyData}{selectionPolyData}}
+{\footnotesize\ttfamily vtk\+Extract\+Poly\+Data\+Geometry$\ast$ Main\+Window\+::selection\+Poly\+Data = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Poly data geometry of selected surface. 
+
+
+
+Definition at line 63 of file Main\+Window.\+h.
 
 \mbox{\Hypertarget{class_main_window_a35466a70ed47252a0191168126a352a5}\label{class_main_window_a35466a70ed47252a0191168126a352a5}} 
 \index{MainWindow@{MainWindow}!ui@{ui}}
@@ -663,11 +805,11 @@ A G\+UI component container.
 
 
 
-Definition at line 37 of file Main\+Window.\+h.
+Definition at line 42 of file Main\+Window.\+h.
 
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-S\+T\+L\+Editor/\mbox{\hyperlink{_main_window_8h}{Main\+Window.\+h}}\item 
-S\+T\+L\+Editor/\mbox{\hyperlink{_main_window_8cpp}{Main\+Window.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/nda11/source/\+Git/\+S\+T\+L\+Editor/\+S\+T\+L\+Editor/\mbox{\hyperlink{_main_window_8h}{Main\+Window.\+h}}\item 
+C\+:/\+Users/nda11/source/\+Git/\+S\+T\+L\+Editor/\+S\+T\+L\+Editor/\mbox{\hyperlink{_main_window_8cpp}{Main\+Window.\+cpp}}\end{DoxyCompactItemize}

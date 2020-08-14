@@ -14,7 +14,7 @@ STLWidget::STLWidget(QWidget* parent) : QVTKOpenGLNativeWidget(parent)
 	QVTKInteractor* iren = this->GetInteractor();
 	iren->RemoveAllObservers();
 
-	mouseControlStyle = new CustomInteractorStyletrackballCamera;
+	mouseControlStyle = new ModedInteractorStyle();
 	this->GetRenderWindow()->GetInteractor()->SetInteractorStyle(mouseControlStyle);
 }
 
@@ -88,6 +88,19 @@ std::vector<STLWidget::STLHolder*> STLWidget::GetHolders(void) const
 	return this->holders;
 }
 
+STLWidget::STLHolder* STLWidget::GetHolderByActor(vtkActor* actor) const
+{
+	for (int i = 0; i < this->holders.size(); i++)
+	{
+		if (this->holders[i]->actor == actor)
+		{
+			return this->holders[i];
+		}
+	}
+
+	return nullptr;
+}
+
 bool STLWidget::HasHolder(void) const
 {
 	return !this->holders.empty();
@@ -96,6 +109,16 @@ bool STLWidget::HasHolder(void) const
 vtkRenderer* STLWidget::GetRenderer(void) const
 {
 	return this->renderer;
+}
+
+ModedInteractorStyle::EMode STLWidget::GetMode(void) const
+{
+	return this->mouseControlStyle->GetMode();
+}
+
+void STLWidget::SetMode(ModedInteractorStyle::EMode mode)
+{
+	this->mouseControlStyle->SetMode(mode);
 }
 
 void STLWidget::Render(void) const

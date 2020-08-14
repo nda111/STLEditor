@@ -1,0 +1,14 @@
+digraph "MainWindow::select"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="MainWindow::select",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Select rectangle area on an object."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="STLWidget::GetHolderByActor",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a1ca89adb8656a9c59e9d288b3ff227e4",tooltip="Get a stl holder that corresponds to given actor."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="STLWidget::GetRenderer",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#a5a3e391dd6b86e53841af138b4477f91",tooltip="Get the renderer."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="STLWidget::Render",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_s_t_l_widget.html#ac57424afd9164e125938ed47041c7d76",tooltip="Refresh the widget, applying new changes."];
+}

@@ -1,34 +1,29 @@
-digraph "STLEditor/ActivityBase.h"
+digraph "C:/Users/nda11/source/Git/STLEditor/STLEditor/ActivityBase.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="STLEditor/ActivityBase.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/ActivityBase.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node2 [label="STLEditor/ActivityManager.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_activity_manager_8h.html",tooltip=" "];
+  Node2 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/ActivityManager.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_activity_manager_8h.html",tooltip=" "];
   Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node3 [label="STLEditor/ActivityManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_activity_manager_8cpp.html",tooltip=" "];
+  Node3 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/ActivityManager.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_activity_manager_8cpp.html",tooltip=" "];
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node4 [label="STLEditor/MainWindow.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_main_window_8h.html",tooltip=" "];
+  Node4 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/MainWindow.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_main_window_8h.html",tooltip=" "];
   Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="STLEditor/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip=" "];
+  Node5 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip=" "];
   Node4 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node6 [label="STLEditor/MainWindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_main_window_8cpp.html",tooltip=" "];
+  Node6 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/MainWindow.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_main_window_8cpp.html",tooltip=" "];
   Node1 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node7 [label="STLEditor/ZoomActivity.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_zoom_activity_8h.html",tooltip=" "];
+  Node7 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/ZoomActivity.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_zoom_activity_8h.html",tooltip=" "];
   Node7 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node8 [label="STLEditor/ZoomActivity.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_zoom_activity_8cpp.html",tooltip=" "];
+  Node8 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/ZoomActivity.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_zoom_activity_8cpp.html",tooltip=" "];
   Node1 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node1 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node9 [label="STLEditor/TransformActivity.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_transform_activity_8h.html",tooltip=" "];
+  Node9 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/TransformActivity.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_transform_activity_8h.html",tooltip=" "];
   Node9 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node10 [label="STLEditor/TransformActivity.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_transform_activity_8cpp.html",tooltip=" "];
-  Node1 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node11 [label="STLEditor/SelectionActivity.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_selection_activity_8h.html",tooltip=" "];
-  Node11 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node12 [label="STLEditor/SelectionActivity.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_selection_activity_8cpp.html",tooltip=" "];
+  Node10 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/TransformActivity.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_transform_activity_8cpp.html",tooltip=" "];
 }

@@ -1,0 +1,420 @@
+\hypertarget{class_moded_interactor_style}{}\doxysection{Moded\+Interactor\+Style Class Reference}
+\label{class_moded_interactor_style}\index{ModedInteractorStyle@{ModedInteractorStyle}}
+
+
+A class that represents mode-\/customizable interaction style.  
+
+
+
+
+{\ttfamily \#include $<$Moded\+Interactor\+Style.\+h$>$}
+
+
+
+Inheritance diagram for Moded\+Interactor\+Style\+:
+% FIG 0
+
+
+Collaboration diagram for Moded\+Interactor\+Style\+:
+% FIG 1
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}} \{ \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{E\+Mode\+::\+T\+R\+A\+N\+S\+F\+O\+RM}}, 
+\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{E\+Mode\+::\+S\+E\+L\+E\+C\+T\+I\+ON}}
+ \}
+\begin{DoxyCompactList}\small\item\em An enumeration class that represents the mode of interactor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_moded_interactor_style_a09381518086b1d886e4a447eb18f2a89}{Moded\+Interactor\+Style}} ()
+\item 
+\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}} \mbox{\hyperlink{class_moded_interactor_style_a243afb3ac89af491fc6bcd8fce72fa3c}{Get\+Mode}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the current interactor style. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_moded_interactor_style_a8937bdc1f2e2713cc07c98d8bba3a2a4}{Set\+Mode}} (const \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}} \mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})
+\begin{DoxyCompactList}\small\item\em Set the current interactor style. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_a27378e05706c54b1f17047942822deba}{On\+Left\+Button\+Down}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_adcf243e3f14266997f536e6cdb93f00e}{On\+Left\+Button\+Up}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_a27b7506a4264247ebebce049aa9a5b72}{On\+Right\+Button\+Down}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_a4baf7177fc9b9f4a739cfed9681fde9a}{On\+Right\+Button\+Up}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_a3893083caf0ca62f7f3bbc9188eb698b}{On\+Middle\+Button\+Down}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_aa99c07b94bf3a99e6f52255bf818d467}{On\+Middle\+Button\+Up}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_a3e648fa8460d65c50beeccb5adb30d0a}{On\+Mouse\+Wheel\+Forward}} ()
+\item 
+virtual void \mbox{\hyperlink{class_moded_interactor_style_a113e84270d01f3e45638f26e6eaa7649}{On\+Mouse\+Wheel\+Backward}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}} \mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}} = \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{E\+Mode\+::\+T\+R\+A\+N\+S\+F\+O\+RM}}
+\begin{DoxyCompactList}\small\item\em The current interaction mode of the interactor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A class that represents mode-\/customizable interaction style. 
+
+
+
+Definition at line 8 of file Moded\+Interactor\+Style.\+h.
+
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}\label{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!EMode@{EMode}}
+\index{EMode@{EMode}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{EMode}{EMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{Moded\+Interactor\+Style\+::\+E\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+An enumeration class that represents the mode of interactor. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TRANSFORM@{TRANSFORM}!ModedInteractorStyle@{ModedInteractorStyle}}\index{ModedInteractorStyle@{ModedInteractorStyle}!TRANSFORM@{TRANSFORM}}}\mbox{\Hypertarget{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}\label{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}} 
+T\+R\+A\+N\+S\+F\+O\+RM&Transformation mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SELECTION@{SELECTION}!ModedInteractorStyle@{ModedInteractorStyle}}\index{ModedInteractorStyle@{ModedInteractorStyle}!SELECTION@{SELECTION}}}\mbox{\Hypertarget{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}\label{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}} 
+S\+E\+L\+E\+C\+T\+I\+ON&Selection mode \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line 14 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{15     \{}
+\DoxyCodeLine{19         TRANSFORM,}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{24         SELECTION,}
+\DoxyCodeLine{25     \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_moded_interactor_style_a09381518086b1d886e4a447eb18f2a89}\label{class_moded_interactor_style_a09381518086b1d886e4a447eb18f2a89}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!ModedInteractorStyle@{ModedInteractorStyle}}
+\index{ModedInteractorStyle@{ModedInteractorStyle}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{ModedInteractorStyle()}{ModedInteractorStyle()}}
+{\footnotesize\ttfamily Moded\+Interactor\+Style\+::\+Moded\+Interactor\+Style (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 34 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34                            : vtkInteractorStyleRubberBandPick()}
+\DoxyCodeLine{35     \{}
+\DoxyCodeLine{36         \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{37     \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_moded_interactor_style_a243afb3ac89af491fc6bcd8fce72fa3c}\label{class_moded_interactor_style_a243afb3ac89af491fc6bcd8fce72fa3c}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!GetMode@{GetMode}}
+\index{GetMode@{GetMode}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{GetMode()}{GetMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}} Moded\+Interactor\+Style\+::\+Get\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the current interactor style. 
+
+\begin{DoxyReturn}{Returns}
+The current interactor style.
+\end{DoxyReturn}
+
+
+Definition at line 44 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45     \{}
+\DoxyCodeLine{46         \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}};}
+\DoxyCodeLine{47     \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{class_moded_interactor_style_a27378e05706c54b1f17047942822deba}\label{class_moded_interactor_style_a27378e05706c54b1f17047942822deba}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnLeftButtonDown@{OnLeftButtonDown}}
+\index{OnLeftButtonDown@{OnLeftButtonDown}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnLeftButtonDown()}{OnLeftButtonDown()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Left\+Button\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 70 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{73         \{}
+\DoxyCodeLine{74         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{75             vtkInteractorStyleRubberBandPick::OnMiddleButtonDown();}
+\DoxyCodeLine{76             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{79             vtkInteractorStyleRubberBandPick::OnLeftButtonDown();}
+\DoxyCodeLine{80             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{81         \}}
+\DoxyCodeLine{82     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_adcf243e3f14266997f536e6cdb93f00e}\label{class_moded_interactor_style_adcf243e3f14266997f536e6cdb93f00e}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnLeftButtonUp@{OnLeftButtonUp}}
+\index{OnLeftButtonUp@{OnLeftButtonUp}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnLeftButtonUp()}{OnLeftButtonUp()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Left\+Button\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 84 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{85     \{}
+\DoxyCodeLine{86         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{87         \{}
+\DoxyCodeLine{88         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{89             vtkInteractorStyleRubberBandPick::OnMiddleButtonUp();}
+\DoxyCodeLine{90             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{93             vtkInteractorStyleRubberBandPick::OnLeftButtonUp();}
+\DoxyCodeLine{94             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{95         \}}
+\DoxyCodeLine{96     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_a3893083caf0ca62f7f3bbc9188eb698b}\label{class_moded_interactor_style_a3893083caf0ca62f7f3bbc9188eb698b}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnMiddleButtonDown@{OnMiddleButtonDown}}
+\index{OnMiddleButtonDown@{OnMiddleButtonDown}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnMiddleButtonDown()}{OnMiddleButtonDown()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Middle\+Button\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 126 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{127     \{}
+\DoxyCodeLine{128         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{129         \{}
+\DoxyCodeLine{130         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{131             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{132             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{134         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{135             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{136             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{137         \}}
+\DoxyCodeLine{138     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_aa99c07b94bf3a99e6f52255bf818d467}\label{class_moded_interactor_style_aa99c07b94bf3a99e6f52255bf818d467}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnMiddleButtonUp@{OnMiddleButtonUp}}
+\index{OnMiddleButtonUp@{OnMiddleButtonUp}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnMiddleButtonUp()}{OnMiddleButtonUp()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Middle\+Button\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 140 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{141     \{}
+\DoxyCodeLine{142         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{143         \{}
+\DoxyCodeLine{144         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{145             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{146             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{147 }
+\DoxyCodeLine{148         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{149             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{150             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{151         \}}
+\DoxyCodeLine{152     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_a113e84270d01f3e45638f26e6eaa7649}\label{class_moded_interactor_style_a113e84270d01f3e45638f26e6eaa7649}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnMouseWheelBackward@{OnMouseWheelBackward}}
+\index{OnMouseWheelBackward@{OnMouseWheelBackward}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnMouseWheelBackward()}{OnMouseWheelBackward()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Mouse\+Wheel\+Backward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 168 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169     \{}
+\DoxyCodeLine{170         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{171         \{}
+\DoxyCodeLine{172         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{173             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{174             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{175 }
+\DoxyCodeLine{176         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{177             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{178             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{179         \}}
+\DoxyCodeLine{180     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_a3e648fa8460d65c50beeccb5adb30d0a}\label{class_moded_interactor_style_a3e648fa8460d65c50beeccb5adb30d0a}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnMouseWheelForward@{OnMouseWheelForward}}
+\index{OnMouseWheelForward@{OnMouseWheelForward}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnMouseWheelForward()}{OnMouseWheelForward()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Mouse\+Wheel\+Forward (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 154 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{155     \{}
+\DoxyCodeLine{156         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{157         \{}
+\DoxyCodeLine{158         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{159             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{160             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{161 }
+\DoxyCodeLine{162         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{163             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{164             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{165         \}}
+\DoxyCodeLine{166     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_a27b7506a4264247ebebce049aa9a5b72}\label{class_moded_interactor_style_a27b7506a4264247ebebce049aa9a5b72}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnRightButtonDown@{OnRightButtonDown}}
+\index{OnRightButtonDown@{OnRightButtonDown}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnRightButtonDown()}{OnRightButtonDown()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Right\+Button\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 98 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{99     \{}
+\DoxyCodeLine{100         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{101         \{}
+\DoxyCodeLine{102         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{103             vtkInteractorStyleRubberBandPick::OnLeftButtonDown();}
+\DoxyCodeLine{104             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{105 }
+\DoxyCodeLine{106         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{107             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{108             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{109         \}}
+\DoxyCodeLine{110     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_a4baf7177fc9b9f4a739cfed9681fde9a}\label{class_moded_interactor_style_a4baf7177fc9b9f4a739cfed9681fde9a}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!OnRightButtonUp@{OnRightButtonUp}}
+\index{OnRightButtonUp@{OnRightButtonUp}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{OnRightButtonUp()}{OnRightButtonUp()}}
+{\footnotesize\ttfamily virtual void Moded\+Interactor\+Style\+::\+On\+Right\+Button\+Up (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 112 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{113     \{}
+\DoxyCodeLine{114         \textcolor{keywordflow}{switch} (this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{115         \{}
+\DoxyCodeLine{116         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{117             vtkInteractorStyleRubberBandPick::OnLeftButtonUp();}
+\DoxyCodeLine{118             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{119 }
+\DoxyCodeLine{120         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{121             \textcolor{comment}{/* EMPTY */}}
+\DoxyCodeLine{122             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{123         \}}
+\DoxyCodeLine{124     \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_moded_interactor_style_a8937bdc1f2e2713cc07c98d8bba3a2a4}\label{class_moded_interactor_style_a8937bdc1f2e2713cc07c98d8bba3a2a4}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!SetMode@{SetMode}}
+\index{SetMode@{SetMode}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{SetMode()}{SetMode()}}
+{\footnotesize\ttfamily void Moded\+Interactor\+Style\+::\+Set\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}}}]{mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the current interactor style. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The new interactor style.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 53 of file Moded\+Interactor\+Style.\+h.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{54     \{}
+\DoxyCodeLine{55         this-\/>\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}} = \mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}};}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57         \textcolor{keywordflow}{switch} (\mbox{\hyperlink{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}{mode}})}
+\DoxyCodeLine{58         \{}
+\DoxyCodeLine{59         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{EMode::TRANSFORM}}:}
+\DoxyCodeLine{60             this-\/>CurrentMode = 0;}
+\DoxyCodeLine{61             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aa0a2dba942c08df9fd12a10acc7f19a78}{EMode::SELECTION}}:}
+\DoxyCodeLine{64             this-\/>CurrentMode = 1;}
+\DoxyCodeLine{65             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{66         \}}
+\DoxyCodeLine{67     \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}\label{class_moded_interactor_style_af5e7456be2c79050a9816b2827858774}} 
+\index{ModedInteractorStyle@{ModedInteractorStyle}!mode@{mode}}
+\index{mode@{mode}!ModedInteractorStyle@{ModedInteractorStyle}}
+\doxysubsubsection{\texorpdfstring{mode}{mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{E\+Mode}} Moded\+Interactor\+Style\+::mode = \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9aadceae9409e3ff24c6c0af99860ba44ac}{E\+Mode\+::\+T\+R\+A\+N\+S\+F\+O\+RM}}\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The current interaction mode of the interactor. 
+
+
+
+Definition at line 31 of file Moded\+Interactor\+Style.\+h.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/nda11/source/\+Git/\+S\+T\+L\+Editor/\+S\+T\+L\+Editor/\mbox{\hyperlink{_moded_interactor_style_8h}{Moded\+Interactor\+Style.\+h}}\end{DoxyCompactItemize}

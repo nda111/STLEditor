@@ -19,7 +19,7 @@
 #include <vtkInteractorStyle.h>
 #include <vtkInteractorStyleTrackballCamera.h>
 
-#include "CustomInteractorStyletrackballCamera.h"
+#include "ModedInteractorStyle.h"
 
 namespace Ui { class STLWidget; };
 
@@ -157,7 +157,7 @@ private: // Fields
 	/// <summary>
 	/// An interactor style that allows to control the object via mouse events.
 	/// </summary>
-	CustomInteractorStyletrackballCamera* mouseControlStyle = nullptr;
+	ModedInteractorStyle* mouseControlStyle = nullptr;
 
 public: // Constructors & Destructor
 	STLWidget(QWidget* parent = Q_NULLPTR);
@@ -187,6 +187,13 @@ public: // Get & Set
 	std::vector<STLHolder*> GetHolders(void) const;
 
 	/// <summary>
+	/// Get a stl holder that corresponds to given actor.
+	/// </summary>
+	/// <param name="actor">An actor to identify the stl holder.</param>
+	/// <returns>A stl holder that corresponds to gigen actor.</returns>
+	STLHolder* GetHolderByActor(vtkActor* actor) const;
+
+	/// <summary>
 	/// Indicates whether the widget shows any STL object.
 	/// </summary>
 	/// <returns>Ture if showing, false if not.</returns>
@@ -197,6 +204,18 @@ public: // Get & Set
 	/// </summary>
 	/// <returns>The renderer</returns>
 	vtkRenderer* GetRenderer(void) const;
+
+	/// <summary>
+	/// Get the current mouse interaction mode.
+	/// </summary>
+	/// <returns>The current mouse interaction mode.</returns>
+	ModedInteractorStyle::EMode GetMode(void) const;
+
+	/// <summary>
+	/// Set the current mouse interaction mode.
+	/// </summary>
+	/// <param name="mode">The current interaction mode to change.</param>
+	void SetMode(ModedInteractorStyle::EMode mode);
 
 public: // Methods
 	/// <summary>

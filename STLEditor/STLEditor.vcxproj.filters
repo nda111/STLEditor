@@ -61,9 +61,6 @@
     <ClCompile Include="ZoomActivity.cpp">
       <Filter>Source Files\Activity</Filter>
     </ClCompile>
-    <ClCompile Include="SelectionActivity.cpp">
-      <Filter>Source Files\Activity</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="MainWindow.h">
@@ -94,17 +91,14 @@
     <ClInclude Include="ui_STLWidget.h">
       <Filter>Header Files\Widgets\STLWidget</Filter>
     </ClInclude>
-    <ClInclude Include="CustomInteractorStyletrackballCamera.h">
-      <Filter>Header Files\Interactor</Filter>
-    </ClInclude>
     <ClInclude Include="TransformActivity.h">
       <Filter>Header Files\Activity</Filter>
     </ClInclude>
     <ClInclude Include="ZoomActivity.h">
       <Filter>Header Files\Activity</Filter>
     </ClInclude>
-    <ClInclude Include="SelectionActivity.h">
-      <Filter>Header Files\Activity</Filter>
+    <ClInclude Include="ModedInteractorStyle.h">
+      <Filter>Header Files\Interactor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

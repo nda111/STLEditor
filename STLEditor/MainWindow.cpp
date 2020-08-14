@@ -85,7 +85,7 @@ void MainWindow::onUndoRedo(const ActivityBase* const activity)
 	{
 	case ActivityBase::EType::TRANSFORMATION:
 	{
-		TransformActivity* transformation= (TransformActivity*)activity;
+		TransformActivity* transformation = (TransformActivity*)activity;
 		camera->DeepCopy(transformation->getView());
 	}
 	break;
@@ -96,30 +96,68 @@ void MainWindow::onUndoRedo(const ActivityBase* const activity)
 		camera->Zoom(zoom->getZoomFactor());
 	}
 	break;
-
-	case ActivityBase::EType::SELECT:
-	{
-		SelectionActivity* selection = (SelectionActivity*)activity;
-		this->pick(selection->getActor());
-	}
-	break;
 	}
 
 	this->ui->stlWidget->Render();
 }
 
-void MainWindow::pick(vtkActor* const actor)
+void MainWindow::select(const int* const p1, const int* const p2)
 {
-	if (this->pickedActor != nullptr) // Previously picked actor
+	if (this->selectionPolyData != nullptr)
 	{
-		this->pickedActor->GetProperty()->SetColor(1, 1, 1);
+		this->ui->stlWidget->GetRenderer()->RemoveActor(this->selectionActor);
+
+		this->selectionPolyData->Delete();
+		this->selectionMapper->Delete();
+		this->selectionActor->Delete();
 	}
 
-	this->pickedActor = actor;
-	if (actor != nullptr) // Currently picked actor
+	vtkNew<vtkAreaPicker> picker;
+	picker->AreaPick(p1[0], p1[1], p2[0], p2[1], this->ui->stlWidget->GetRenderer());
+	vtkActor* const actor = picker->GetActor();
+	STLWidget::STLHolder* const holder = this->ui->stlWidget->GetHolderByActor(actor);
+
+	if (holder != nullptr)
 	{
-		actor->GetProperty()->SetColor(0.75, 1, 0);
+		vtkPlanes* const frustum = picker->GetFrustum();
+
+		this->selectionPolyData = vtkExtractPolyDataGeometry::New();
+		this->selectionPolyData->SetInputConnection(holder->transformFilter->GetOutputPort());
+		this->selectionPolyData->SetImplicitFunction(frustum);
+		this->selectionPolyData->SetExtractBoundaryCells(false);
+		this->selectionPolyData->SetExtractInside(true);
+		this->selectionPolyData->Update();
+
+		if (this->selectionPolyData->GetOutput()->GetNumberOfCells() != 0)
+		{
+			this->selectionMapper = vtkPolyDataMapper::New();
+			this->selectionMapper->SetInputDataObject(this->selectionPolyData->GetOutput());
+			this->selectionMapper->ScalarVisibilityOff();
+
+			this->selectionActor = vtkActor::New();
+			this->selectionActor->SetMapper(this->selectionMapper);
+			this->selectionActor->GetProperty()->SetColor(0.75, 1, 0);
+			this->selectionActor->GetProperty()->SetPointSize(5);
+
+			this->ui->stlWidget->GetRenderer()->AddActor(this->selectionActor);
+		}
+		else if (this->selectionMapper != nullptr)
+		{
+			this->selectionMapper->Delete();
+
+			this->selectionPolyData = nullptr;
+			this->selectionMapper = nullptr;
+			this->selectionActor = nullptr;
+		}
 	}
+	else
+	{
+		this->selectionPolyData = nullptr;
+		this->selectionMapper = nullptr;
+		this->selectionActor = nullptr;
+	}
+
+	this->ui->stlWidget->Render();
 }
 
 void MainWindow::openSTL()
@@ -139,8 +177,20 @@ void MainWindow::openSTL()
 	{
 	case QMessageBox::Yes: // Open
 		fileName = QFileDialog::getOpenFileName(this, "Open", QDir::currentPath(), "Stereolithography (*.STL)");
-		this->pickedActor = nullptr;
 		this->manager->clear();
+
+		if (this->selectionPolyData != nullptr)
+		{
+			this->ui->stlWidget->GetRenderer()->RemoveActor(this->selectionActor);
+
+			this->selectionPolyData->Delete();
+			this->selectionMapper->Delete();
+			this->selectionActor->Delete();
+
+			this->selectionPolyData = nullptr;
+			this->selectionMapper = nullptr;
+			this->selectionActor = nullptr;
+		}
 		break;
 
 	case QMessageBox::No: // Import
@@ -165,12 +215,6 @@ void MainWindow::OnMouseEvent(QMouseEvent* e)
 
 	static Qt::MouseButton clickedBtn = Qt::MouseButton::NoButton;
 
-	// Transformation of when the mouse button pressed.
-	static vtkCamera* initialView;
-
-	// Location where the mouse button has pressed.
-	static QPoint downPosition;
-
 	if (this->ui->stlWidget->HasHolder())
 	{
 		switch (e->type())
@@ -183,11 +227,11 @@ void MainWindow::OnMouseEvent(QMouseEvent* e)
 				case Qt::MouseButton::LeftButton: // Translation
 				case Qt::MouseButton::RightButton: // Rotation
 					clickedBtn = e->button();
-					downPosition = e->pos();
+					this->ui->stlWidget->GetInteractor()->GetEventPosition(this->downPosition);
 
 					vtkCamera* cam = this->ui->stlWidget->GetRenderer()->GetActiveCamera();
-					initialView = vtkCamera::New();
-					initialView->DeepCopy(cam);
+					this->initialView = vtkCamera::New();
+					this->initialView->DeepCopy(cam);
 					break;
 				}
 			}
@@ -196,35 +240,18 @@ void MainWindow::OnMouseEvent(QMouseEvent* e)
 		case QMouseEvent::Type::MouseButtonRelease: // Turn the command switch OFF
 			if (clickedBtn == e->button())
 			{
-				clickedBtn = Qt::MouseButton::NoButton;
-
-				const QPoint currentPosition = e->pos();
-				if (downPosition != currentPosition) // Drag
+				if (this->ui->stlWidget->GetMode() == ModedInteractorStyle::EMode::SELECTION)
 				{
-					vtkCamera* cam = this->ui->stlWidget->GetRenderer()->GetActiveCamera();
-
-					TransformActivity* activity = new TransformActivity(initialView, cam);
-					this->manager->push(activity);
-
-					initialView->Delete();
-					initialView = nullptr;
-
-					ui->stlWidget->Render();
-				}
-				else // Cilck
-				{
-					const int* const ePos = this->ui->stlWidget->GetInteractor()->GetEventPosition();
-					vtkNew<vtkPropPicker> picker;
-					picker->Pick(ePos[0], ePos[1], 0, this->ui->stlWidget->GetRenderer());
-
-					if (this->pickedActor != picker->GetActor())
+					if (clickedBtn == Qt::MouseButton::LeftButton)
 					{
-						SelectionActivity* activity = new SelectionActivity(this->pickedActor, picker->GetActor());
-						this->manager->push(activity);
+						const int* const pos = this->ui->stlWidget->GetInteractor()->GetEventPosition();
+						this->select(downPosition, pos);
 
-						this->pick(picker->GetActor());
+						this->ui->stlWidget->SetMode(ModedInteractorStyle::EMode::TRANSFORM);
 					}
 				}
+
+				clickedBtn = Qt::MouseButton::NoButton;
 			}
 			break;
 		}
@@ -280,7 +307,54 @@ void MainWindow::OnKeyEvent(QKeyEvent* e)
 				case Qt::Key::Key_O: // Open / Import
 					openSTL();
 					break;
+
+				case Qt::Key::Key_S:
+					if (this->selectionPolyData != nullptr)
+					{
+						QString fileName = QFileDialog::getSaveFileName(this, "Save", QDir::currentPath(), "Stereolithography (*.STL)");
+						if (!fileName.isEmpty())
+						{
+							vtkNew<vtkSTLWriter> writer;
+							writer->SetFileName(fileName.toStdString().c_str());
+							writer->SetInputConnection(this->selectionPolyData->GetOutputPort());
+							writer->Update();
+						}
+					}
+					break;
 				}
+			}
+		}
+		// No compound key
+		else
+		{
+			switch (e->key())
+			{
+			case Qt::Key::Key_T:
+				this->ui->stlWidget->SetMode(ModedInteractorStyle::EMode::TRANSFORM);
+				puts("Mode: TRANSFORM");
+				break;
+
+			case Qt::Key::Key_S:
+				this->ui->stlWidget->SetMode(ModedInteractorStyle::EMode::SELECTION);
+				puts("Mode: SELECTION");
+				break;
+
+			case Qt::Key::Key_Escape:
+				if (this->selectionPolyData != nullptr)
+				{
+					this->ui->stlWidget->GetRenderer()->RemoveActor(this->selectionActor);
+
+					this->selectionPolyData->Delete();
+					this->selectionMapper->Delete();
+					this->selectionActor->Delete();
+
+					this->selectionPolyData = nullptr;
+					this->selectionMapper = nullptr;
+					this->selectionActor = nullptr;
+
+					this->ui->stlWidget->Render();
+				}
+				break;
 			}
 		}
 	}

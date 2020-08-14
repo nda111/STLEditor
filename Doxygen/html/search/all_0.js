@@ -9,7 +9,7 @@ var searchData=
   ['activitymanager_2ecpp_6',['ActivityManager.cpp',['../_activity_manager_8cpp.html',1,'']]],
   ['activitymanager_2eh_7',['ActivityManager.h',['../_activity_manager_8h.html',1,'']]],
   ['actor_8',['actor',['../struct_s_t_l_widget_1_1_s_t_l_holder.html#a087ef8b705fa07a3f5e682bfde307add',1,'STLWidget::STLHolder']]],
-  ['after_9',['after',['../class_selection_activity.html#a833c8eedb4e55e8a604143fccb47b35b',1,'SelectionActivity::after()'],['../class_transform_activity.html#a065c98945c369c92860f0fe6a6c0fa01',1,'TransformActivity::after()']]],
+  ['after_9',['after',['../class_transform_activity.html#a065c98945c369c92860f0fe6a6c0fa01',1,'TransformActivity']]],
   ['argc_10',['argc',['../class_main_window.html#a3277defc4010ad7b9149f64d19323b38',1,'MainWindow']]],
   ['argv_11',['argv',['../class_main_window.html#acc3915ff1a786f36392f8ccfd1bfc85f',1,'MainWindow']]]
 ];
