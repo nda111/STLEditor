@@ -46,10 +46,16 @@ bool \mbox{\hyperlink{class_s_t_l_widget_a462bea484a3b57112424b178f7979d54}{Open
 \begin{DoxyCompactList}\small\item\em Open or import the S\+TL reader to display. \end{DoxyCompactList}\item 
 std\+::vector$<$ \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Holder}} $\ast$ $>$ \mbox{\hyperlink{class_s_t_l_widget_af3c36c050059fc015d805be91abfd981}{Get\+Holders}} (void) const
 \begin{DoxyCompactList}\small\item\em Get the list of stl holder in std\+::vector$<$\+S\+T\+L\+Holder$>$ type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Holder}} $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a1ca89adb8656a9c59e9d288b3ff227e4}{Get\+Holder\+By\+Actor}} (vtk\+Actor $\ast$actor) const
+\begin{DoxyCompactList}\small\item\em Get a stl holder that corresponds to given actor. \end{DoxyCompactList}\item 
 bool \mbox{\hyperlink{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}{Has\+Holder}} (void) const
 \begin{DoxyCompactList}\small\item\em Indicates whether the widget shows any S\+TL object. \end{DoxyCompactList}\item 
 vtk\+Renderer $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}{Get\+Renderer}} (void) const
 \begin{DoxyCompactList}\small\item\em Get the renderer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{Moded\+Interactor\+Style\+::\+E\+Mode}} \mbox{\hyperlink{class_s_t_l_widget_a0e02e0abaa4056ad8ae6053bac2c48d9}{Get\+Mode}} (void) const
+\begin{DoxyCompactList}\small\item\em Get the current mouse interaction mode. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_t_l_widget_a66906b48957e7cfc6b6d5631d8d319cc}{Set\+Mode}} (\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{Moded\+Interactor\+Style\+::\+E\+Mode}} mode)
+\begin{DoxyCompactList}\small\item\em Set the current mouse interaction mode. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}{Render}} (void) const
 \begin{DoxyCompactList}\small\item\em Refresh the widget, applying new changes. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{class_s_t_l_widget_a3b660bb9da2d718d46bb7b9af52ab1f4}{Clear}} (void)
@@ -88,7 +94,7 @@ double \mbox{\hyperlink{class_s_t_l_widget_aa24231d5c57f38a186b7f74e3be82aca}{sq
 \begin{DoxyCompactList}\small\item\em The length of a square that holds one S\+TL object in it. \end{DoxyCompactList}\item 
 vtk\+Renderer $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}} = nullptr
 \begin{DoxyCompactList}\small\item\em A renderer for S\+TL object. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{class_custom_interactor_styletrackball_camera}{Custom\+Interactor\+Styletrackball\+Camera}} $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}{mouse\+Control\+Style}} = nullptr
+\mbox{\hyperlink{class_moded_interactor_style}{Moded\+Interactor\+Style}} $\ast$ \mbox{\hyperlink{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}{mouse\+Control\+Style}} = nullptr
 \begin{DoxyCompactList}\small\item\em An interactor style that allows to control the object via mouse events. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -125,8 +131,8 @@ Definition at line 6 of file S\+T\+L\+Widget.\+cpp.
 \DoxyCodeLine{14     QVTKInteractor* iren = this-\/>GetInteractor();}
 \DoxyCodeLine{15     iren-\/>RemoveAllObservers();}
 \DoxyCodeLine{16 }
-\DoxyCodeLine{17     \mbox{\hyperlink{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}{mouseControlStyle}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_interactor_styletrackball_camera}{CustomInteractorStyletrackballCamera}};}
-\DoxyCodeLine{18     this-\/>GetRenderWindow()-\/>GetInteractor()-\/>SetInteractorStyle(\mbox{\hyperlink{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}{mouseControlStyle}});}
+\DoxyCodeLine{17     \mbox{\hyperlink{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}{mouseControlStyle}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_moded_interactor_style}{ModedInteractorStyle}}();}
+\DoxyCodeLine{18     this-\/>GetRenderWindow()-\/>GetInteractor()-\/>SetInteractorStyle(\mbox{\hyperlink{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}{mouseControlStyle}});}
 \DoxyCodeLine{19 \}}
 
 \end{DoxyCode}
@@ -168,22 +174,22 @@ Clear all fields.
 
 
 
-Definition at line 106 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 129 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{107 \{}
-\DoxyCodeLine{108     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}})}
-\DoxyCodeLine{109     \{}
-\DoxyCodeLine{110         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.size(); i++)}
-\DoxyCodeLine{111         \{}
-\DoxyCodeLine{112             \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}[i];}
-\DoxyCodeLine{113         \}}
-\DoxyCodeLine{114         this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.clear();}
-\DoxyCodeLine{115 }
-\DoxyCodeLine{116         \mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}} = \textcolor{keyword}{false};}
-\DoxyCodeLine{117     \}}
-\DoxyCodeLine{118 \}}
+\DoxyCodeLine{130 \{}
+\DoxyCodeLine{131     \textcolor{keywordflow}{if} (\mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}})}
+\DoxyCodeLine{132     \{}
+\DoxyCodeLine{133         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.size(); i++)}
+\DoxyCodeLine{134         \{}
+\DoxyCodeLine{135             \textcolor{keyword}{delete} this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}[i];}
+\DoxyCodeLine{136         \}}
+\DoxyCodeLine{137         this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.clear();}
+\DoxyCodeLine{138 }
+\DoxyCodeLine{139         \mbox{\hyperlink{class_s_t_l_widget_ad26a543af0b3c690cde557d2b3426396}{bDisplaying}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{140     \}}
+\DoxyCodeLine{141 \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function\+:
@@ -196,14 +202,14 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 164 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 187 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{165 \{}
-\DoxyCodeLine{166     QVTKOpenGLNativeWidget::focusInEvent(event);}
-\DoxyCodeLine{167     emit \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{OnFocusEvent}}(\textcolor{keyword}{true});}
-\DoxyCodeLine{168 \}}
+\DoxyCodeLine{188 \{}
+\DoxyCodeLine{189     QVTKOpenGLNativeWidget::focusInEvent(event);}
+\DoxyCodeLine{190     emit \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{OnFocusEvent}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{191 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_a9ab48a782ee5d0319da539db340eba7e}\label{class_s_t_l_widget_a9ab48a782ee5d0319da539db340eba7e}} 
@@ -214,16 +220,55 @@ Definition at line 164 of file S\+T\+L\+Widget.\+cpp.
 
 
 
-Definition at line 170 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 193 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{171 \{}
-\DoxyCodeLine{172     QVTKOpenGLNativeWidget::focusOutEvent(event);}
-\DoxyCodeLine{173     emit \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{OnFocusEvent}}(\textcolor{keyword}{false});}
-\DoxyCodeLine{174 \}}
+\DoxyCodeLine{194 \{}
+\DoxyCodeLine{195     QVTKOpenGLNativeWidget::focusOutEvent(event);}
+\DoxyCodeLine{196     emit \mbox{\hyperlink{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}{OnFocusEvent}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{197 \}}
 
 \end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a1ca89adb8656a9c59e9d288b3ff227e4}\label{class_s_t_l_widget_a1ca89adb8656a9c59e9d288b3ff227e4}} 
+\index{STLWidget@{STLWidget}!GetHolderByActor@{GetHolderByActor}}
+\index{GetHolderByActor@{GetHolderByActor}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{GetHolderByActor()}{GetHolderByActor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_s_t_l_widget_1_1_s_t_l_holder}{S\+T\+L\+Widget\+::\+S\+T\+L\+Holder}} $\ast$ S\+T\+L\+Widget\+::\+Get\+Holder\+By\+Actor (\begin{DoxyParamCaption}\item[{vtk\+Actor $\ast$}]{actor }\end{DoxyParamCaption}) const}
+
+
+
+Get a stl holder that corresponds to given actor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em actor} & An actor to identify the stl holder.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A stl holder that corresponds to gigen actor.
+\end{DoxyReturn}
+
+
+Definition at line 91 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{92 \{}
+\DoxyCodeLine{93     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0; i < this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.size(); i++)}
+\DoxyCodeLine{94     \{}
+\DoxyCodeLine{95         \textcolor{keywordflow}{if} (this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}[i]-\/>actor == actor)}
+\DoxyCodeLine{96         \{}
+\DoxyCodeLine{97             \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}[i];}
+\DoxyCodeLine{98         \}}
+\DoxyCodeLine{99     \}}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{101     \textcolor{keywordflow}{return} \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{102 \}}
+
+\end{DoxyCode}
+Here is the caller graph for this function\+:
+% FIG 5
 \mbox{\Hypertarget{class_s_t_l_widget_af3c36c050059fc015d805be91abfd981}\label{class_s_t_l_widget_af3c36c050059fc015d805be91abfd981}} 
 \index{STLWidget@{STLWidget}!GetHolders@{GetHolders}}
 \index{GetHolders@{GetHolders}!STLWidget@{STLWidget}}
@@ -248,6 +293,34 @@ Definition at line 86 of file S\+T\+L\+Widget.\+cpp.
 \DoxyCodeLine{89 \}}
 
 \end{DoxyCode}
+\mbox{\Hypertarget{class_s_t_l_widget_a0e02e0abaa4056ad8ae6053bac2c48d9}\label{class_s_t_l_widget_a0e02e0abaa4056ad8ae6053bac2c48d9}} 
+\index{STLWidget@{STLWidget}!GetMode@{GetMode}}
+\index{GetMode@{GetMode}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{GetMode()}{GetMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{Moded\+Interactor\+Style\+::\+E\+Mode}} S\+T\+L\+Widget\+::\+Get\+Mode (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the current mouse interaction mode. 
+
+\begin{DoxyReturn}{Returns}
+The current mouse interaction mode.
+\end{DoxyReturn}
+
+
+Definition at line 114 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{115 \{}
+\DoxyCodeLine{116     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}{mouseControlStyle}}-\/>\mbox{\hyperlink{class_moded_interactor_style_a243afb3ac89af491fc6bcd8fce72fa3c}{GetMode}}();}
+\DoxyCodeLine{117 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 6
+Here is the caller graph for this function\+:
+% FIG 7
 \mbox{\Hypertarget{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}\label{class_s_t_l_widget_a5a3e391dd6b86e53841af138b4477f91}} 
 \index{STLWidget@{STLWidget}!GetRenderer@{GetRenderer}}
 \index{GetRenderer@{GetRenderer}!STLWidget@{STLWidget}}
@@ -263,17 +336,17 @@ The renderer
 \end{DoxyReturn}
 
 
-Definition at line 96 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 109 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{97 \{}
-\DoxyCodeLine{98     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}};}
-\DoxyCodeLine{99 \}}
+\DoxyCodeLine{110 \{}
+\DoxyCodeLine{111     \textcolor{keywordflow}{return} this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}};}
+\DoxyCodeLine{112 \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function\+:
-% FIG 5
+% FIG 8
 \mbox{\Hypertarget{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}\label{class_s_t_l_widget_a674666824522c9b28d34af6a5937e6e9}} 
 \index{STLWidget@{STLWidget}!HasHolder@{HasHolder}}
 \index{HasHolder@{HasHolder}!STLWidget@{STLWidget}}
@@ -289,17 +362,17 @@ Ture if showing, false if not.
 \end{DoxyReturn}
 
 
-Definition at line 91 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 104 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{92 \{}
-\DoxyCodeLine{93     \textcolor{keywordflow}{return} !this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.empty();}
-\DoxyCodeLine{94 \}}
+\DoxyCodeLine{105 \{}
+\DoxyCodeLine{106     \textcolor{keywordflow}{return} !this-\/>\mbox{\hyperlink{class_s_t_l_widget_af6c8a78c31dc6a2d58a7b1c0e0348695}{holders}}.empty();}
+\DoxyCodeLine{107 \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function\+:
-% FIG 6
+% FIG 9
 \mbox{\Hypertarget{class_s_t_l_widget_a8eaa6406f125e891152c513574ff79c9}\label{class_s_t_l_widget_a8eaa6406f125e891152c513574ff79c9}} 
 \index{STLWidget@{STLWidget}!keyPressEvent@{keyPressEvent}}
 \index{keyPressEvent@{keyPressEvent}!STLWidget@{STLWidget}}
@@ -308,14 +381,14 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 152 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 175 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{153 \{}
-\DoxyCodeLine{154     QVTKOpenGLNativeWidget::keyPressEvent(event);}
-\DoxyCodeLine{155     emit \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{OnKeyEvent}}(event);}
-\DoxyCodeLine{156 \}}
+\DoxyCodeLine{176 \{}
+\DoxyCodeLine{177     QVTKOpenGLNativeWidget::keyPressEvent(event);}
+\DoxyCodeLine{178     emit \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{OnKeyEvent}}(event);}
+\DoxyCodeLine{179 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_a7a0c1cfacd1ff3e89e270ab401b6b584}\label{class_s_t_l_widget_a7a0c1cfacd1ff3e89e270ab401b6b584}} 
@@ -326,14 +399,14 @@ Definition at line 152 of file S\+T\+L\+Widget.\+cpp.
 
 
 
-Definition at line 158 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 181 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{159 \{}
-\DoxyCodeLine{160     QVTKOpenGLNativeWidget::keyReleaseEvent(event);}
-\DoxyCodeLine{161     emit \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{OnKeyEvent}}(event);}
-\DoxyCodeLine{162 \}}
+\DoxyCodeLine{182 \{}
+\DoxyCodeLine{183     QVTKOpenGLNativeWidget::keyReleaseEvent(event);}
+\DoxyCodeLine{184     emit \mbox{\hyperlink{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}{OnKeyEvent}}(event);}
+\DoxyCodeLine{185 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_a00ea9c7b6f79e5e663d468dc99d809f3}\label{class_s_t_l_widget_a00ea9c7b6f79e5e663d468dc99d809f3}} 
@@ -344,14 +417,14 @@ Definition at line 158 of file S\+T\+L\+Widget.\+cpp.
 
 
 
-Definition at line 132 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 155 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{133 \{}
-\DoxyCodeLine{134     QVTKOpenGLNativeWidget::mouseDoubleClickEvent(event);}
-\DoxyCodeLine{135     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
-\DoxyCodeLine{136 \}}
+\DoxyCodeLine{156 \{}
+\DoxyCodeLine{157     QVTKOpenGLNativeWidget::mouseDoubleClickEvent(event);}
+\DoxyCodeLine{158     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{159 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_adb6ddec1b32faaec6076e717e8b9e067}\label{class_s_t_l_widget_adb6ddec1b32faaec6076e717e8b9e067}} 
@@ -362,14 +435,14 @@ Definition at line 132 of file S\+T\+L\+Widget.\+cpp.
 
 
 
-Definition at line 138 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 161 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{139 \{}
-\DoxyCodeLine{140     QVTKOpenGLNativeWidget::mouseMoveEvent(event);}
-\DoxyCodeLine{141     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
-\DoxyCodeLine{142 \}}
+\DoxyCodeLine{162 \{}
+\DoxyCodeLine{163     QVTKOpenGLNativeWidget::mouseMoveEvent(event);}
+\DoxyCodeLine{164     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{165 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_a962f452cc37d4c742f8610b823766e4a}\label{class_s_t_l_widget_a962f452cc37d4c742f8610b823766e4a}} 
@@ -380,14 +453,14 @@ Definition at line 138 of file S\+T\+L\+Widget.\+cpp.
 
 
 
-Definition at line 120 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 143 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{121 \{}
-\DoxyCodeLine{122     QVTKOpenGLNativeWidget::mousePressEvent(event);}
-\DoxyCodeLine{123     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
-\DoxyCodeLine{124 \}}
+\DoxyCodeLine{144 \{}
+\DoxyCodeLine{145     QVTKOpenGLNativeWidget::mousePressEvent(event);}
+\DoxyCodeLine{146     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{147 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_af9ea2a288870186a72bd169adce53619}\label{class_s_t_l_widget_af9ea2a288870186a72bd169adce53619}} 
@@ -398,14 +471,14 @@ Definition at line 120 of file S\+T\+L\+Widget.\+cpp.
 
 
 
-Definition at line 126 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 149 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{127 \{}
-\DoxyCodeLine{128     QVTKOpenGLNativeWidget::mouseReleaseEvent(event);}
-\DoxyCodeLine{129     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
-\DoxyCodeLine{130 \}}
+\DoxyCodeLine{150 \{}
+\DoxyCodeLine{151     QVTKOpenGLNativeWidget::mouseReleaseEvent(event);}
+\DoxyCodeLine{152     emit \mbox{\hyperlink{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}{OnMouseEvent}}(event);}
+\DoxyCodeLine{153 \}}
 
 \end{DoxyCode}
 \mbox{\Hypertarget{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}\label{class_s_t_l_widget_a75f188860d63de342a6245bf2e26c5f5}} 
@@ -424,7 +497,7 @@ Event from the focus manager.
 \hline
 \end{DoxyParams}
 Here is the caller graph for this function\+:
-% FIG 7
+% FIG 10
 \mbox{\Hypertarget{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}\label{class_s_t_l_widget_a365b95253b1362b2669b92353d984188}} 
 \index{STLWidget@{STLWidget}!OnKeyEvent@{OnKeyEvent}}
 \index{OnKeyEvent@{OnKeyEvent}!STLWidget@{STLWidget}}
@@ -443,7 +516,7 @@ Event from the keyboard/
 \hline
 \end{DoxyParams}
 Here is the caller graph for this function\+:
-% FIG 8
+% FIG 11
 \mbox{\Hypertarget{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}\label{class_s_t_l_widget_aae7e70e4c95b68831edeac47dcb944d0}} 
 \index{STLWidget@{STLWidget}!OnMouseEvent@{OnMouseEvent}}
 \index{OnMouseEvent@{OnMouseEvent}!STLWidget@{STLWidget}}
@@ -464,7 +537,7 @@ Event from the mouse itself and its buttons.
 \hline
 \end{DoxyParams}
 Here is the caller graph for this function\+:
-% FIG 9
+% FIG 12
 \mbox{\Hypertarget{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}\label{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}} 
 \index{STLWidget@{STLWidget}!OnWheelEvent@{OnWheelEvent}}
 \index{OnWheelEvent@{OnWheelEvent}!STLWidget@{STLWidget}}
@@ -481,7 +554,7 @@ Event from the mouse wheel.
 \hline
 \end{DoxyParams}
 Here is the caller graph for this function\+:
-% FIG 10
+% FIG 13
 \mbox{\Hypertarget{class_s_t_l_widget_a462bea484a3b57112424b178f7979d54}\label{class_s_t_l_widget_a462bea484a3b57112424b178f7979d54}} 
 \index{STLWidget@{STLWidget}!OpenSTL@{OpenSTL}}
 \index{OpenSTL@{OpenSTL}!STLWidget@{STLWidget}}
@@ -514,7 +587,7 @@ Definition at line 81 of file S\+T\+L\+Widget.\+cpp.
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
-% FIG 11
+% FIG 14
 \mbox{\Hypertarget{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}\label{class_s_t_l_widget_ac587c00427f4acc5c4f8d6d0e5667d83}} 
 \index{STLWidget@{STLWidget}!OpenSTL@{OpenSTL}}
 \index{OpenSTL@{OpenSTL}!STLWidget@{STLWidget}}
@@ -595,9 +668,9 @@ Definition at line 28 of file S\+T\+L\+Widget.\+cpp.
 
 \end{DoxyCode}
 Here is the call graph for this function\+:
-% FIG 12
+% FIG 15
 Here is the caller graph for this function\+:
-% FIG 13
+% FIG 16
 \mbox{\Hypertarget{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}\label{class_s_t_l_widget_ac57424afd9164e125938ed47041c7d76}} 
 \index{STLWidget@{STLWidget}!Render@{Render}}
 \index{Render@{Render}!STLWidget@{STLWidget}}
@@ -610,17 +683,47 @@ Refresh the widget, applying new changes.
 
 
 
-Definition at line 101 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 124 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{102 \{}
-\DoxyCodeLine{103     this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}}-\/>GetRenderWindow()-\/>Render();}
-\DoxyCodeLine{104 \}}
+\DoxyCodeLine{125 \{}
+\DoxyCodeLine{126     this-\/>\mbox{\hyperlink{class_s_t_l_widget_a69692eef1189cdf449ed4bff5f91fee9}{renderer}}-\/>GetRenderWindow()-\/>Render();}
+\DoxyCodeLine{127 \}}
 
 \end{DoxyCode}
 Here is the caller graph for this function\+:
-% FIG 14
+% FIG 17
+\mbox{\Hypertarget{class_s_t_l_widget_a66906b48957e7cfc6b6d5631d8d319cc}\label{class_s_t_l_widget_a66906b48957e7cfc6b6d5631d8d319cc}} 
+\index{STLWidget@{STLWidget}!SetMode@{SetMode}}
+\index{SetMode@{SetMode}!STLWidget@{STLWidget}}
+\doxysubsubsection{\texorpdfstring{SetMode()}{SetMode()}}
+{\footnotesize\ttfamily void S\+T\+L\+Widget\+::\+Set\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_moded_interactor_style_a2018870f80715ffc89914f73ad3dcd9a}{Moded\+Interactor\+Style\+::\+E\+Mode}}}]{mode }\end{DoxyParamCaption})}
+
+
+
+Set the current mouse interaction mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em mode} & The current interaction mode to change.\\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file S\+T\+L\+Widget.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{120 \{}
+\DoxyCodeLine{121     this-\/>\mbox{\hyperlink{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}{mouseControlStyle}}-\/>\mbox{\hyperlink{class_moded_interactor_style_a8937bdc1f2e2713cc07c98d8bba3a2a4}{SetMode}}(mode);}
+\DoxyCodeLine{122 \}}
+
+\end{DoxyCode}
+Here is the call graph for this function\+:
+% FIG 18
+Here is the caller graph for this function\+:
+% FIG 19
 \mbox{\Hypertarget{class_s_t_l_widget_a6181c5bc36cfb8f5c0cbcb1502a8c905}\label{class_s_t_l_widget_a6181c5bc36cfb8f5c0cbcb1502a8c905}} 
 \index{STLWidget@{STLWidget}!wheelEvent@{wheelEvent}}
 \index{wheelEvent@{wheelEvent}!STLWidget@{STLWidget}}
@@ -629,14 +732,14 @@ Here is the caller graph for this function\+:
 
 
 
-Definition at line 145 of file S\+T\+L\+Widget.\+cpp.
+Definition at line 168 of file S\+T\+L\+Widget.\+cpp.
 
 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{146 \{}
-\DoxyCodeLine{147     QVTKOpenGLNativeWidget::wheelEvent(event);}
-\DoxyCodeLine{148     emit \mbox{\hyperlink{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}{OnWheelEvent}}(event);}
-\DoxyCodeLine{149 \}}
+\DoxyCodeLine{169 \{}
+\DoxyCodeLine{170     QVTKOpenGLNativeWidget::wheelEvent(event);}
+\DoxyCodeLine{171     emit \mbox{\hyperlink{class_s_t_l_widget_a405b40c5e7133fbcdf2c7d0ac417bbad}{OnWheelEvent}}(event);}
+\DoxyCodeLine{172 \}}
 
 \end{DoxyCode}
 
@@ -670,11 +773,11 @@ A list of stl holders.
 
 Definition at line 145 of file S\+T\+L\+Widget.\+h.
 
-\mbox{\Hypertarget{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}\label{class_s_t_l_widget_a24657aa25e317c07ea0bd9de0cabe426}} 
+\mbox{\Hypertarget{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}\label{class_s_t_l_widget_a31c4b9d6f4c0b61dabcc5eada29236ed}} 
 \index{STLWidget@{STLWidget}!mouseControlStyle@{mouseControlStyle}}
 \index{mouseControlStyle@{mouseControlStyle}!STLWidget@{STLWidget}}
 \doxysubsubsection{\texorpdfstring{mouseControlStyle}{mouseControlStyle}}
-{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_interactor_styletrackball_camera}{Custom\+Interactor\+Styletrackball\+Camera}}$\ast$ S\+T\+L\+Widget\+::mouse\+Control\+Style = nullptr\hspace{0.3cm}{\ttfamily [private]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_moded_interactor_style}{Moded\+Interactor\+Style}}$\ast$ S\+T\+L\+Widget\+::mouse\+Control\+Style = nullptr\hspace{0.3cm}{\ttfamily [private]}}
 
 
 
@@ -730,5 +833,5 @@ Definition at line 134 of file S\+T\+L\+Widget.\+h.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8h}{S\+T\+L\+Widget.\+h}}\item 
-S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8cpp}{S\+T\+L\+Widget.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/nda11/source/\+Git/\+S\+T\+L\+Editor/\+S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8h}{S\+T\+L\+Widget.\+h}}\item 
+C\+:/\+Users/nda11/source/\+Git/\+S\+T\+L\+Editor/\+S\+T\+L\+Editor/\mbox{\hyperlink{_s_t_l_widget_8cpp}{S\+T\+L\+Widget.\+cpp}}\end{DoxyCompactItemize}

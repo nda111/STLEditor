@@ -1,9 +1,9 @@
-digraph "STLEditor/ui_MainWindow.h"
+digraph "C:/Users/nda11/source/Git/STLEditor/STLEditor/ui_MainWindow.h"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="STLEditor/ui_MainWindow.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/ui_MainWindow.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node2 [label="QtCore/QVariant",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
@@ -61,6 +61,7 @@ digraph "STLEditor/ui_MainWindow.h"
   Node13 -> Node29 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node29 [label="vtkInteractorStyleTrackball\lCamera.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node13 -> Node30 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node30 [label="CustomInteractorStyletrackball\lCamera.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_custom_interactor_styletrackball_camera_8h.html",tooltip=" "];
-  Node30 -> Node29 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node30 [label="ModedInteractorStyle.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_moded_interactor_style_8h.html",tooltip=" "];
+  Node30 -> Node31 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node31 [label="vtkInteractorStyleRubber\lBandPick.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }

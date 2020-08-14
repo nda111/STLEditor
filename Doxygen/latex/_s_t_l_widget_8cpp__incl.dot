@@ -1,9 +1,9 @@
-digraph "STLEditor/STLWidget.cpp"
+digraph "C:/Users/nda11/source/Git/STLEditor/STLEditor/STLWidget.cpp"
 {
  // LATEX_PDF_SIZE
   edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
   node [fontname="Helvetica",fontsize="10",shape=record];
-  Node1 [label="STLEditor/STLWidget.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 [label="C:/Users/nda11/source\l/Git/STLEditor/STLEditor\l/STLWidget.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
   Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
   Node2 [label="STLWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_s_t_l_widget_8h.html",tooltip=" "];
   Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
@@ -39,20 +39,21 @@ digraph "STLEditor/STLWidget.cpp"
   Node2 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
   Node18 [label="vtkInteractorStyleTrackball\lCamera.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
   Node2 -> Node19 [color="midnightblue",fontsize="10",style="solid"];
-  Node19 [label="CustomInteractorStyletrackball\lCamera.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_custom_interactor_styletrackball_camera_8h.html",tooltip=" "];
-  Node19 -> Node18 [color="midnightblue",fontsize="10",style="solid"];
-  Node1 -> Node20 [color="midnightblue",fontsize="10",style="solid"];
-  Node20 [label="ui_STLWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ui___s_t_l_widget_8h.html",tooltip=" "];
-  Node20 -> Node21 [color="midnightblue",fontsize="10",style="solid"];
-  Node21 [label="QtCore/QVariant",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node20 -> Node22 [color="midnightblue",fontsize="10",style="solid"];
-  Node22 [label="QtWidgets/QAction",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node20 -> Node23 [color="midnightblue",fontsize="10",style="solid"];
-  Node23 [label="QtWidgets/QApplication",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node20 -> Node24 [color="midnightblue",fontsize="10",style="solid"];
-  Node24 [label="QtWidgets/QButtonGroup",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node20 -> Node25 [color="midnightblue",fontsize="10",style="solid"];
-  Node25 [label="QtWidgets/QHeaderView",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
-  Node20 -> Node26 [color="midnightblue",fontsize="10",style="solid"];
-  Node26 [label="qvtkopenglnativewidget.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node19 [label="ModedInteractorStyle.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$_moded_interactor_style_8h.html",tooltip=" "];
+  Node19 -> Node20 [color="midnightblue",fontsize="10",style="solid"];
+  Node20 [label="vtkInteractorStyleRubber\lBandPick.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node1 -> Node21 [color="midnightblue",fontsize="10",style="solid"];
+  Node21 [label="ui_STLWidget.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$ui___s_t_l_widget_8h.html",tooltip=" "];
+  Node21 -> Node22 [color="midnightblue",fontsize="10",style="solid"];
+  Node22 [label="QtCore/QVariant",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node21 -> Node23 [color="midnightblue",fontsize="10",style="solid"];
+  Node23 [label="QtWidgets/QAction",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node21 -> Node24 [color="midnightblue",fontsize="10",style="solid"];
+  Node24 [label="QtWidgets/QApplication",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node21 -> Node25 [color="midnightblue",fontsize="10",style="solid"];
+  Node25 [label="QtWidgets/QButtonGroup",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node21 -> Node26 [color="midnightblue",fontsize="10",style="solid"];
+  Node26 [label="QtWidgets/QHeaderView",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node21 -> Node27 [color="midnightblue",fontsize="10",style="solid"];
+  Node27 [label="qvtkopenglnativewidget.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
 }
